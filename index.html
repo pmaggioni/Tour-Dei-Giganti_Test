@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header con design "TOUR DEI GIGANTI" -->
+    <!-- Header con design della locandina -->
     <header class="header">
         <div class="container">
             <div class="logo-container">
@@ -49,7 +49,6 @@
                 </div>
             </div>
 
-            <!-- Flags -->
             <div class="flags">
                 <span class="flag">🏍️</span>
                 <span class="flag">⛰️</span>
@@ -58,7 +57,7 @@
         </div>
     </header>
 
-    <!-- Resto del codice rimane uguale -->
+    <!-- Resto rimane simile -->
     <nav class="nav">
         <div class="container nav-container">
             <button class="nav-btn active" data-section="overview">Overview</button>
@@ -70,4 +69,158 @@
         </div>
     </nav>
 
-    <!-- ... resto del HTML ... -->
+    <main>
+        <!-- Overview Section -->
+        <section id="overview" class="section active">
+            <div class="container">
+                <h2 class="section-title">Il Tour dei Giganti</h2>
+                <p class="section-subtitle">Un'epica avventura motociclistica attraverso i colossi delle Dolomiti</p>
+                
+                <!-- Manteniamo le stats ma con i numeri della locandina -->
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="number">600</span>
+                        <span class="label">Km Totali</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="number">4</span>
+                        <span class="label">Giorni Epici</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="number">12+</span>
+                        <span class="label">Passi Leggendari</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="number">3</span>
+                        <span class="label">Regioni</span>
+                    </div>
+                </div>
+
+                <div class="quote-section">
+                    <blockquote class="main-quote">
+                        "Affrontare le Dolomiti in moto non è solo un viaggio, è un dialogo con i giganti di pietra, 
+                        dove ogni tornante è una domanda e ogni passo una risposta che ti cambia per sempre."
+                    </blockquote>
+                </div>
+
+                <!-- Resto del contenuto overview -->
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">⛰️</div>
+                        <h3>Giganti di Pietra</h3>
+                        <p>I passi più alti e maestosi delle Dolomiti UNESCO</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🛣️</div>
+                        <h3>Strade Epiche</h3>
+                        <p>Dallo Stelvio al Sella, curve che entrano nella leggenda</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🏔️</div>
+                        <h3>Altitudine Record</h3>
+                        <p>Oltre 2.750m di altitudine sui passi più alti d'Europa</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">👑</div>
+                        <h3>Tour Regale</h3>
+                        <p>Il percorso definitivo per veri appassionati</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Tappe con stile locandina -->
+        <section id="tappe" class="section">
+            <div class="container">
+                <h2 class="section-title">Le Tappe dei Giganti</h2>
+                <p class="section-subtitle">4 giorni che scriveranno la storia delle tue due ruote</p>
+                
+                <div class="tappe-container">
+                    <!-- Tappa 1 - Stile locandina -->
+                    <div class="tappa">
+                        <div class="tappa-header andata">
+                            <div class="tappa-title">GIORNO 1 | Bolzano – Cortina d'Ampezzo</div>
+                            <div class="tappa-distance">220 km</div>
+                        </div>
+                        <div class="tappa-content">
+                            <div class="tappa-desc">
+                                <p><strong>Il battesimo della sella tra le Dolomiti più tecniche.</strong> Si parte da Bolzano con il cuore leggero e la moto carica di aspettative.</p>
+                                
+                                <div class="percorso-item">
+                                    <span class="check-icon">✅</span>
+                                    <span class="percorso-text">Passo Sella (2.240m) - Il primo grande passo con curve ampie e panorami mozzafiato</span>
+                                </div>
+                                
+                                <div class="percorso-item">
+                                    <span class="check-icon">✅</span>
+                                    <span class="percorso-text">Passo Pordoi - I 28 tornanti più famosi delle Dolomiti</span>
+                                </div>
+
+                                <div class="info-pratiche">
+                                    <h4>INFO PRATICHE</h4>
+                                    <div class="info-row">
+                                        <span class="info-label">Dislivello:</span>
+                                        <span class="info-value">2.300m</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Tempo di guida:</span>
+                                        <span class="info-value">4,5 ore</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Pernotto:</span>
+                                        <span class="info-value">Cortina d'Ampezzo</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tappa-sidebar">
+                                <div class="tappa-highlight">
+                                    <h4>💡 Consiglio Motociclista</h4>
+                                    <p>"Al Passo Sella controlla l'abbigliamento: a 2.240m la temperatura cambia drasticamente!"</p>
+                                </div>
+                                
+                                <div class="alloggio">
+                                    <h4>🏨 Alloggio</h4>
+                                    <div class="dettagli-alloggio">
+                                        <p><strong>Hotel:</strong> Cristallo Palace</p>
+                                        <p><strong>Posizione:</strong> Cortina d'Ampezzo</p>
+                                        <p><strong>Parcheggio:</strong> Custodito per moto</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Altre tappe seguiranno stesso stile -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Altre sezioni... -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.png" alt="Tour Dei Giganti" class="footer-logo-image">
+                </div>
+                <div class="footer-quote">
+                    "I veri giganti non sono le montagne, ma coloro che hanno il coraggio di sfidarle su due ruote."
+                </div>
+                <div class="footer-social">
+                    <span class="social-hashtag">#TourDeiGiganti</span>
+                    <span class="social-hashtag">#DolomitiOnTwoWheels</span>
+                </div>
+                <div class="footer-signature">
+                    L'epica avventura motociclistica tra i giganti delle Dolomiti
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top">↑</button>
+    <script src="js/script.js"></script>
+</body>
+</html>
