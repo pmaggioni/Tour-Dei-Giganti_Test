@@ -3,134 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour Dolomiti Moto</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Tour dei Giganti - Passi Dolomitici in Moto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            padding: 60px 0;
+            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3') center/cover;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #ffd93d;
+            margin-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2a5298;
+            display: block;
+        }
+
+        .day-card {
+            background: white;
+            margin: 30px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-title {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .day-distance {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .day-content {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .passo-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 15px;
+            color: white;
+            font-size: 0.9em;
+            margin: 10px 0;
+        }
+
+        .easy { background: #4ecdc4; }
+        .medium { background: #feca57; }
+        .hard { background: #ff6b6b; }
+
+        .highlight {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .day-content {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logo-container">
-                <img src="assets/logo.png" alt="Tour Dolomiti Moto" class="logo-image">
+    <div class="header">
+        <div class="header-content">
+            <h1>🏍️ TOUR DEI GIGANTI 🏔️</h1>
+            <div class="subtitle">4 Giorni tra i Passi più Spettacolari delle Dolomiti</div>
+            <div class="subtitle">Partenza da Bolzano - Stelvio Incluso</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Statistiche -->
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span class="stat-number">~600</span>
+                <span>Chilometri Totali</span>
             </div>
-            <h1>Tour Dolomiti Moto</h1>
-            <div class="subtitle">L'avventura sulle due ruote</div>
-            <div class="date">15-18 Agosto 2024</div>
-            <div class="flags">
-                <span class="flag">🏍️</span>
-                <span class="flag">⛰️</span>
-                <span class="flag">🇮🇹</span>
+            <div class="stat-box">
+                <span class="stat-number">4</span>
+                <span>Giorni di Puro Divertimento</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">12+</span>
+                <span>Passi Montani</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">3</span>
+                <span>Regioni Attraversate</span>
             </div>
         </div>
-    </header>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container nav-container">
-            <button class="nav-btn active" data-section="overview">Overview</button>
-            <button class="nav-btn" data-section="tappe">Tappe</button>
-            <button class="nav-btn" data-section="mappa">Mappa</button>
-            <button class="nav-btn" data-section="partecipanti">Partecipanti</button>
-            <button class="nav-btn" data-section="info">Info</button>
-            <button class="nav-btn" data-section="downloads">Downloads</button>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Overview Section -->
-        <section id="overview" class="section active">
-            <div class="container">
-                <h2 class="section-title">Il Tour</h2>
-                <p class="section-subtitle">Un viaggio epico attraverso le più belle strade delle Dolomiti</p>
-                
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <span class="number">4</span>
-                        <span class="label">Giorni</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="number">850</span>
-                        <span class="label">Km Totali</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="number">6</span>
-                        <span class="label">Passi Dolomitici</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="number">12</span>
-                        <span class="label">Motociclisti</span>
-                    </div>
-                </div>
-
-                <div class="quote-section">
-                    <blockquote class="main-quote">
-                        "Le Dolomiti non sono solo montagne, sono un palcoscenico naturale dove ogni curva racconta una storia, 
-                        ogni passo regala un'emozione, e ogni kilometro percorso a bordo della propria moto diventa un ricordo indelebile."
-                    </blockquote>
-                </div>
-
-                <div class="highlights-grid">
-                    <div class="highlight-card">
-                        <div class="highlight-icon">⛰️</div>
-                        <h3>Panorami Mozzafiato</h3>
-                        <p>Viste spettacolari sulle cime dolomitiche patrimonio UNESCO</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">🛣️</div>
-                        <h3>Strade Leggendarie</h3>
-                        <p>Curve perfette e passi famosi nel mondo del mototurismo</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">🍝</div>
-                        <h3>Gastronomia</h3>
-                        <p>Specialità culinarie tipiche del Trentino Alto Adige</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">👥</div>
-                        <h3>Gruppo Affiatato</h3>
-                        <p>Viaggiare insieme condividendo la passione per la moto</p>
-                    </div>
-                </div>
+        <!-- Giorno 1 -->
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-title">1️⃣ GIORNO 1 - Bolzano → Cortina d'Ampezzo</div>
+                <div class="day-distance">180 km</div>
             </div>
-        </section>
+            <div class="day-content">
+                <div>
+                    <p><strong>Il battesimo della sella tra le Dolomiti più iconiche.</strong> Si parte da Bolzano con il cuore leggero e la moto carica di aspettative.</p>
+                    
+                    <div class="passo-card">
+                        <h3>🔄 Passo Sella (2.240m)</h3>
+                        <span class="difficulty medium">MEDIO</span>
+                        <p>Il primo grande passo che ti accoglie con curve ampie e panorami mozzafiato. Qui capisci subito di essere in un luogo speciale.</p>
+                    </div>
 
-        <!-- Altre sezioni verranno aggiunte dopo -->
-        <section id="tappe" class="section">
-            <div class="container">
-                <h2 class="section-title">Le Tappe</h2>
-                <p class="section-subtitle">Scopri il percorso giorno per giorno</p>
-                <!-- Contenuto tappe -->
-            </div>
-        </section>
+                    <div class="passo-card">
+                        <h3>🏔️ Passo Pordoi (2.239m)</h3>
+                        <span class="difficulty medium">MEDIO</span>
+                        <p>28 tornanti che si arrampicano verso il cielo. La strada è un nastro d'asfalto che danza tra le pale di Marmolada.</p>
+                    </div>
 
-        <!-- Altre sezioni... -->
-    </main>
+                    <div class="passo-card">
+                        <h3>⚡ Passo Falzarego (2.105m)</h3>
+                        <span class="difficulty easy">FACILE</span>
+                        <p>Curve fluide e visuali aperte. La discesa verso Cortina è pura poesia per ogni motociclista.</p>
+                    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="assets/logo.png" alt="Tour Dolomiti Moto" class="footer-logo-image">
+                    <div class="highlight">
+                        <h4>💫 SERATA A CORTINA</h4>
+                        <p>La Perla delle Dolomiti ti aspetta con i suoi locali storici e l'atmosfera da sogno. Birra ben meritata in Piazza Roma.</p>
+                    </div>
                 </div>
-                <div class="footer-quote">
-                    "Il vero viaggio di scoperta non consiste nel cercare nuove terre, ma nell'avere nuovi occhi."
-                </div>
-                <div class="footer-social">
-                    <span class="social-hashtag">#TourDolomitiMoto2024</span>
-                    <span class="social-hashtag">#DolomitesOnTwoWheels</span>
-                </div>
-                <div class="footer-signature">
-                    Organizzato con ❤️ per gli appassionati di mototurismo
+                <div>
+                    <h4>📋 INFO PRATICHE</h4>
+                    <p><strong>Dislivello:</strong> ~2.500m</p>
+                    <p><strong>Tempo di guida:</strong> 4-5 ore</p>
+                    <p><strong>Pranzo:</strong> Rifugio Pordoi</p>
+                    <p><strong>Pernotto:</strong> Cortina d'Ampezzo</p>
                 </div>
             </div>
         </div>
-    </footer>
 
-    <!-- Scroll to Top -->
-    <button class="scroll-to-top">↑</button>
+        <!-- Giorno 2 -->
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-title">2️⃣ GIORNO 2 - Cortina → Bormio</div>
+                <div class="day-distance">220 km</div>
+            </div>
+            <div class="day-content">
+                <div>
+                    <p><strong>Dalle Dolomiti alle Alpi Retiche, un viaggio nella storia e nella natura.</strong> Tappa ricca di emozioni e paesaggi che cambiano.</p>
+                    
+                    <div class="passo-card">
+                        <h3>🌄 Passo Gavia (2.621m)</h3>
+                        <span class="difficulty hard">DIFFICILE</span>
+                        <p>Il passo leggendario del Giro d'Italia. Strada stretta, tornanti tecnici e un'atmosfera da far venire i brividi. Solo per veri intenditori.</p>
+                    </div>
 
-    <script src="js/script.js"></script>
+                    <div class="passo-card">
+                        <h3>🛣️ Passo del Tonale (1.884m)</h3>
+                        <span class="difficulty easy">FACILE</span>
+                        <p>Una pausa "rilassante" dopo il Gavia. Ampia e scorrevole, perfetta per godersi il panorama.</p>
+                    </div>
+
+                    <div class="highlight">
+                        <h4>🎯 ARRIVO A BORMIO</h4>
+                        <p>La capitale dello Stelvio ti accoglie con le sue terme e la cucina valtellinese. Domani ti aspetta il Re.</p>
+                    </div>
+                </div>
+                <div>
+                    <h4>📋 INFO PRATICHE</h4>
+                    <p><strong>Dislivello:</strong> ~3.000m</p>
+                    <p><strong>Tempo di guida:</strong> 5-6 ore</p>
+                    <p><strong>Pranzo:</strong> Rifugio Gavia</p>
+                    <p><strong>Pernotto:</strong> Bormio</p>
+                    <p><strong>Attenzione:</strong> Gavia spesso chiuso a neve fino a giugno</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Giorno 3 -->
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-title">3️⃣ GIORNO 3 - Bormio → Bolzano via STELVIO</div>
+                <div class="day-distance">150 km</div>
+            </div>
+            <div class="day-content">
+                <div>
+                    <p><strong>Il giorno del Re.</strong> Oggi affronterai il passo più famoso d'Europa. Muscoli tesi, concentrazione massima e tanta, tanta adrenalina.</p>
+                    
+                    <div class="passo-card">
+                        <h3>👑 PASSO STELVIO (2.758m)</h3>
+                        <span class="difficulty hard">ESPERTI</span>
+                        <p><strong>48 tornanti dal lato altoatesino.</strong> La salita è un'epopea, la discesa un sogno (o un incubo, dipende dal meteo). Traffico, camper e ciclisti ovunque, ma ne vale la pena. In cima, la sensazione è di aver conquistato il mondo.</p>
+                    </div>
+
+                    <div class="passo-card">
+                        <h3>🇨🇭 Passo Umbrail (2.501m)</h3>
+                        <span class="difficulty medium">MEDIO</span>
+                        <p>Il collega meno conosciuto dello Stelvio. Strada più tranquilla e panorami ugualmente spettacolari.</p>
+                    </div>
+
+                    <div class="passo-card">
+                        <h3>🌲 Passo Rombo (2.509m)</h3>
+                        <span class="difficulty medium">MEDIO</span>
+                        <p>Il ritorno in territorio italiano attraverso curve ampie e paesaggi silenziosi.</p>
+                    </div>
+
+                    <div class="highlight">
+                        <h4>🏆 CELEBRAZIONE A BOLZANO</h4>
+                        <p>Hai domato il gigante. Stasera si brinda con un buon Lagrein in Piazza Walther.</p>
+                    </div>
+                </div>
+                <div>
+                    <h4>📋 INFO PRATICHE</h4>
+                    <p><strong>Dislivello:</strong> ~2.800m</p>
+                    <p><strong>Tempo di guida:</strong> 4-5 ore</p>
+                    <p><strong>Pranzo:</strong> Ristorante allo Stelvio</p>
+                    <p><strong>Pernotto:</strong> Bolzano</p>
+                    <p><strong>Consiglio:</strong> Partenza prestissimo per evitare code</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Giorno 4 -->
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-title">4️⃣ GIORNO 4 - Giro dei Castelli Altoatesini</div>
+                <div class="day-distance">80 km</div>
+            </div>
+            <div class="day-content">
+                <div>
+                    <p><strong>Il dolce rientro tra castelli, laghi e vigneti.</strong> Una giornata leggera per assaporare i ricordi del viaggio.</p>
+                    
+                    <div class="passo-card">
+                        <h3>🏰 Castelrotto e Alpe di Siusi</h3>
+                        <span class="difficulty easy">FACILE</span>
+                        <p>Strade di campagna tra i meleti, con lo scenario dell'Alpe di Siusi come sfondo. Pura magia.</p>
+                    </div>
+
+                    <div class="passo-card">
+                        <h3>💎 Lago di Carezza</h3>
+                        <span class="difficulty easy">FACILE</span>
+                        <p>Il lago più bello dell'Alto Adige. Sosta obbligatoria per una foto che rimarrà per sempre.</p>
+                    </div>
+
+                    <div class="passo-card">
+                        <h3>🔄 Passo Nigra (1.558m)</h3>
+                        <span class="difficulty easy">FACILE</span>
+                        <p>L'ultimo passo del tour. Curve dolci e aria pulita prima del ritorno a Bolzano.</p>
+                    </div>
+
+                    <div class="highlight">
+                        <h4>🎊 ARRIVEDERCI AL PROSSIMO TOUR</h4>
+                        <p>Quattro giorni indimenticabili tra curve, amicizia e paesaggi da togliere il fiato. Già non vedi l'ora della prossima avventura.</p>
+                    </div>
+                </div>
+                <div>
+                    <h4>📋 INFO PRATICHE</h4>
+                    <p><strong>Dislivello:</strong> ~800m</p>
+                    <p><strong>Tempo di guida:</strong> 2-3 ore</p>
+                    <p><strong>Pranzo:</strong> Maso agricolo tipico</p>
+                    <p><strong>Ritorno:</strong> Bolzano per le 16:00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Aggiuntive -->
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-title">ℹ️ INFORMAZIONI UTILI</div>
+            </div>
+            <div class="day-content">
+                <div>
+                    <h4>🏍️ CONSIGLI MOTOCICLISTICI</h4>
+                    <p>• <strong>Pneumatici:</strong> Gomma termica per le basse temperature in quota</p>
+                    <p>• <strong>Abbigliamento:</strong> Strati tecnici, da 5°C a 25°C in un'ora</p>
+                    <p>• <strong>Carburante:</strong> Pieno sempre sopra i ½ serbatoio</p>
+                    <p>• <strong>Freni:</strong> Controllo pastiglie prima della partenza</p>
+                </div>
+                <div>
+                    <h4>📅 PERIODO IDEALE</h4>
+                    <p>• <strong>Meteo:</strong> Giugno-Settembre</p>
+                    <p>• <strong>Traffico:</strong> Evitare weekend di luglio-agosto</p>
+                    <p>• <strong>Alloggio:</strong> Prenotare con 2 mesi di anticipo</p>
+                    <p>• <strong>Passi:</strong> Verificare aperture su viabilitadolomiti.it</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Citazione Finale -->
+        <div style="text-align: center; margin: 50px 0; padding: 30px; background: white; border-radius: 15px;">
+            <blockquote style="font-size: 1.3em; font-style: italic; color: #666;">
+                "Non si ricorda il numero di curve affrontate, ma la luce che accarezzava le cime all'alba, 
+                il profumo dei pascoli dopo la pioggia, il sorriso condiviso dopo ogni tornante. 
+                Questo è ciò che porti a casa, oltre ai chilometri sul contachilometri."
+            </blockquote>
+            <p style="margin-top: 20px; font-weight: bold; color: #2a5298;">
+                #TourDeiGiganti #DolomitiInMoto #StelvioExperience
+            </p>
+        </div>
+    </div>
 </body>
 </html>
