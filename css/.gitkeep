@@ -1,1 +1,95 @@
+/* ===== STILI BANDIERINE ===== */
+.bandierina-partenza,
+.bandierina-arrivo {
+    text-align: center;
+    font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
 
+.bandierina-numero {
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bandierine per mini-mappe */
+.bandierina-partenza-mini,
+.bandierina-arrivo-mini {
+    text-align: center;
+    font-size: 16px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.bandierina-numero-mini {
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 2.2em;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1500;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.05);
+}
+
+/* ===== NUOVA STRUTTURA TAPPA-CONTENT ===== */
+.tappa-content {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.tappa-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ... e tutte le altre sezioni specifiche del tuo CSS ... */
