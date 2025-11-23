@@ -3,11 +3,13 @@
 Un itinerario di 5 giorni attraverso i passi più spettacolari delle Dolomiti per veri appassionati di moto.
 
 ## 🗺️ Itinerario
-- **Giorno 1**: Torino → Cortina d'Ampezzo (350km)
-- **Giorno 2**: Cortina → Bormio (280km)
-- **Giorno 3**: Anello Stelvio + Austria (220km)
-- **Giorno 4**: Bormio → Bolzano (280km)
-- **Giorno 5**: Bolzano → Torino (320km)
+
+giorno1.gpx (Torino-Bolzano)
+giorno2.gpx (Bolzano-San Cassiano)
+giorno3.gpx (Bolzano-Vipiteno)
+giorno4.gpx (Bolzano-Bormio)
+giorno5.gpx (Bormio-Torino)
+tour-completo.gpx
 
 ## 🚀 Come Usare
 1. Clona il repository
