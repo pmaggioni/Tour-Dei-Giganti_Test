@@ -645,53 +645,299 @@
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <!-- SOSTITUISCI il vecchio script con questo SEMPLIFICATO -->
-    <script>
-    // Mappe semplificate - Funziona sicuro!
-    console.log('🚀 INIZIALIZZAZIONE MAPPE TOUR DEI GIGANTI');
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
-    function initSimpleMap(mapId, center, zoom) {
-        try {
-            console.log('Inizializzando mappa:', mapId);
-            var map = L.map(mapId).setView(center, zoom);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap'
-            }).addTo(map);
-            console.log('✅ Mappa ' + mapId + ' inizializzata');
-            return map;
-        } catch (error) {
-            console.error('❌ Errore mappa ' + mapId + ':', error);
-            return null;
+    <!-- SCRIPT COMPLETO CON PERCORSI E PULSANTI FUNZIONANTI -->
+    <script>
+    // Variabili globali per mappe e percorsi
+    var mapG1, mapG2, mapG3, mapG4, mapG5;
+    var routeLineG1, routeLineG2, routeLineG3, routeLineG4, routeLineG5;
+
+    console.log('🚀 TOUR DEI GIGANTI - Caricamento mappe complete');
+
+    // ===== GIORNO 1: TORINO → BOLZANO =====
+    function initMapG1() {
+        console.log('📍 Inizializando G1: Torino → Bolzano');
+        mapG1 = L.map('routeMapG1').setView([45.5, 9.5], 7);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(mapG1);
+        
+        // Percorso Torino-Bolzano
+        var routePointsG1 = [
+            [45.062356, 7.679937],  // Torino
+            [45.4642, 9.1900],      // Milano
+            [45.5396, 10.2206],     // Brescia
+            [46.0667, 11.1167],     // Trento
+            [46.495278, 11.353469]  // Bolzano
+        ];
+        
+        routeLineG1 = L.polyline(routePointsG1, {
+            color: '#ff0000',
+            weight: 6,
+            opacity: 0.8,
+            lineJoin: 'round'
+        }).addTo(mapG1);
+        
+        // Marker
+        L.marker([45.062356, 7.679937]).addTo(mapG1).bindPopup('🏁<b>TORINO</b><br>Partenza');
+        L.marker([46.495278, 11.353469]).addTo(mapG1).bindPopup('🎯<b>BOLZANO</b><br>Arrivo');
+        
+        mapG1.fitBounds(routeLineG1.getBounds(), { padding: [50, 50] });
+    }
+
+    // ===== GIORNO 2: DOLOMITI =====
+    function initMapG2() {
+        console.log('📍 Inizializando G2: Dolomiti');
+        mapG2 = L.map('routeMapG2').setView([46.5, 11.7], 9);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(mapG2);
+        
+        // Percorso Dolomiti
+        var routePointsG2 = [
+            [46.4982953, 11.3547582], // Bolzano
+            [46.4833, 11.9833],       // Passo Giau
+            [46.4889, 11.8167],       // Passo Pordoi
+            [46.5083, 11.7583],       // Passo Sella
+            [46.4982953, 11.3547582]  // Ritorno Bolzano
+        ];
+        
+        routeLineG2 = L.polyline(routePointsG2, {
+            color: '#ff4500',
+            weight: 6,
+            opacity: 0.8,
+            lineJoin: 'round'
+        }).addTo(mapG2);
+        
+        // Marker passi
+        L.marker([46.4833, 11.9833]).addTo(mapG2).bindPopup('🌄<b>PASSO GIAU</b><br>2.236m');
+        L.marker([46.4889, 11.8167]).addTo(mapG2).bindPopup('🏔️<b>PASSO PORDOI</b><br>2.239m');
+        L.marker([46.5083, 11.7583]).addTo(mapG2).bindPopup('⚡<b>PASSO SELLA</b><br>2.240m');
+        
+        mapG2.fitBounds(routeLineG2.getBounds(), { padding: [50, 50] });
+    }
+
+    // ===== GIORNO 3: TIMMELSJOCH =====
+    function initMapG3() {
+        console.log('📍 Inizializando G3: Timmelsjoch');
+        mapG3 = L.map('routeMapG3').setView([46.8, 11.0], 9);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(mapG3);
+        
+        // Percorso Timmelsjoch
+        var routePointsG3 = [
+            [46.4982953, 11.3547582], // Bolzano
+            [46.904167, 11.2275],     // Timmelsjoch
+            [47.0667, 10.8833],       // Ötztal (Austria)
+            [46.583333, 11.5],        // Passo Giovo
+            [46.4982953, 11.3547582]  // Ritorno Bolzano
+        ];
+        
+        routeLineG3 = L.polyline(routePointsG3, {
+            color: '#33cc33',
+            weight: 6,
+            opacity: 0.8,
+            lineJoin: 'round'
+        }).addTo(mapG3);
+        
+        // Marker passi
+        L.marker([46.904167, 11.2275]).addTo(mapG3).bindPopup('🔁<b>TIMMELSJOCH</b><br>2.509m');
+        L.marker([46.583333, 11.5]).addTo(mapG3).bindPopup('🏔️<b>PASSO GIOVO</b><br>2.094m');
+        
+        mapG3.fitBounds(routeLineG3.getBounds(), { padding: [50, 50] });
+    }
+
+    // ===== GIORNO 4: STELVIO & GAVIA =====
+    function initMapG4() {
+        console.log('📍 Inizializando G4: Stelvio & Gavia');
+        mapG4 = L.map('routeMapG4').setView([46.4, 10.5], 9);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(mapG4);
+        
+        // Percorso Stelvio
+        var routePointsG4 = [
+            [46.4982953, 11.3547582], // Bolzano
+            [46.4167, 11.2167],       // Passo Mendola
+            [46.3417, 10.4917],       // Passo Gavia
+            [46.468, 10.372],         // Bormio
+            [46.5286, 10.4531],       // Passo Stelvio
+            [46.468, 10.372]          // Ritorno Bormio
+        ];
+        
+        routeLineG4 = L.polyline(routePointsG4, {
+            color: '#ffd700',
+            weight: 6,
+            opacity: 0.8,
+            lineJoin: 'round'
+        }).addTo(mapG4);
+        
+        // Marker passi
+        L.marker([46.4167, 11.2167]).addTo(mapG4).bindPopup('🌲<b>PASSO MENDOLA</b><br>1.363m');
+        L.marker([46.3417, 10.4917]).addTo(mapG4).bindPopup('💎<b>PASSO GAVIA</b><br>2.621m');
+        L.marker([46.5286, 10.4531]).addTo(mapG4).bindPopup('👑<b>PASSO STELVIO</b><br>2.758m');
+        
+        mapG4.fitBounds(routeLineG4.getBounds(), { padding: [50, 50] });
+    }
+
+    // ===== GIORNO 5: RITORNO =====
+    function initMapG5() {
+        console.log('📍 Inizializando G5: Ritorno');
+        mapG5 = L.map('routeMapG5').setView([45.5, 9.5], 7);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(mapG5);
+        
+        // Percorso ritorno
+        var routePointsG5 = [
+            [46.468, 10.372],        // Bormio
+            [46.3, 10.8],            // Strada del Vino
+            [45.4642, 9.1900],       // Milano
+            [45.062356, 7.679937]    // Torino
+        ];
+        
+        routeLineG5 = L.polyline(routePointsG5, {
+            color: '#667eea',
+            weight: 6,
+            opacity: 0.8,
+            lineJoin: 'round'
+        }).addTo(mapG5);
+        
+        // Marker
+        L.marker([46.468, 10.372]).addTo(mapG5).bindPopup('🏔️<b>BORMIO</b><br>Partenza');
+        L.marker([45.062356, 7.679937]).addTo(mapG5).bindPopup('🏠<b>TORINO</b><br>Arrivo');
+        
+        mapG5.fitBounds(routeLineG5.getBounds(), { padding: [50, 50] });
+    }
+
+    // ===== FUNZIONI PULSANTI =====
+    
+    // Giorno 1
+    function showFullRouteG1() { 
+        if (mapG1 && routeLineG1) {
+            mapG1.fitBounds(routeLineG1.getBounds(), { padding: [50, 50] });
+            console.log('🗺️ G1: Mostrato percorso completo');
+        }
+    }
+    function showStartEndG1() { 
+        if (mapG1 && routeLineG1) {
+            var bounds = L.latLngBounds([routeLineG1.getLatLngs()[0], routeLineG1.getLatLngs()[routeLineG1.getLatLngs().length-1]]);
+            mapG1.fitBounds(bounds, { padding: [100, 100] });
+            console.log('📍 G1: Mostrato partenza/arrivo');
+        }
+    }
+    function resetMapG1() { 
+        if (mapG1 && routeLineG1) {
+            mapG1.fitBounds(routeLineG1.getBounds(), { padding: [50, 50] });
+            console.log('🔄 G1: Mappa resettata');
         }
     }
 
-    // Inizializza quando la pagina è pronta
+    // Giorno 2
+    function showFullRouteG2() { 
+        if (mapG2 && routeLineG2) {
+            mapG2.fitBounds(routeLineG2.getBounds(), { padding: [50, 50] });
+            console.log('🗺️ G2: Mostrato percorso completo');
+        }
+    }
+    function showStartEndG2() { 
+        if (mapG2 && routeLineG2) {
+            var bounds = L.latLngBounds([routeLineG2.getLatLngs()[0], routeLineG2.getLatLngs()[routeLineG2.getLatLngs().length-1]]);
+            mapG2.fitBounds(bounds, { padding: [100, 100] });
+            console.log('📍 G2: Mostrato partenza/arrivo');
+        }
+    }
+    function resetMapG2() { 
+        if (mapG2 && routeLineG2) {
+            mapG2.fitBounds(routeLineG2.getBounds(), { padding: [50, 50] });
+            console.log('🔄 G2: Mappa resettata');
+        }
+    }
+
+    // Giorno 3
+    function showFullRouteG3() { 
+        if (mapG3 && routeLineG3) {
+            mapG3.fitBounds(routeLineG3.getBounds(), { padding: [50, 50] });
+            console.log('🗺️ G3: Mostrato percorso completo');
+        }
+    }
+    function showStartEndG3() { 
+        if (mapG3 && routeLineG3) {
+            var bounds = L.latLngBounds([routeLineG3.getLatLngs()[0], routeLineG3.getLatLngs()[routeLineG3.getLatLngs().length-1]]);
+            mapG3.fitBounds(bounds, { padding: [100, 100] });
+            console.log('📍 G3: Mostrato partenza/arrivo');
+        }
+    }
+    function resetMapG3() { 
+        if (mapG3 && routeLineG3) {
+            mapG3.fitBounds(routeLineG3.getBounds(), { padding: [50, 50] });
+            console.log('🔄 G3: Mappa resettata');
+        }
+    }
+
+    // Giorno 4
+    function showFullRouteG4() { 
+        if (mapG4 && routeLineG4) {
+            mapG4.fitBounds(routeLineG4.getBounds(), { padding: [50, 50] });
+            console.log('🗺️ G4: Mostrato percorso completo');
+        }
+    }
+    function showStartEndG4() { 
+        if (mapG4 && routeLineG4) {
+            var bounds = L.latLngBounds([routeLineG4.getLatLngs()[0], routeLineG4.getLatLngs()[routeLineG4.getLatLngs().length-1]]);
+            mapG4.fitBounds(bounds, { padding: [100, 100] });
+            console.log('📍 G4: Mostrato partenza/arrivo');
+        }
+    }
+    function resetMapG4() { 
+        if (mapG4 && routeLineG4) {
+            mapG4.fitBounds(routeLineG4.getBounds(), { padding: [50, 50] });
+            console.log('🔄 G4: Mappa resettata');
+        }
+    }
+
+    // Giorno 5
+    function showFullRouteG5() { 
+        if (mapG5 && routeLineG5) {
+            mapG5.fitBounds(routeLineG5.getBounds(), { padding: [50, 50] });
+            console.log('🗺️ G5: Mostrato percorso completo');
+        }
+    }
+    function showStartEndG5() { 
+        if (mapG5 && routeLineG5) {
+            var bounds = L.latLngBounds([routeLineG5.getLatLngs()[0], routeLineG5.getLatLngs()[routeLineG5.getLatLngs().length-1]]);
+            mapG5.fitBounds(bounds, { padding: [100, 100] });
+            console.log('📍 G5: Mostrato partenza/arrivo');
+        }
+    }
+    function resetMapG5() { 
+        if (mapG5 && routeLineG5) {
+            mapG5.fitBounds(routeLineG5.getBounds(), { padding: [50, 50] });
+            console.log('🔄 G5: Mappa resettata');
+        }
+    }
+
+    // ===== INIZIALIZZAZIONE =====
     document.addEventListener('DOMContentLoaded', function() {
-        console.log('📄 Pagina caricata, inizializzo mappe...');
+        console.log('📄 DOM caricato, inizializzo tutte le mappe...');
         
-        // Aspetta che tutto sia pronto
         setTimeout(function() {
-            console.log('🔍 Controllo disponibilità mappe...');
+            // Inizializza tutte le mappe
+            if (document.getElementById('routeMapG1')) initMapG1();
+            if (document.getElementById('routeMapG2')) initMapG2();
+            if (document.getElementById('routeMapG3')) initMapG3();
+            if (document.getElementById('routeMapG4')) initMapG4();
+            if (document.getElementById('routeMapG5')) initMapG5();
             
-            // Controlla ogni mappa
-            var maps = [
-                { id: 'routeMapG1', center: [45.5, 9.5], zoom: 7 },
-                { id: 'routeMapG2', center: [46.5, 11.7], zoom: 9 },
-                { id: 'routeMapG3', center: [46.8, 11.0], zoom: 9 },
-                { id: 'routeMapG4', center: [46.4, 10.5], zoom: 9 },
-                { id: 'routeMapG5', center: [45.5, 9.5], zoom: 7 }
-            ];
-            
-            maps.forEach(function(mapConfig) {
-                var element = document.getElementById(mapConfig.id);
-                if (element) {
-                    console.log('📍 Trovata: ' + mapConfig.id);
-                    initSimpleMap(mapConfig.id, mapConfig.center, mapConfig.zoom);
-                } else {
-                    console.warn('⚠️ Non trovata: ' + mapConfig.id);
-                }
-            });
-            
-            console.log('🎉 Inizializzazione mappe completata!');
+            console.log('🎉 TOUR DEI GIGANTI - Tutte le mappe pronte!');
+            console.log('🏍️ I pulsanti ora funzionano: Percorso Completo / Partenza-Arrivo / Reset');
         }, 1000);
     });
     </script>
