@@ -1,12 +1,24 @@
 // assets/js/maps.js - Mappe interattive per tutti i giorni del Tour
 
-// ===== GIORNO 1: TORINO → BOLZANO =====
-function initMapG1() {
-    var map = L.map('routeMapG1').setView([45.5, 9.5], 7);
+// Variabili globali per le mappe
+var mapG1, mapG2, mapG3, mapG4, mapG5;
+var routeLineG1, routeLineG2, routeLineG3, routeLineG4, routeLineG5;
+
+// Funzione di inizializzazione migliorata
+function initMap(mapId, center, zoom) {
+    var map = L.map(mapId).setView(center, zoom);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
+    
+    return map;
+}
+
+// ===== GIORNO 1: TORINO → BOLZANO =====
+function initMapG1() {
+    console.log('Inizializando mappa G1');
+    mapG1 = initMap('routeMapG1', [45.5, 9.5], 7);
     
     // Coordinate del percorso Torino-Bolzano
     var torino = [45.062356, 7.679937];
@@ -20,66 +32,22 @@ function initMapG1() {
         bolzano
     ];
     
-    var routeLine = L.polyline(routePoints, {
+    routeLineG1 = L.polyline(routePoints, {
         color: '#ff0000',
         weight: 6,
         opacity: 0.8,
         lineJoin: 'round'
-    }).addTo(map);
+    }).addTo(mapG1);
     
     // Marker Torino
-    L.marker(torino).addTo(map)
+    L.marker(torino).addTo(mapG1)
         .bindPopup('<b>🏁 TORINO</b><br>Partenza - 45.062356° N, 7.679937° E');
     
     // Marker Bolzano
-    L.marker(bolzano).addTo(map)
+    L.marker(bolzano).addTo(mapG1)
         .bindPopup('<b>🎯 BOLZANO</b><br>Arrivo - 46.495278° N, 11.353469° E');
     
-    map.fitBounds(routeLine.getBounds(), { padding: [50, 50] });
-    
-    window.mapG1 = map;
-    window.routeLineG1 = routeLine;
-}
-
-// ===== GIORNO 2: DOLOMITI =====
-function initMapG2() {
-    var map = L.map('routeMapG2').setView([46.5, 11.7], 9);
-    
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-    
-    // Coordinate del percorso Dolomiti
-    var bolzano = [46.4982953, 11.3547582];
-    var passoGiau = [46.4833, 11.9833];
-    var passoPordoi = [46.4889, 11.8167];
-    var passoSella = [46.5083, 11.7583];
-    
-    var routePoints = [
-        bolzano,
-        [46.4, 11.5],        // Val di Fassa
-        passoGiau,
-        passoPordoi,
-        passoSella,
-        bolzano
-    ];
-    
-    var routeLine = L.polyline(routePoints, {
-        color: '#ff4500',
-        weight: 6,
-        opacity: 0.8,
-        lineJoin: 'round'
-    }).addTo(map);
-    
-    // Marker passi
-    L.marker(passoGiau).addTo(map).bindPopup('<b>🌄 PASSO GIAU</b><br>2.236m - 29 tornanti');
-    L.marker(passoPordoi).addTo(map).bindPopup('<b>🏔️ PASSO PORDOI</b><br>2.239m - Terrazza Dolomiti');
-    L.marker(passoSella).addTo(map).bindPopup('<b>⚡ PASSO SELLA</b><br>2.240m - Cuore di pietra');
-    
-    map.fitBounds(routeLine.getBounds(), { padding: [50, 50] });
-    
-    window.mapG2 = map;
-    window.routeLineG2 = routeLine;
+    mapG1.fitBounds(routeLineG1.getBounds(), { padding: [50, 50] });
 }
 
 // ===== GIORNO 3: TIMMELSJOCH =====
@@ -120,6 +88,7 @@ function initMapG3() {
     window.mapG3 = map;
     window.routeLineG3 = routeLine;
 }
+
 
 // ===== GIORNO 4: STELVIO & GAVIA =====
 function initMapG4() {
