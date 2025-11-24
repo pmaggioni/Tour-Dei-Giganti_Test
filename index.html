@@ -31,20 +31,22 @@
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             color: #ffd700;
             text-shadow: 3px 3px 0px #ff0000;
             margin-bottom: 1rem;
             font-weight: bold;
             font-family: Arial, sans-serif;
             line-height: 1.2;
+            word-wrap: break-word;
         }
 
         .hero-subtitle {
-            font-size: 1.8rem;
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
             color: #ff4500;
             font-style: italic;
             margin-top: 10px;
+            line-height: 1.4;
         }
 
         .container {
@@ -90,22 +92,30 @@
             color: #ff6b35;
         }
 
+        .cta-section {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
         .cta-button {
             display: block;
             width: 100%;
             background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
             color: white;
             text-align: center;
-            padding: 15px 20px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1em;
-            margin: 30px 0;
+            font-size: clamp(1rem, 4vw, 1.3em);
+            margin: 0;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .cta-button:hover {
@@ -129,12 +139,13 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
+            .hero-content {
+                padding: 1rem;
             }
             
-            .hero-subtitle {
-                font-size: 1.3rem;
+            .title-container {
+                padding: 30px 15px;
+                margin-bottom: 2rem;
             }
             
             .container {
@@ -150,23 +161,44 @@
                 font-size: 1em;
             }
             
-            .cta-button {
-                padding: 12px 15px;
-                font-size: 1em;
+            .cta-section {
+                margin: 30px auto;
+                padding: 0 15px;
             }
         }
 
         @media (max-width: 480px) {
+            .title-container {
+                padding: 20px 10px;
+            }
+            
             .hero-title {
-                font-size: 2rem;
+                font-size: clamp(2rem, 10vw, 3rem);
+                text-shadow: 2px 2px 0px #ff0000;
             }
             
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: clamp(1rem, 5vw, 1.4rem);
             }
             
-            .hero-content {
-                padding: 1rem;
+            .container {
+                padding: 25px 15px;
+            }
+            
+            .cta-button {
+                padding: 18px 15px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: clamp(1.8rem, 12vw, 2.5rem);
+            }
+            
+            .cta-button {
+                font-size: 0.9em;
+                padding: 16px 12px;
             }
         }
     </style>
@@ -199,15 +231,17 @@
             
             <p>Ora siamo più maturi, viaggiamo più tranquilli (più o meno), ma sappiamo una cosa in più: siamo ancora qui, tutti insieme. E questo vale più di mille impennate.</p>
         </div>
-
-        <!-- Pulsante Scendi nell'Arena -->
-        <a href="tour.html" class="cta-button">
-            🏍️ SCENDI NELL'ARENA - SCOPRI IL TOUR
-        </a>
         
         <div class="firma">
             I tuoi fratelli di strada
         </div>
+    </div>
+
+    <!-- Pulsante Scendi nell'Arena - FUORI dalla dedica -->
+    <div class="cta-section">
+        <a href="tour.html" class="cta-button">
+            🏍️ SCENDI NELL'ARENA - SCOPRI IL TOUR
+        </a>
     </div>
 </body>
 </html>
