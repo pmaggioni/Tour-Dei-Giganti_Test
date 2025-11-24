@@ -511,3 +511,53 @@ body {
         gap: 15px;
     }
 }
+
+/* === TEMA INFERNO - TOUR DEI GIGANTI === */
+:root {
+  --inferno-nero: #000000;
+  --inferno-rosso: #ff0000;
+  --inferno-arancio: #ff4500;
+  --inferno-giallo: #ffd700;
+  --inferno-bianco: #ffffff;
+}
+
+body {
+  background-color: var(--inferno-nero);
+  color: var(--inferno-bianco);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header Inferno */
+.header-inferno {
+  background: linear-gradient(135deg, var(--inferno-nero) 0%, var(--inferno-rosso) 100%);
+  border-bottom: 3px solid var(--inferno-arancio);
+}
+
+/* Menu Hamburger Mobile */
+.menu-hamburger {
+  display: none;
+  background: var(--inferno-nero);
+  border: 2px solid var(--inferno-rosso);
+}
+
+.menu-hamburger .line {
+  background-color: var(--inferno-arancio);
+}
+
+@media (max-width: 768px) {
+  .menu-hamburger {
+    display: block;
+  }
+}
+
+/* Pulsanti Inferno */
+.btn-inferno {
+  background: var(--inferno-rosso);
+  color: var(--inferno-bianco);
+  border: 2px solid var(--inferno-arancio);
+}
+
+.btn-inferno:hover {
+  background: var(--inferno-arancio);
+  transform: scale(1.05);
+}
