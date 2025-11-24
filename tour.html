@@ -86,7 +86,7 @@
                         <p>Check-in, birra tedesca e già si sente profumo di gomma bruciata. Domani si scatena l'inferno.</p>
                     </div>
 
-                    <!-- MAPPA GIORNO 1 - CORRETTA -->
+                    <!-- MAPPA GIORNO 1 -->
                     <div class="map-section" style="margin-top: 2rem;">
                         <h4 style="color: #ff4500; margin-bottom: 1rem;">🗺️ MAPPA INTERATTIVA</h4>
                         
@@ -116,7 +116,7 @@
                             <p><strong>📏 Distanza:</strong> ~350 km | <strong>⏱️ Tempo:</strong> 4-5 ore</p>
                         </div>
                     </div>
-                 </div>
+                </div>
                 
                 <div class="day-info">
                     <h4>📋 LA REALTA' DEI FATTI</h4>
@@ -183,35 +183,27 @@
                         <p>Hai superato il battesimo dolomitico. Stasera birra altoatesina e la consapevolezza che domani ti aspetta il Timmelsjoch.</p>
                     </div>
 
+                    <!-- MAPPA GIORNO 2 -->
+                    <div class="map-section" style="margin-top: 2rem;">
+                        <h4 style="color: #ff4500; margin-bottom: 1rem;">🗺️ MAPPA INTERATTIVA</h4>
+                        
+                        <div class="map-controls" style="margin-bottom: 1rem;">
+                            <button class="map-btn" onclick="showFullRouteG2()">🗺️ Percorso Completo</button>
+                            <button class="map-btn" onclick="showStartEndG2()">📍 Partenza/Arrivo</button>
+                            <button class="map-btn" onclick="resetMapG2()">🔄 Reset</button>
+                        </div>
+                        
+                        <div class="map-container">
+                            <div id="routeMapG2" style="height: 400px;"></div>
+                        </div>
 
-                 <!-- MAPPA GIORNO 2 - CORRETTA -->
-                        <div class="map-section" style="margin-top: 2rem;">
-                            <h4 style="color: #ff4500; margin-bottom: 1rem;">🗺️ MAPPA INTERATTIVA</h4>
-                            
-                            <div class="map-controls" style="margin-bottom: 1rem;">
-                                <button class="map-btn" onclick="showFullRouteG2()">🗺️ Percorso Completo</button>
-                                <button class="map-btn" onclick="showStartEndG2()">📍 Partenza/Arrivo</button>
-                                <button class="map-btn" onclick="resetMapG2()">🔄 Reset</button>
-                            </div>
-                            
-                            <div class="map-container">
-                                <div id="routeMapG2" style="height: 400px;"></div>
-                            </div>
-                        
-                            <div class="tappa-links">
-                                <div class="nav-options">
-                                    <a href="https://www.google.com/maps/dir/Bolzano/Passo+Giau/Passo+Pordoi/Passo+Sella/Bolzano" target="_blank" class="map-link maps-link">🗺️ Naviga con Google Maps</a>
-                                    <div class="waze-explanation">
-                                        <a href="https://waze.com/ul?q=Passo%20Giau" target="_blank" class="map-link waze-link">🚗 Naviga con Waze</a>
-                                        <span class="waze-tip">(Waze usa la tua posizione attuale come partenza)</span>
-                                    </div>
+                        <div class="tappa-links">
+                            <div class="nav-options">
+                                <a href="https://www.google.com/maps/dir/Bolzano/Passo+Giau/Passo+Pordoi/Passo+Sella/Bolzano" target="_blank" class="map-link maps-link">🗺️ Naviga con Google Maps</a>
+                                <div class="waze-explanation">
+                                    <a href="https://waze.com/ul?q=Passo%20Giau" target="_blank" class="map-link waze-link">🚗 Naviga con Waze</a>
+                                    <span class="waze-tip">(Waze usa la tua posizione attuale come partenza)</span>
                                 </div>
-                            </div>
-                        
-                            <div class="gpx-info">
-                                <p><strong>📥 File GPX disponibile:</strong> <a href="downloads/gpx/giorno2.gpx" download style="color: #ffd700;">giorno2.gpx</a></p>
-                                <p><strong>🏔️ Passi:</strong> Giau, Pordoi, Sella</p>
-                                <p><strong>📏 Distanza:</strong> ~280 km | <strong>⏱️ Tempo:</strong> 6-7 ore</p>
                             </div>
                         </div>
 
@@ -222,6 +214,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="day-info">
                     <h4>📋 LA CRUDA REALTA'</h4>
                     <div class="info-item">
@@ -310,37 +303,38 @@
                         <p>Oggi non attraversiamo solo un passo, attraversiamo culture. Dalle Dolomiti alle Alpi Austriache, un viaggio nell'anima delle montagne.</p>
                     </div>
 
-                    <!-- MAPPA GIORNO 3 - CORRETTA -->
-                        <div class="map-section" style="margin-top: 2rem;">
-                            <h4 style="color: #ff4500; margin-bottom: 1rem;">🗺️ MAPPA INTERATTIVA</h4>
-                            
-                            <div class="map-controls" style="margin-bottom: 1rem;">
-                                <button class="map-btn" onclick="showFullRouteG3()">🗺️ Percorso Completo</button>
-                                <button class="map-btn" onclick="showStartEndG3()">📍 Partenza/Arrivo</button>
-                                <button class="map-btn" onclick="resetMapG3()">🔄 Reset</button>
-                            </div>
-                            
-                            <div class="map-container">
-                                <div id="routeMapG3" style="height: 400px;"></div>
-                            </div>
+                    <!-- MAPPA GIORNO 3 -->
+                    <div class="map-section" style="margin-top: 2rem;">
+                        <h4 style="color: #ff4500; margin-bottom: 1rem;">🗺️ MAPPA INTERATTIVA</h4>
                         
-                            <div class="tappa-links">
-                                <div class="nav-options">
-                                    <a href="https://www.google.com/maps/dir/Bolzano/Passo+Timmelsjoch/Passo+Giovo/Bolzano" target="_blank" class="map-link maps-link">🗺️ Naviga con Google Maps</a>
-                                    <div class="waze-explanation">
-                                        <a href="https://waze.com/ul?q=Passo%20Timmelsjoch" target="_blank" class="map-link waze-link">🚗 Naviga con Waze</a>
-                                        <span class="waze-tip">(Waze usa la tua posizione attuale come partenza)</span>
-                                    </div>
+                        <div class="map-controls" style="margin-bottom: 1rem;">
+                            <button class="map-btn" onclick="showFullRouteG3()">🗺️ Percorso Completo</button>
+                            <button class="map-btn" onclick="showStartEndG3()">📍 Partenza/Arrivo</button>
+                            <button class="map-btn" onclick="resetMapG3()">🔄 Reset</button>
+                        </div>
+                        
+                        <div class="map-container">
+                            <div id="routeMapG3" style="height: 400px;"></div>
+                        </div>
+
+                        <div class="tappa-links">
+                            <div class="nav-options">
+                                <a href="https://www.google.com/maps/dir/Bolzano/Passo+Timmelsjoch/Passo+Giovo/Bolzano" target="_blank" class="map-link maps-link">🗺️ Naviga con Google Maps</a>
+                                <div class="waze-explanation">
+                                    <a href="https://waze.com/ul?q=Passo%20Timmelsjoch" target="_blank" class="map-link waze-link">🚗 Naviga con Waze</a>
+                                    <span class="waze-tip">(Waze usa la tua posizione attuale come partenza)</span>
                                 </div>
                             </div>
-                        
-                            <div class="gpx-info">
-                                <p><strong>📥 File GPX disponibile:</strong> <a href="downloads/gpx/giorno3.gpx" download style="color: #ffd700;">giorno3.gpx</a></p>
-                                <p><strong>🌍 Percorso:</strong> Italia → Austria → Italia</p>
-                                <p><strong>📏 Distanza:</strong> ~393 km | <strong>⏱️ Tempo:</strong> 7-8 ore</p>
-                            </div>
                         </div>
-                    
+
+                        <div class="gpx-info">
+                            <p><strong>📥 File GPX disponibile:</strong> <a href="downloads/gpx/giorno3.gpx" download style="color: #ffd700;">giorno3.gpx</a></p>
+                            <p><strong>🌍 Percorso:</strong> Italia → Austria → Italia</p>
+                            <p><strong>📏 Distanza:</strong> ~393 km | <strong>⏱️ Tempo:</strong> 7-8 ore</p>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="day-info">
                     <h4>📋 IL VERDETTO DELL'ANELLO</h4>
                     <div class="info-item">
@@ -424,37 +418,37 @@
                         <p>Mendola, Gavia, Stelvio e Umbrail! Stasera pizzoccheri, birra e la consapevolezza di aver conquistato quattro leggende in un giorno solo.</p>
                     </div>
 
-                   <!-- MAPPA GIORNO 4 - CORRETTA -->
-                        <div class="map-section" style="margin-top: 2rem;">
-                            <h4 style="color: #ff4500; margin-bottom: 1rem;">🗺️ MAPPA INTERATTIVA</h4>
-                            
-                            <div class="map-controls" style="margin-bottom: 1rem;">
-                                <button class="map-btn" onclick="showFullRouteG4()">🗺️ Percorso Completo</button>
-                                <button class="map-btn" onclick="showStartEndG4()">📍 Partenza/Arrivo</button>
-                                <button class="map-btn" onclick="resetMapG4()">🔄 Reset</button>
-                            </div>
-                            
-                            <div class="map-container">
-                                <div id="routeMapG4" style="height: 400px;"></div>
-                            </div>
+                    <!-- MAPPA GIORNO 4 -->
+                    <div class="map-section" style="margin-top: 2rem;">
+                        <h4 style="color: #ff4500; margin-bottom: 1rem;">🗺️ MAPPA INTERATTIVA</h4>
                         
-                            <div class="tappa-links">
-                                <div class="nav-options">
-                                    <a href="https://www.google.com/maps/dir/Bolzano/Passo+Gavia/Passo+Stelvio/Bormio" target="_blank" class="map-link maps-link">🗺️ Naviga con Google Maps</a>
-                                    <div class="waze-explanation">
-                                        <a href="https://waze.com/ul?q=Passo%20Stelvio" target="_blank" class="map-link waze-link">🚗 Naviga con Waze</a>
-                                        <span class="waze-tip">(Waze usa la tua posizione attuale come partenza)</span>
-                                    </div>
+                        <div class="map-controls" style="margin-bottom: 1rem;">
+                            <button class="map-btn" onclick="showFullRouteG4()">🗺️ Percorso Completo</button>
+                            <button class="map-btn" onclick="showStartEndG4()">📍 Partenza/Arrivo</button>
+                            <button class="map-btn" onclick="resetMapG4()">🔄 Reset</button>
+                        </div>
+                        
+                        <div class="map-container">
+                            <div id="routeMapG4" style="height: 400px;"></div>
+                        </div>
+
+                        <div class="tappa-links">
+                            <div class="nav-options">
+                                <a href="https://www.google.com/maps/dir/Bolzano/Passo+Gavia/Passo+Stelvio/Bormio" target="_blank" class="map-link maps-link">🗺️ Naviga con Google Maps</a>
+                                <div class="waze-explanation">
+                                    <a href="https://waze.com/ul?q=Passo%20Stelvio" target="_blank" class="map-link waze-link">🚗 Naviga con Waze</a>
+                                    <span class="waze-tip">(Waze usa la tua posizione attuale come partenza)</span>
                                 </div>
-                            </div>
-                        
-                            <div class="gpx-info">
-                                <p><strong>📥 File GPX disponibile:</strong> <a href="downloads/gpx/giorno4.gpx" download style="color: #ffd700;">giorno4.gpx</a></p>
-                                <p><strong>👑 Passi:</strong> Mendola, Gavia, Stelvio, Umbrail</p>
-                                <p><strong>📏 Distanza:</strong> ~220 km | <strong>⏱️ Tempo:</strong> 6-7 ore</p>
                             </div>
                         </div>
 
+                        <div class="gpx-info">
+                            <p><strong>📥 File GPX disponibile:</strong> <a href="downloads/gpx/giorno4.gpx" download style="color: #ffd700;">giorno4.gpx</a></p>
+                            <p><strong>👑 Passi:</strong> Mendola, Gavia, Stelvio, Umbrail</p>
+                            <p><strong>📏 Distanza:</strong> ~220 km | <strong>⏱️ Tempo:</strong> 6-7 ore</p>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="day-info">
                     <h4>📋 IL VERDETTO DEL RE</h4>
@@ -512,36 +506,36 @@
                         <p>Non siamo gli stessi di 5 giorni fa. Abbiamo curve negli occhi e montagne nel cuore. Il Tour dei Giganti è finito, ma la leggenda è appena iniziata.</p>
                     </div>
 
-                  <!-- MAPPA GIORNO 5 - CORRETTA -->
-                        <div class="map-section" style="margin-top: 2rem;">
-                            <h4 style="color: #ff4500; margin-bottom: 1rem;">🗺️ MAPPA INTERATTIVA</h4>
-                            
-                            <div class="map-controls" style="margin-bottom: 1rem;">
-                                <button class="map-btn" onclick="showFullRouteG5()">🗺️ Percorso Completo</button>
-                                <button class="map-btn" onclick="showStartEndG5()">📍 Partenza/Arrivo</button>
-                                <button class="map-btn" onclick="resetMapG5()">🔄 Reset</button>
-                            </div>
-                            
-                            <div class="map-container">
-                                <div id="routeMapG5" style="height: 400px;"></div>
-                            </div>
+                    <!-- MAPPA GIORNO 5 -->
+                    <div class="map-section" style="margin-top: 2rem;">
+                        <h4 style="color: #ff4500; margin-bottom: 1rem;">🗺️ MAPPA INTERATTIVA</h4>
                         
-                            <div class="tappa-links">
-                                <div class="nav-options">
-                                    <a href="https://www.google.com/maps/dir/Bormio/Torino" target="_blank" class="map-link maps-link">🗺️ Naviga con Google Maps</a>
-                                    <div class="waze-explanation">
-                                        <a href="https://waze.com/ul?q=Torino" target="_blank" class="map-link waze-link">🚗 Naviga con Waze</a>
-                                        <span class="waze-tip">(Waze usa la tua posizione attuale come partenza)</span>
-                                    </div>
+                        <div class="map-controls" style="margin-bottom: 1rem;">
+                            <button class="map-btn" onclick="showFullRouteG5()">🗺️ Percorso Completo</button>
+                            <button class="map-btn" onclick="showStartEndG5()">📍 Partenza/Arrivo</button>
+                            <button class="map-btn" onclick="resetMapG5()">🔄 Reset</button>
+                        </div>
+                        
+                        <div class="map-container">
+                            <div id="routeMapG5" style="height: 400px;"></div>
+                        </div>
+
+                        <div class="tappa-links">
+                            <div class="nav-options">
+                                <a href="https://www.google.com/maps/dir/Bormio/Torino" target="_blank" class="map-link maps-link">🗺️ Naviga con Google Maps</a>
+                                <div class="waze-explanation">
+                                    <a href="https://waze.com/ul?q=Torino" target="_blank" class="map-link waze-link">🚗 Naviga con Waze</a>
+                                    <span class="waze-tip">(Waze usa la tua posizione attuale come partenza)</span>
                                 </div>
                             </div>
-                        
-                            <div class="gpx-info">
-                                <p><strong>📥 File GPX disponibile:</strong> <a href="downloads/gpx/giorno5.gpx" download style="color: #ffd700;">giorno5.gpx</a></p>
-                                <p><strong>🏠 Percorso:</strong> Bormio → Strada del Vino → Autostrada → Torino</p>
-                                <p><strong>📏 Distanza:</strong> ~320 km | <strong>⏱️ Tempo:</strong> 4-5 ore</p>
-                            </div>
                         </div>
+
+                        <div class="gpx-info">
+                            <p><strong>📥 File GPX disponibile:</strong> <a href="downloads/gpx/giorno5.gpx" download style="color: #ffd700;">giorno5.gpx</a></p>
+                            <p><strong>🏠 Percorso:</strong> Bormio → Strada del Vino → Autostrada → Torino</p>
+                            <p><strong>📏 Distanza:</strong> ~320 km | <strong>⏱️ Tempo:</strong> 4-5 ore</p>
+                        </div>
+                    </div>
 
                     <!-- STATS FINALI EPICHE -->
                     <div class="final-stats-inline">
@@ -563,6 +557,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="day-info">
                     <h4>📋 L'ULTIMO SALUTO</h4>
                     <div class="info-item">
