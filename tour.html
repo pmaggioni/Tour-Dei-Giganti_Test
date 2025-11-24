@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
+    
 <body>
     <!-- Header Epico -->
     <div class="hero-section">
@@ -641,7 +642,58 @@
         </footer>
     </div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="assets/js/maps.js"></script>
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- SOSTITUISCI il vecchio script con questo SEMPLIFICATO -->
+    <script>
+    // Mappe semplificate - Funziona sicuro!
+    console.log('🚀 INIZIALIZZAZIONE MAPPE TOUR DEI GIGANTI');
+    
+    function initSimpleMap(mapId, center, zoom) {
+        try {
+            console.log('Inizializzando mappa:', mapId);
+            var map = L.map(mapId).setView(center, zoom);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+            console.log('✅ Mappa ' + mapId + ' inizializzata');
+            return map;
+        } catch (error) {
+            console.error('❌ Errore mappa ' + mapId + ':', error);
+            return null;
+        }
+    }
+
+    // Inizializza quando la pagina è pronta
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('📄 Pagina caricata, inizializzo mappe...');
+        
+        // Aspetta che tutto sia pronto
+        setTimeout(function() {
+            console.log('🔍 Controllo disponibilità mappe...');
+            
+            // Controlla ogni mappa
+            var maps = [
+                { id: 'routeMapG1', center: [45.5, 9.5], zoom: 7 },
+                { id: 'routeMapG2', center: [46.5, 11.7], zoom: 9 },
+                { id: 'routeMapG3', center: [46.8, 11.0], zoom: 9 },
+                { id: 'routeMapG4', center: [46.4, 10.5], zoom: 9 },
+                { id: 'routeMapG5', center: [45.5, 9.5], zoom: 7 }
+            ];
+            
+            maps.forEach(function(mapConfig) {
+                var element = document.getElementById(mapConfig.id);
+                if (element) {
+                    console.log('📍 Trovata: ' + mapConfig.id);
+                    initSimpleMap(mapConfig.id, mapConfig.center, mapConfig.zoom);
+                } else {
+                    console.warn('⚠️ Non trovata: ' + mapConfig.id);
+                }
+            });
+            
+            console.log('🎉 Inizializzazione mappe completata!');
+        }, 1000);
+    });
+    </script>
 </body>
 </html>
