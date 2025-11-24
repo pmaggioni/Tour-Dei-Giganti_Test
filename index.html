@@ -32,14 +32,14 @@
         .dedica-container {
             position: relative;
             z-index: 2;
-            max-width: 800px; /* RIDOTTO DA 1000px A 800px */
+            max-width: 800px;
             width: 90%;
             background: rgba(0, 0, 0, 0.9);
-            padding: 40px 30px; /* RIDOTTO PADDING */
+            padding: 40px 30px;
             border-radius: 10px;
             border: 3px solid #ff6b35;
             box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
-            margin-bottom: 30px; /* SPAZIO PER IL BOTTONE */
+            margin-bottom: 20px; /* RIDOTTO SPAZIO PER IL BOTTONE PIÙ PICCOLO */
         }
 
         .dedica-title {
@@ -62,7 +62,7 @@
         }
 
         .contenuto-testo {
-            max-width: 700px; /* RIDOTTO DA 800px */
+            max-width: 700px;
             margin: 0 auto;
             text-align: left;
             color: #ffffff;
@@ -70,45 +70,45 @@
 
         .dedica-intima {
             text-align: center;
-            margin-bottom: 30px; /* RIDOTTO */
-            padding-bottom: 20px; /* RIDOTTO */
+            margin-bottom: 30px;
+            padding-bottom: 20px;
             border-bottom: 2px solid #ff6b35;
             color: #ffffff;
         }
 
         .testo-dedica {
-            line-height: 1.6; /* RIDOTTO DA 1.7 */
-            font-size: 1.2em; /* RIDOTTO DA 1.5em */
+            line-height: 1.6;
+            font-size: 1.2em;
             text-align: justify;
             color: #ffffff;
         }
 
         .testo-dedica p {
-            margin-bottom: 20px; /* RIDOTTO DA 25px */
+            margin-bottom: 20px;
             color: #ffffff;
         }
 
         .motivo-icon {
             text-align: center;
-            margin: 30px 0; /* RIDOTTO DA 50px */
-            font-size: 1.8em; /* RIDOTTO DA 2em */
+            margin: 30px 0;
+            font-size: 1.8em;
             color: #ff6b35;
         }
 
         .firma-dedica {
             text-align: right;
-            margin-top: 30px; /* RIDOTTO DA 40px */
+            margin-top: 30px;
             font-style: italic;
             color: #ffd700;
-            font-size: 1.2em; /* RIDOTTO DA 1.3em */
-            padding-top: 15px; /* RIDOTTO DA 20px */
+            font-size: 1.2em;
+            padding-top: 15px;
             border-top: 1px solid #ff6b35;
         }
 
-        /* BOTTONE ORA DENTRO LA HERO SECTION */
+        /* BOTTONE RIDISEGNATO - FONDO NERO, SCRITTE GIALLE, BORDO NERO */
         .cta-section-dedica {
-            max-width: 600px;
-            margin: 30px auto 0; /* MARGINE SUPERIORE E INFERIORE */
+            max-width: 500px; /* RIDOTTO PER BOTTONE PIÙ PICCOLO */
+            margin: 20px auto 0; /* MARGINE RIDOTTO */
             padding: 0 20px;
             position: relative;
             z-index: 3;
@@ -117,39 +117,40 @@
         .cta-button-dedica {
             display: block;
             width: 100%;
-            background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
-            color: white;
+            background: #000000; /* FONDO NERO */
+            color: #ffd700; /* SCRITTA GIALLA */
             text-align: center;
-            padding: 18px; /* RIDOTTO DA 20px */
-            border-radius: 12px;
+            padding: 14px; /* RIDOTTO PADDING */
+            border-radius: 8px; /* BORDI PIÙ SOFT */
             text-decoration: none;
             font-weight: bold;
-            font-size: clamp(1rem, 4vw, 1.2em); /* RIDOTTO DA 1.3em */
+            font-size: clamp(0.9rem, 3.5vw, 1.1em); /* DIMENSIONE FONT RIDOTTA */
             margin: 0;
-            border: none;
+            border: 2px solid #000000; /* BORDO NERO */
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2); /* OMBRA GIALLA */
             text-transform: uppercase;
             letter-spacing: 1px;
-            border: 2px solid #ffd700;
         }
 
         .cta-button-dedica:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
-            background: linear-gradient(135deg, #ff7b45 0%, #f56a3b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            background: #1a1a1a; /* LEGGERMENTE PIÙ CHIARO AL HOVER */
+            color: #ffed4a; /* GIALLO PIÙ BRILLANTE AL HOVER */
+            border: 2px solid #333333; /* BORDO LEGGERMENTE PIÙ CHIARO AL HOVER */
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .dedica-container {
-                padding: 30px 20px; /* ULTERIORMENTE RIDOTTO */
+                padding: 30px 20px;
                 margin: 15px;
             }
             
             .dedica-intima h2 {
-                font-size: 1.8em; /* RIDOTTO */
+                font-size: 1.8em;
             }
             
             .testo-dedica {
@@ -157,18 +158,24 @@
             }
             
             .cta-section-dedica {
-                margin: 25px auto 0; /* RIDOTTO */
+                max-width: 450px; /* RIDOTTO PER MOBILE */
+                margin: 15px auto 0;
                 padding: 0 15px;
             }
             
             .firma-dedica {
-                font-size: 1.1em; /* RIDOTTO */
+                font-size: 1.1em;
+            }
+            
+            .cta-button-dedica {
+                padding: 12px; /* PADDING RIDOTTO PER MOBILE */
+                font-size: clamp(0.8rem, 3vw, 1em);
             }
         }
 
         @media (max-width: 480px) {
             .dedica-container {
-                padding: 25px 15px; /* RIDOTTO */
+                padding: 25px 15px;
             }
             
             .dedica-title {
@@ -181,14 +188,25 @@
             }
             
             .testo-dedica {
-                font-size: 1em; /* RIDOTTO */
-                line-height: 1.5; /* RIDOTTO */
+                font-size: 1em;
+                line-height: 1.5;
+            }
+            
+            .cta-section-dedica {
+                max-width: 400px; /* ULTERIORMENTE RIDOTTO */
             }
             
             .cta-button-dedica {
-                padding: 16px 12px; /* RIDOTTO */
-                border-radius: 10px;
-                font-size: 0.9em; /* RIDOTTO */
+                padding: 10px 8px;
+                border-radius: 6px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .cta-button-dedica {
+                font-size: 0.8em;
+                padding: 8px 6px;
             }
         }
     </style>
@@ -226,7 +244,7 @@
             </div>
         </div>
 
-        <!-- BOTTONE ORA DENTRO LA HERO SECTION -->
+        <!-- BOTTONE RIDISEGNATO - FONDO NERO, SCRITTE GIALLE, BORDO NERO -->
         <div class="cta-section-dedica">
             <a href="tour.html" class="cta-button-dedica">
                 🏍️ SCENDI NELL'ARENA - SCOPRI IL TOUR
