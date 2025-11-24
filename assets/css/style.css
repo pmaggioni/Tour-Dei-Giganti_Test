@@ -592,34 +592,3 @@ body {
   background: var(--inferno-arancio);
   transform: scale(1.05);
 }
-
-/* Stili per la dedica a Barbaraüs */
-.main-title {
-    font-size: 4rem !important;
-    color: #ffd700 !important;
-    text-shadow: 3px 3px 0px #ff0000 !important;
-    margin-bottom: 1rem !important;
-    font-weight: bold !important;
-}
-
-.title-container {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.subtitle {
-    font-size: 1.8rem !important;
-    color: #ff4500 !important;
-    font-style: italic;
-}
-
-.hero-section {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)) !important;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding: 2rem;
-}
