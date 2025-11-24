@@ -594,6 +594,20 @@ body {
 }
 
 /* === STILI MAPPE INTERATTIVE === */
+
+
+/* Assicura che tutte le mappe abbiano altezza */
+#routeMapG1, 
+#routeMapG2, 
+#routeMapG3, 
+#routeMapG4, 
+#routeMapG5 {
+    height: 400px !important;
+    width: 100%;
+}
+
+
+
 .map-container {
     height: 400px;
     border-radius: 12px;
