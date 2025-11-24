@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+    <title>Per Barbaraüs - #GLIGNORANTILADOMENICA</title>
     <style>
         /* Stili specifici per questa pagina */
         .dedica-hero-section {
@@ -32,13 +32,14 @@
         .dedica-container {
             position: relative;
             z-index: 2;
-            max-width: 1000px;
+            max-width: 800px; /* RIDOTTO DA 1000px A 800px */
             width: 90%;
             background: rgba(0, 0, 0, 0.9);
-            padding: 60px 40px;
+            padding: 40px 30px; /* RIDOTTO PADDING */
             border-radius: 10px;
             border: 3px solid #ff6b35;
             box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+            margin-bottom: 30px; /* SPAZIO PER IL BOTTONE */
         }
 
         .dedica-title {
@@ -61,60 +62,53 @@
         }
 
         .contenuto-testo {
-            max-width: 800px;
+            max-width: 700px; /* RIDOTTO DA 800px */
             margin: 0 auto;
             text-align: left;
-            color: #ffffff; /* TESTO BIANCO */
+            color: #ffffff;
         }
 
         .dedica-intima {
             text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 25px;
+            margin-bottom: 30px; /* RIDOTTO */
+            padding-bottom: 20px; /* RIDOTTO */
             border-bottom: 2px solid #ff6b35;
-            color: #ffffff; /* TESTO BIANCO */
-        }
-
-        .dedica-intima h2 {
-            font-size: 2.5em;
-            margin: 0;
-            color: #ffffff; /* CAMBIATO DA #ff6b35 A BIANCO */
-            font-weight: normal;
-            line-height: 1.0;
+            color: #ffffff;
         }
 
         .testo-dedica {
-            line-height: 1.7;
-            font-size: 1.5em;
+            line-height: 1.6; /* RIDOTTO DA 1.7 */
+            font-size: 1.2em; /* RIDOTTO DA 1.5em */
             text-align: justify;
-            color: #ffffff; /* TESTO BIANCO */
+            color: #ffffff;
         }
 
         .testo-dedica p {
-            margin-bottom: 25px;
-            color: #ffffff; /* TESTO BIANCO */
+            margin-bottom: 20px; /* RIDOTTO DA 25px */
+            color: #ffffff;
         }
 
         .motivo-icon {
             text-align: center;
-            margin: 50px 0;
-            font-size: 2em;
+            margin: 30px 0; /* RIDOTTO DA 50px */
+            font-size: 1.8em; /* RIDOTTO DA 2em */
             color: #ff6b35;
         }
 
         .firma-dedica {
             text-align: right;
-            margin-top: 40px;
+            margin-top: 30px; /* RIDOTTO DA 40px */
             font-style: italic;
             color: #ffd700;
-            font-size: 1.3em;
-            padding-top: 20px;
+            font-size: 1.2em; /* RIDOTTO DA 1.3em */
+            padding-top: 15px; /* RIDOTTO DA 20px */
             border-top: 1px solid #ff6b35;
         }
 
+        /* BOTTONE ORA DENTRO LA HERO SECTION */
         .cta-section-dedica {
             max-width: 600px;
-            margin: 40px auto;
+            margin: 30px auto 0; /* MARGINE SUPERIORE E INFERIORE */
             padding: 0 20px;
             position: relative;
             z-index: 3;
@@ -126,11 +120,11 @@
             background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 18px; /* RIDOTTO DA 20px */
             border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            font-size: clamp(1rem, 4vw, 1.3em);
+            font-size: clamp(1rem, 4vw, 1.2em); /* RIDOTTO DA 1.3em */
             margin: 0;
             border: none;
             cursor: pointer;
@@ -150,12 +144,12 @@
         /* Responsive */
         @media (max-width: 768px) {
             .dedica-container {
-                padding: 40px 20px;
-                margin: 20px;
+                padding: 30px 20px; /* ULTERIORMENTE RIDOTTO */
+                margin: 15px;
             }
             
             .dedica-intima h2 {
-                font-size: 2em;
+                font-size: 1.8em; /* RIDOTTO */
             }
             
             .testo-dedica {
@@ -163,18 +157,18 @@
             }
             
             .cta-section-dedica {
-                margin: 30px auto;
+                margin: 25px auto 0; /* RIDOTTO */
                 padding: 0 15px;
             }
             
             .firma-dedica {
-                font-size: 1.5em;
+                font-size: 1.1em; /* RIDOTTO */
             }
         }
 
         @media (max-width: 480px) {
             .dedica-container {
-                padding: 30px 15px;
+                padding: 25px 15px; /* RIDOTTO */
             }
             
             .dedica-title {
@@ -186,30 +180,21 @@
                 font-size: clamp(1rem, 5vw, 1.4rem);
             }
             
-            .dedica-intima h2 {
-                font-size: 1.8em;
+            .testo-dedica {
+                font-size: 1em; /* RIDOTTO */
+                line-height: 1.5; /* RIDOTTO */
             }
             
             .cta-button-dedica {
-                padding: 18px 15px;
+                padding: 16px 12px; /* RIDOTTO */
                 border-radius: 10px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .dedica-title {
-                font-size: clamp(1.8rem, 12vw, 2.5rem);
-            }
-            
-            .cta-button-dedica {
-                font-size: 0.9em;
-                padding: 16px 12px;
+                font-size: 0.9em; /* RIDOTTO */
             }
         }
     </style>
 </head>
 <body>
- <!-- Hero Section con tutto il contenuto -->
+    <!-- Hero Section con TUTTO il contenuto incluso il bottone -->
     <section class="dedica-hero-section">
         <div class="dedica-hero-overlay"></div>
         
@@ -219,18 +204,13 @@
             <div class="dedica-subtitle">Bentornato fratello. Questo giro è tuo.</div>
             
             <div class="contenuto-testo">
-                <!-- Dedica personale -->
-                <div class="dedica-intima">
-                   <!-- <h2>Per te,<br>Barbaraus</h2>-->
-                </div>
-              <!-- Testo della dedica -->
+                <!-- Testo della dedica -->
                 <div class="testo-dedica">
                     <p>Quindici anni di strada insieme. Quindici anni in cui gli angeli custodi ci hanno guardato le spalle, mentre noi facevamo i matti in curva. Mai un graffio serio. Sembrava non potesse toccarci nulla.</p>
                     
                     <p>Poi è arrivato quel giorno. Non in moto, non dove ce l'aspettavamo. Sei finito in quel posto dove nessuno vorrebbe mai stare – sospeso tra il restare e l'andarsene.</p>
                     
-                    <p>Ma tu hai scelto di restare. Con una forza che noi sapevamo avessi, hai combattuto, hai tenuto duro e sei tornato. Non solo sei tornato – sei
-                      tornato per guidare, vivere e a essere quello di sempre.</p>
+                    <p>Ma tu hai scelto di restare. Con una forza che noi sapevamo avessi, hai combattuto, hai tenuto duro e sei tornato. Non solo sei tornato – sei tornato per guidare, vivere e a essere quello di sempre.</p>
                     
                     <div class="motivo-icon">🏍️</div>
                     
@@ -245,13 +225,13 @@
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Pulsante Scendi nell'Arena - FUORI dalla hero section -->
-    <div class="cta-section-dedica">
-        <a href="tour.html" class="cta-button-dedica">
-            🏍️ SCENDI NELL'ARENA - SCOPRI IL TOUR
-        </a>
-    </div>
+        <!-- BOTTONE ORA DENTRO LA HERO SECTION -->
+        <div class="cta-section-dedica">
+            <a href="tour.html" class="cta-button-dedica">
+                🏍️ SCENDI NELL'ARENA - SCOPRI IL TOUR
+            </a>
+        </div>
+    </section>
 </body>
 </html>
