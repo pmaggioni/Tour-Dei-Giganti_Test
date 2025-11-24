@@ -142,16 +142,9 @@ body {
 }
 
 /* Header per i giorni speciali */
-.king-header {
-    background: linear-gradient(135deg, #8b0000, #450000) !important;
-}
 
 .finale-header {
     background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
-}
-
-.return-header {
-    background: linear-gradient(135deg, #4ecdc4, #44a08d) !important;
 }
 
 /* Highlight boxes speciali */
@@ -167,6 +160,24 @@ body {
 .heroes-return {
     background: linear-gradient(135deg, #4ecdc4, #44a08d, #1e3c72) !important;
 }
+
+/* Header per i giorni speciali */
+.adrenaline-header {
+    background: linear-gradient(135deg, #ff6b6b, #ff0000) !important;
+}
+
+.transfer-header {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+}
+
+.king-header {
+    background: linear-gradient(135deg, #8b0000, #450000) !important;
+}
+
+.return-header {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d) !important;
+}
+
 
 /* Stats finali inline */
 .final-stats-inline {
@@ -741,4 +752,9 @@ body {
         width: 100%;
         text-align: center;
     }
+}
+/* DEBUG TEMPORANEO - Rimuovere dopo il test */
+#routeMapG1, #routeMapG2, #routeMapG3, #routeMapG4, #routeMapG5 {
+    background: #1a1a1a !important;
+    border: 2px solid red !important;
 }
