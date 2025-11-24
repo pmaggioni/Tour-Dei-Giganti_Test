@@ -18,6 +18,37 @@ body {
     padding: 20px;
 }
 
+/* Stili per la pagina dedica */
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.title-container {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.main-title {
+    font-size: 4rem !important;
+    color: #ffd700 !important;
+    text-shadow: 3px 3px 0px #ff0000 !important;
+    margin-bottom: 1rem !important;
+    font-weight: bold !important;
+    font-family: Arial, sans-serif !important;
+}
+
+.subtitle {
+    font-size: 1.8rem !important;
+    color: #ff4500 !important;
+    font-style: italic;
+}
+
+
+
+
 /* Hero Section Epica */
 .hero-section {
     height: 100vh;
