@@ -1,255 +1,274 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Per Barbaraüs - #GLIGNORANTILADOMENICA</title>
-    <style>
-        /* Stili specifici per questa pagina */
-        .dedica-hero-section {
-            min-height: 100vh;
-            background: 
-                linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.3) 100%),
-                linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 1rem;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Per Barbaraüs - #GLIGNORANTILADOMENICA</title>
+  <style>
+    /* Stili specifici per questa pagina */
+    .dedica-hero-section {
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.3) 100%),
+        linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+    }
 
-        .dedica-hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(0,0,0,0.8) 0%, rgba(139,0,0,0.4) 100%);
-        }
+    .dedica-hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0, 0, 0, 0.8) 0%, rgba(139, 0, 0, 0.4) 100%);
+    }
 
-        .dedica-container {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            width: 90%;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 40px 30px;
-            border-radius: 10px;
-            border: 3px solid #ff6b35;
-            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
-            margin-bottom: 20px; /* RIDOTTO SPAZIO PER IL BOTTONE PIÙ PICCOLO */
-        }
+    .dedica-container {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      width: 80%;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 40px 30px;
+      border-radius: 10px;
+      border: 3px solid #ff6b35;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+      margin-bottom: 20px;
+      /* RIDOTTO SPAZIO PER IL BOTTONE PIÙ PICCOLO */
+    }
 
-        .dedica-title {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            color: #ffd700;
-            text-shadow: 3px 3px 0px #ff0000;
-            margin-bottom: 1rem;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            line-height: 1.2;
-            word-wrap: break-word;
-        }
+    .dedica-title {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      color: #ffd700;
+      text-shadow: 3px 3px 0px #ff0000;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      line-height: 1.2;
+      word-wrap: break-word;
+    }
 
-        .dedica-subtitle {
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
-            color: #ff4500;
-            font-style: italic;
-            margin-bottom: 2rem;
-            line-height: 1.4;
-        }
+    .dedica-subtitle {
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      color: #ff4500;
+      font-style: italic;
+      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
 
-        .contenuto-testo {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: left;
-            color: #ffffff;
-        }
+    .contenuto-testo {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: left;
+      color: #ffffff;
+    }
 
-        .dedica-intima {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #ff6b35;
-            color: #ffffff;
-        }
+    .dedica-intima {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #ff6b35;
+      color: #ffffff;
+    }
 
-        .testo-dedica {
-            line-height: 1.6;
-            font-size: 1.2em;
-            text-align: justify;
-            color: #ffffff;
-        }
+    .testo-dedica {
+      line-height: 1.6;
+      font-size: 1.2em;
+      text-align: justify;
+      color: #ffffff;
+    }
 
-        .testo-dedica p {
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
+    .testo-dedica p {
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
 
-        .motivo-icon {
-            text-align: center;
-            margin: 30px 0;
-            font-size: 1.8em;
-            color: #ff6b35;
-        }
+    .motivo-icon {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 1.8em;
+      color: #ff6b35;
+    }
 
-        .firma-dedica {
-            text-align: right;
-            margin-top: 30px;
-            font-style: italic;
-            color: #ffd700;
-            font-size: 1.2em;
-            padding-top: 15px;
-            border-top: 1px solid #ff6b35;
-        }
+    .firma-dedica {
+      text-align: right;
+      margin-top: 30px;
+      font-style: italic;
+      color: #ffd700;
+      font-size: 1.2em;
+      padding-top: 15px;
+      border-top: 1px solid #ff6b35;
+    }
 
-        /* BOTTONE RIDISEGNATO - FONDO NERO, SCRITTE GIALLE, BORDO NERO */
-        .cta-section-dedica {
-            max-width: 500px; /* RIDOTTO PER BOTTONE PIÙ PICCOLO */
-            margin: 20px auto 0; /* MARGINE RIDOTTO */
-            padding: 0 20px;
-            position: relative;
-            z-index: 3;
-        }
+    /* BOTTONE RIDISEGNATO - FONDO NERO, SCRITTE GIALLE, BORDO NERO */
+    .cta-section-dedica {
+      max-width: 500px;
+      /* RIDOTTO PER BOTTONE PIÙ PICCOLO */
+      margin: 20px auto 0;
+      /* MARGINE RIDOTTO */
+      padding: 0 20px;
+      position: relative;
+      z-index: 3;
+    }
 
-        .cta-button-dedica {
-            display: block;
-            width: 100%;
-            background: #000000; /* FONDO NERO */
-            color: #ffd700; /* SCRITTA GIALLA */
-            text-align: center;
-            padding: 14px; /* RIDOTTO PADDING */
-            border-radius: 8px; /* BORDI PIÙ SOFT */
-            text-decoration: none;
-            font-weight: bold;
-            font-size: clamp(0.9rem, 3.5vw, 1.1em); /* DIMENSIONE FONT RIDOTTA */
-            margin: 0;
-            border: 2px solid #000000; /* BORDO NERO */
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2); /* OMBRA GIALLA */
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .cta-button-dedica {
+      display: block;
+      width: 100%;
+      background: #000000;
+      /* FONDO NERO */
+      color: #ffd700;
+      /* SCRITTA GIALLA */
+      text-align: center;
+      padding: 14px;
+      /* RIDOTTO PADDING */
+      border-radius: 8px;
+      /* BORDI PIÙ SOFT */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: clamp(0.9rem, 3.5vw, 1.1em);
+      /* DIMENSIONE FONT RIDOTTA */
+      margin: 0;
+      border: 2px solid #000000;
+      /* BORDO NERO */
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+      /* OMBRA GIALLA */
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-        .cta-button-dedica:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
-            background: #1a1a1a; /* LEGGERMENTE PIÙ CHIARO AL HOVER */
-            color: #ffed4a; /* GIALLO PIÙ BRILLANTE AL HOVER */
-            border: 2px solid #333333; /* BORDO LEGGERMENTE PIÙ CHIARO AL HOVER */
-        }
+    .cta-button-dedica:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+      background: #1a1a1a;
+      /* LEGGERMENTE PIÙ CHIARO AL HOVER */
+      color: #ffed4a;
+      /* GIALLO PIÙ BRILLANTE AL HOVER */
+      border: 2px solid #333333;
+      /* BORDO LEGGERMENTE PIÙ CHIARO AL HOVER */
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .dedica-container {
-                padding: 30px 20px;
-                margin: 15px;
-            }
-            
-            .dedica-intima h2 {
-                font-size: 1.8em;
-            }
-            
-            .testo-dedica {
-                font-size: 1.1em;
-            }
-            
-            .cta-section-dedica {
-                max-width: 450px; /* RIDOTTO PER MOBILE */
-                margin: 15px auto 0;
-                padding: 0 15px;
-            }
-            
-            .firma-dedica {
-                font-size: 1.1em;
-            }
-            
-            .cta-button-dedica {
-                padding: 12px; /* PADDING RIDOTTO PER MOBILE */
-                font-size: clamp(0.8rem, 3vw, 1em);
-            }
-        }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .dedica-container {
+        padding: 30px 20px;
+        margin: 10px;
+      }
 
-        @media (max-width: 480px) {
-            .dedica-container {
-                padding: 25px 15px;
-            }
-            
-            .dedica-title {
-                font-size: clamp(2rem, 10vw, 3rem);
-                text-shadow: 2px 2px 0px #ff0000;
-            }
-            
-            .dedica-subtitle {
-                font-size: clamp(1rem, 5vw, 1.4rem);
-            }
-            
-            .testo-dedica {
-                font-size: 1em;
-                line-height: 1.5;
-            }
-            
-            .cta-section-dedica {
-                max-width: 400px; /* ULTERIORMENTE RIDOTTO */
-            }
-            
-            .cta-button-dedica {
-                padding: 10px 8px;
-                border-radius: 6px;
-                font-size: 0.85em;
-            }
-        }
+      .dedica-intima h2 {
+        font-size: 1.8em;
+      }
 
-        @media (max-width: 360px) {
-            .cta-button-dedica {
-                font-size: 0.8em;
-                padding: 8px 6px;
-            }
-        }
-    </style>
+      .testo-dedica {
+        font-size: 1.1em;
+      }
+
+      .cta-section-dedica {
+        max-width: 450px;
+        /* RIDOTTO PER MOBILE */
+        margin: 15px auto 0;
+        padding: 0 15px;
+      }
+
+      .firma-dedica {
+        font-size: 1.1em;
+      }
+
+      .cta-button-dedica {
+        padding: 12px;
+        /* PADDING RIDOTTO PER MOBILE */
+        font-size: clamp(0.8rem, 3vw, 1em);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .dedica-container {
+        padding: 25px 15px;
+      }
+
+      .dedica-title {
+        font-size: clamp(2rem, 10vw, 3rem);
+        text-shadow: 2px 2px 0px #ff0000;
+      }
+
+      .dedica-subtitle {
+        font-size: clamp(1rem, 5vw, 1.4rem);
+      }
+
+      .testo-dedica {
+        font-size: 1em;
+        line-height: 1.5;
+      }
+
+      .cta-section-dedica {
+        max-width: 400px;
+        /* ULTERIORMENTE RIDOTTO */
+      }
+
+      .cta-button-dedica {
+        padding: 10px 8px;
+        border-radius: 6px;
+        font-size: 0.85em;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .cta-button-dedica {
+        font-size: 0.8em;
+        padding: 8px 6px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Hero Section con TUTTO il contenuto incluso il bottone -->
-    <section class="dedica-hero-section">
-        <div class="dedica-hero-overlay"></div>
-        
-        <div class="dedica-container">
-            <!-- Titolo principale -->
-            <h1 class="dedica-title">A BARBARAÜS</h1>
-            <div class="dedica-subtitle">Bentornato fratello. Questo giro è tuo.</div>
-            
-            <div class="contenuto-testo">
-                <!-- Testo della dedica -->
-                <div class="testo-dedica">
-                    <p>Quindici anni di strada insieme. Quindici anni in cui gli angeli custodi ci hanno guardato le spalle, mentre noi facevamo i matti in curva. Mai un graffio serio. Sembrava non potesse toccarci nulla.</p>
-                    
-                    <p>Poi è arrivato quel giorno. Non in moto, non dove ce l'aspettavamo. Sei finito in quel posto dove nessuno vorrebbe mai stare – sospeso tra il restare e l'andarsene.</p>
-                    
-                    <p>Ma tu hai scelto di restare. Con una forza che noi sapevamo avessi, hai combattuto, hai tenuto duro e sei tornato. Non solo sei tornato – sei tornato per guidare, vivere e a essere quello di sempre.</p>
-                    
-                    <div class="motivo-icon">🏍️</div>
-                    
-                    <p>Dunque questi cinque giorni di giro sono per te. Ogni chilometro, ogni curva, ogni sosta è un grazie alla tua resilienza, alla tua voglia di non mollare mai. E sì, anche un grazie enorme al tuo angelo custode che quella volta ha fatto gli straordinari.</p>
-                    
-                    <p>Ora siamo più maturi, viaggiamo più tranquilli (più o meno), ma sappiamo una cosa in più: siamo ancora qui, tutti insieme. E questo vale più di mille impennate.</p>
-                </div>
-                
-                <!-- Firma -->
-                <div class="firma-dedica">
-                    I tuoi fratelli di strada
-                </div>
-            </div>
+  <!-- Hero Section con TUTTO il contenuto incluso il bottone -->
+  <section class="dedica-hero-section">
+    <div class="dedica-hero-overlay"></div>
+
+    <div class="dedica-container">
+      <!-- Titolo principale -->
+      <h1 class="dedica-title">A BARBARAÜS</h1>
+      <div class="dedica-subtitle">Bentornato fratello. Questo giro è tuo.</div>
+
+      <div class="contenuto-testo">
+        <!-- Testo della dedica -->
+        <div class="testo-dedica">
+          <p>Quindici anni di strada insieme. Quindici anni in cui gli angeli custodi ci hanno guardato le spalle, mentre noi facevamo i matti in curva. Mai un graffio serio. Sembrava non potesse toccarci nulla.</p>
+
+          <p>Poi è arrivato quel giorno. Non in moto, non dove ce l'aspettavamo. Sei finito in quel posto dove nessuno vorrebbe mai stare – sospeso tra il restare e l'andarsene.</p>
+
+          <p>Ma tu hai scelto di restare. Con una forza che noi sapevamo avessi, hai combattuto, hai tenuto duro e sei tornato. Non solo sei tornato – sei tornato per guidare, vivere e a essere quello di sempre.</p>
+
+          <div class="motivo-icon">🏍️</div>
+
+          <p>Dunque questi cinque giorni di giro sono per te. Ogni chilometro, ogni curva, ogni sosta è un grazie alla tua resilienza, alla tua voglia di non mollare mai. E sì, anche un grazie enorme al tuo angelo custode che quella volta ha fatto gli straordinari.</p>
+
+          <p>Ora siamo più maturi, viaggiamo più tranquilli (più o meno), ma sappiamo una cosa in più: siamo ancora qui, tutti insieme. E questo vale più di mille impennate.</p>
         </div>
 
-        <!-- BOTTONE RIDISEGNATO - FONDO NERO, SCRITTE GIALLE, BORDO NERO -->
-        <div class="cta-section-dedica">
-            <a href="tour.html" class="cta-button-dedica">
-                🏍️ SCENDI NELL'ARENA - SCOPRI IL TOUR
-            </a>
+        <!-- Firma -->
+        <div class="firma-dedica">
+          I tuoi fratelli di strada
         </div>
-    </section>
+      </div>
+    </div>
+
+    <!-- BOTTONE RIDISEGNATO - FONDO NERO, SCRITTE GIALLE, BORDO NERO -->
+    <div class="cta-section-dedica">
+      <a href="tour.html" class="cta-button-dedica">
+        🏍️ SCENDI NELL'ARENA - SCOPRI IL TOUR
+      </a>
+    </div>
+  </section>
 </body>
+
 </html>
