@@ -3,18 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Per te, BARBARAÜS</title>
+    <title>Per te, Barbaraus</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: #e0e0e0;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .title-container {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            border: 2px solid #ff6b35;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: #ffd700;
+            text-shadow: 3px 3px 0px #ff0000;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: #ff4500;
+            font-style: italic;
+            margin-top: 10px;
         }
 
         .container {
@@ -25,6 +55,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border: 1px solid #555;
             position: relative;
+            margin: 0 auto;
         }
 
         .dedica {
@@ -59,6 +90,30 @@
             color: #ff6b35;
         }
 
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 30px 0;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+            background: linear-gradient(135deg, #ff7b45 0%, #f56a3b 100%);
+        }
+
         .firma {
             text-align: right;
             margin-top: 30px;
@@ -74,6 +129,14 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
             .container {
                 padding: 30px 20px;
                 margin: 20px;
@@ -86,10 +149,38 @@
             .testo {
                 font-size: 1em;
             }
+            
+            .cta-button {
+                padding: 12px 15px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-content {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Hero Section -->
+    <div class="hero-content">
+        <div class="title-container">
+            <h1 class="hero-title">A BARBARAÜS</h1>
+            <div class="hero-subtitle">Bentornato fratello. Questo giro è tuo.</div>
+        </div>
+    </div>
+
+    <!-- Contenuto Principale -->
     <div class="container">
         <div class="dedica">
             <h1>Per te,<br>Barbaraus</h1>
@@ -98,7 +189,7 @@
         <div class="testo">
             <p>Quindici anni di strada insieme. Quindici anni in cui gli angeli custodi ci hanno guardato le spalle, mentre noi facevamo i matti in curva. Mai un graffio serio. Sembrava non potesse toccarci nulla.</p>
             
-            <p>Poi è arrivato quel giorno. Non in moto, non dove ce l'aspettavamo. E tu sei finito in un posto che nessuno vorrebbe mai vedere – sospeso tra il restare e l’andarsene.</p>
+            <p>Poi è arrivato quel giorno. Non in moto, non dove ce l'aspettavamo. E tu sei finito in un posto che nessuno vorrebbe mai vedere – sospeso tra il restare e l'andarsene.</p>
             
             <p>Ma hai scelto di restare. Hai combattuto con una forza che forse neanche tu sapevi di avere, e sei tornato. Stai tornando a guidare, a vivere, a essere quello di sempre.</p>
             
@@ -108,10 +199,16 @@
             
             <p>Ora siamo più maturi, viaggiamo più tranquilli. Ma sappiamo una cosa: siamo ancora qui, tutti insieme. E questo vale più di tutto.</p>
         </div>
-        
+
         <div class="firma">
             I tuoi fratelli di strada
         </div>
+        <!-- Pulsante Scendi nell'Arena -->
+        <a href="tour.html" class="cta-button">
+            🏍️ SCENDI NELL'ARENA - SCOPRI IL TOUR
+        </a>
+        
+        
     </div>
 </body>
 </html>
