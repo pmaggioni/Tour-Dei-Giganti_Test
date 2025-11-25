@@ -1112,15 +1112,17 @@ body {
 }
 
 /* ========================================= */
-/* STILI PER STAMPA PDF - SENZA INTERRUZIONI */
+/* STILI PER STAMPA PDF - CORRETTO */
 /* ========================================= */
 @media print {
-    /* RESET PER STAMPA */
+    /* RESET COMPLETO */
     * {
         margin: 0 !important;
         padding: 0 !important;
         box-shadow: none !important;
         text-shadow: none !important;
+        background: white !important;
+        color: black !important;
     }
     
     body {
@@ -1129,42 +1131,45 @@ body {
         font-size: 12pt;
         line-height: 1.4;
         font-family: "Times New Roman", Times, serif;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     .container {
         max-width: 100% !important;
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 1cm !important;
     }
     
-    /* NASCONDI ELEMENTI NON NECESSARI IN STAMPA */
+    /* NASCONDI ELEMENTI NON NECESSARI */
     .scroll-indicator,
     .map-controls,
     .map-btn,
     .hero-overlay,
     .menu-hamburger,
-    .btn-inferno {
+    .btn-inferno,
+    .tappa-links,
+    .nav-options {
         display: none !important;
     }
     
-    /* HERO SECTION - PAGINA 1 */
+    /* HERO SECTION - PAGINA 1 COMPLETA */
     .hero-section {
         height: auto !important;
-        min-height: 100vh;
+        min-height: 27cm; /* ALTEZZA PAGINA A4 */
         page-break-after: always;
         break-after: page;
         background: white !important;
         position: relative;
-        display: block;
-    }
-    
-    .hero-section::before {
-        display: none !important;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2cm !important;
     }
     
     .hero-content {
         position: static !important;
-        padding: 2cm !important;
+        padding: 0 !important;
     }
     
     /* TITOLI PER STAMPA */
@@ -1178,6 +1183,7 @@ body {
     
     .title-line {
         color: black !important;
+        font-size: inherit !important;
     }
     
     .subtitle {
@@ -1208,30 +1214,54 @@ body {
         backdrop-filter: none !important;
     }
     
-    /* EVITA INTERRUZIONI NELLE SEZIONI PRINCIPALI */
-    .epic-quote,
-    .shock-stats,
-    .epic-day,
-    .final-epic,
-    .gnorante-manifesto,
-    .closing-quote {
-        page-break-inside: avoid;
-        break-inside: avoid;
-        margin: 1cm 0 !important;
+    /* EPIC QUOTE - PAGINA 2 COMPLETA */
+    .epic-quote {
+        page-break-before: always;
+        break-before: page;
+        page-break-after: always;
+        break-after: page;
+        background: #f8f8f8 !important;
+        margin: 0 !important;
+        padding: 2cm !important;
+        min-height: 27cm;
+    }
+    
+    /* SHOCK STATS - PAGINA 3 COMPLETA */
+    .shock-stats {
+        page-break-before: always;
+        break-before: page;
+        page-break-after: always;
+        break-after: page;
+        margin: 0 !important;
+        padding: 2cm !important;
+        min-height: 27cm;
     }
     
     /* OGNI GIORNO IN PAGINA SEPARATA */
     .epic-day {
         page-break-before: always;
         break-before: page;
+        page-break-after: always;
+        break-after: page;
         margin: 0 !important;
-        padding: 1cm !important;
+        padding: 2cm !important;
+        min-height: 27cm;
+        background: white !important;
+    }
+    
+    /* FINAL EPIC - PAGINA FINALE */
+    .final-epic {
+        page-break-before: always;
+        break-before: page;
+        margin: 0 !important;
+        padding: 2cm !important;
+        min-height: 27cm;
     }
     
     /* CONTENUTO GIORNI */
     .day-content {
         display: block !important;
-        padding: 0.5cm !important;
+        padding: 0 !important;
     }
     
     .day-header {
@@ -1247,11 +1277,6 @@ body {
         border: 1px solid #ccc !important;
     }
     
-    .image-caption {
-        color: #666 !important;
-        font-style: italic;
-    }
-    
     /* CARD E BOX */
     .passo-card.epic,
     .highlight-box,
@@ -1265,27 +1290,19 @@ body {
         break-inside: avoid;
     }
     
-    /* GRADIENTI IN BIANCO E NERO */
+    /* NUMERI IN NERO */
     .final-number,
     .shock-number {
-        background: black !important;
-        -webkit-text-fill-color: black !important;
         color: black !important;
+        -webkit-text-fill-color: black !important;
+        background: none !important;
     }
     
-    /* QUOTE PER STAMPA */
+    /* QUOTE */
     .epic-quote,
     .closing-quote {
-        background: #f0f0f0 !important;
+        background: #f8f8f8 !important;
         border: 1px solid #ccc !important;
-    }
-    
-    .quote-text {
-        color: black !important;
-    }
-    
-    .quote-author {
-        color: #666 !important;
     }
     
     /* MARGINI PAGINA */
@@ -1294,38 +1311,31 @@ body {
         size: A4;
     }
     
-    @page :first {
-        margin: 2cm;
-    }
-    
-    /* HEADER E FOOTER PER STAMPA */
-    @page {
-        @top-left {
-            content: "TOUR DEI GIGANTI 2025";
-            font-size: 10pt;
-            color: #666;
-        }
-        @bottom-right {
-            content: "Pagina " counter(page);
-            font-size: 10pt;
-            color: #666;
-        }
+    /* IMPEDISCI SPEZZATURE INTERNE */
+    .day-content,
+    .passo-card.epic,
+    .highlight-box,
+    .day-info {
+        page-break-inside: avoid;
+        break-inside: avoid;
     }
 }
 
-/* ========================================= */
-/* STILE AGGIUNTIVO PER MIGLIORARE LA STAMPA */
-/* ========================================= */
+/* MIGLIORAMENTO STAMPA MOBILE */
 @media print and (max-width: 210mm) {
-    .hero-section {
+    .container {
+        padding: 0.5cm !important;
+    }
+    
+    .hero-section,
+    .epic-quote,
+    .shock-stats,
+    .epic-day,
+    .final-epic {
         padding: 1cm !important;
     }
     
     .main-title {
         font-size: 28pt !important;
-    }
-    
-    .epic-day {
-        padding: 0.5cm !important;
     }
 }
