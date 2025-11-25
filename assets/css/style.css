@@ -1,3 +1,19 @@
+/* ========================================= */
+/* CSS VARIABLES */
+/* ========================================= */
+:root {
+    --inferno-nero: #000000;
+    --inferno-rosso: #ff0000;
+    --inferno-arancio: #ff4500;
+    --inferno-giallo: #ffd700;
+    --inferno-bianco: #ffffff;
+    --bg-gradient-start: #0c0c0c;
+    --bg-gradient-end: #1a1a1a;
+}
+
+/* ========================================= */
+/* RESET & BASE */
+/* ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,8 +22,9 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    background-color: var(--inferno-nero);
+    color: var(--inferno-bianco);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -18,40 +35,12 @@ body {
     padding: 20px;
 }
 
-/* Stili per la pagina dedica */
-.hero-content {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.title-container {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.main-title {
-    font-size: 4rem !important;
-    color: #040404 !important;
-    text-shadow: 3px 3px 0px #ffd700 !important;
-    margin-bottom: 1rem !important;
-    font-weight: bold !important;
-    font-family: Arial, sans-serif !important;
-}
-
-.subtitle {
-    font-size: 1.8rem !important;
-    color: #ff4500 !important;
-    font-style: italic;
-}
-
-/* Hero Section Epica */
+/* ========================================= */
+/* HERO SECTION */
+/* ========================================= */
 .hero-section {
-    height: 100vh; /* Corretto: 100vh */
-    background: url('../images/header-bg.jpg') center/cover; /* Solo l'immagine */
-        /*linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.3) 100%),
-        url('../images/header-bg.jpg') center/cover; */
+    height: 100vh;
+    background: url('../images/header-bg.jpg') center/cover;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -73,21 +62,42 @@ body {
 .hero-content {
     position: relative;
     z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
+/* ========================================= */
+/* TITLES & BADGES */
+/* ========================================= */
+.title-container {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.main-title {
+    font-size: 4rem;
+    color: #040404;
+    text-shadow: 3px 3px 0px var(--inferno-giallo);
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
 
 .subtitle {
-    font-size: 1.8em;
-    color: #e7071a;
+    font-size: 1.8rem;
+    color: #ff4500;
     margin-bottom: 10px;
     font-weight: 300;
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 .edition-badge {
     display: inline-block;
-    background: linear-gradient(45deg, #ff0000, #8b0000);
+    background: linear-gradient(45deg, var(--inferno-rosso), #8b0000);
     color: white;
     padding: 15px 30px;
     border-radius: 30px;
@@ -96,9 +106,12 @@ body {
     margin-top: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border: 2px solid #ffd93d;
+    border: 2px solid var(--inferno-giallo);
 }
 
+/* ========================================= */
+/* STATS & INDICATORS */
+/* ========================================= */
 .stats-flash {
     display: flex;
     justify-content: center;
@@ -118,7 +131,7 @@ body {
 .scroll-indicator {
     position: absolute;
     bottom: 30px;
-    color: #ffd93d;
+    color: var(--inferno-giallo);
     font-size: 1.1em;
     animation: bounce 2s infinite;
 }
@@ -129,28 +142,20 @@ body {
     60% {transform: translateY(-5px);}
 }
 
-/* Header per i giorni speciali */
+/* ========================================= */
+/* SPECIAL HEADERS */
+/* ========================================= */
+.header-inferno {
+    background: linear-gradient(135deg, var(--inferno-nero) 0%, var(--inferno-rosso) 100%);
+    border-bottom: 3px solid var(--inferno-arancio);
+}
+
 .finale-header {
-    background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
 }
 
-/* Highlight boxes speciali */
-.cross-border {
-    background: linear-gradient(135deg, #1e3c72, #2a5298, #8b0000) !important;
-    border: 2px solid gold;
-}
-
-.farewell {
-    background: linear-gradient(135deg, #667eea, #764ba2) !important;
-}
-
-.heroes-return {
-    background: linear-gradient(135deg, #4ecdc4, #44a08d, #1e3c72) !important;
-}
-
-/* Header per i giorni speciali */
 .adrenaline-header {
-    background: linear-gradient(135deg, #ff6b6b, #ff0000) !important;
+    background: linear-gradient(135deg, #ff6b6b, var(--inferno-rosso));
 }
 
 .transfer-header {
@@ -158,14 +163,48 @@ body {
 }
 
 .king-header {
-    background: linear-gradient(135deg, #8b0000, #450000) !important;
+    background: linear-gradient(135deg, #8b0000, #450000);
 }
 
 .return-header {
-    background: linear-gradient(135deg, #4ecdc4, #44a08d) !important;
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
 }
 
-/* Stats finali inline */
+/* ========================================= */
+/* HIGHLIGHT BOXES */
+/* ========================================= */
+.highlight-box {
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.cross-border {
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #8b0000);
+    border: 2px solid gold;
+}
+
+.farewell {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.heroes-return {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d, #1e3c72);
+}
+
+.gnorante {
+    background: linear-gradient(135deg, #8b0000, #450000);
+    border: 2px solid var(--inferno-giallo);
+}
+
+.achievement {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    border: 2px solid #4ecdc4;
+}
+
+/* ========================================= */
+/* FINAL STATS */
+/* ========================================= */
 .final-stats-inline {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -184,9 +223,11 @@ body {
 .final-number {
     font-size: 2.5em;
     font-weight: 900;
-    background: linear-gradient(45deg, #ff0000, #ffd93d);
+    background: linear-gradient(45deg, var(--inferno-rosso), var(--inferno-giallo));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 5px;
 }
@@ -198,14 +239,16 @@ body {
     letter-spacing: 1px;
 }
 
-/* Quote Epica */
+/* ========================================= */
+/* QUOTES */
+/* ========================================= */
 .epic-quote {
     background: linear-gradient(135deg, #8b0000, #450000);
     padding: 40px;
     border-radius: 20px;
     text-align: center;
     margin: 50px 0;
-    border: 2px solid #ffd93d;
+    border: 2px solid var(--inferno-giallo);
     position: relative;
 }
 
@@ -227,16 +270,17 @@ body {
 
 .quote-author {
     font-size: 1.2em;
-    color: #ffd93d;
+    color: var(--inferno-giallo);
     font-weight: 300;
 }
 
-/* Break mobile per manifesto */
 .break-mobile {
     display: inline;
 }
 
-/* Stats Shock */
+/* ========================================= */
+/* SHOCK STATS */
+/* ========================================= */
 .shock-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -255,15 +299,17 @@ body {
 
 .shock-card:hover {
     transform: translateY(-10px);
-    border-color: #ff0000;
+    border-color: var(--inferno-rosso);
 }
 
 .shock-number {
     font-size: 3em;
     font-weight: 900;
-    background: linear-gradient(45deg, #ff0000, #ffd93d);
+    background: linear-gradient(45deg, var(--inferno-rosso), var(--inferno-giallo));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 10px;
 }
@@ -278,7 +324,9 @@ body {
     font-style: normal;
 }
 
-/* Day Cards Epiche */
+/* ========================================= */
+/* DAY CARDS */
+/* ========================================= */
 .epic-day {
     background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
     margin: 40px 0;
@@ -329,17 +377,19 @@ body {
 .epic-intro {
     font-size: 1.2em;
     margin-bottom: 25px;
-    color: #ffd93d;
+    color: var(--inferno-giallo);
     line-height: 1.6;
 }
 
-/* Passo Cards Epiche */
+/* ========================================= */
+/* PASSO CARDS */
+/* ========================================= */
 .passo-card.epic {
     background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
     padding: 20px;
     border-radius: 12px;
     margin: 15px 0;
-    border-left: 5px solid #ff0000;
+    border-left: 5px solid var(--inferno-rosso);
     display: flex;
     align-items: flex-start;
     gap: 15px;
@@ -348,7 +398,7 @@ body {
 
 .passo-card.epic:hover {
     transform: translateX(10px);
-    border-left-color: #ffd93d;
+    border-left-color: var(--inferno-giallo);
 }
 
 .passo-icon {
@@ -357,7 +407,7 @@ body {
 }
 
 .passo-content h3 {
-    color: #ffd93d;
+    color: var(--inferno-giallo);
     margin-bottom: 10px;
     font-size: 1.3em;
 }
@@ -378,24 +428,9 @@ body {
 .hard { background: #ff6b6b; }
 .expert { background: #c44569; }
 
-/* Highlight Boxes */
-.highlight-box {
-    padding: 25px;
-    border-radius: 12px;
-    margin-top: 20px;
-}
-
-.gnorante {
-    background: linear-gradient(135deg, #8b0000, #450000);
-    border: 2px solid #ffd93d;
-}
-
-.achievement {
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    border: 2px solid #4ecdc4;
-}
-
-/* Day Info */
+/* ========================================= */
+/* DAY INFO */
+/* ========================================= */
 .day-info {
     background: rgba(255, 255, 255, 0.05);
     padding: 20px;
@@ -404,7 +439,7 @@ body {
 }
 
 .day-info h4 {
-    color: #ffd93d;
+    color: var(--inferno-giallo);
     margin-bottom: 20px;
     font-size: 1.2em;
 }
@@ -423,13 +458,15 @@ body {
 }
 
 .info-value {
-    color: #ffd93d;
+    color: var(--inferno-giallo);
     font-weight: bold;
     flex: 1;
     text-align: right;
 }
 
-/* Final Epic Section */
+/* ========================================= */
+/* FINAL EPIC SECTION */
+/* ========================================= */
 .final-epic {
     margin: 80px 0;
     text-align: center;
@@ -440,11 +477,11 @@ body {
     padding: 40px;
     border-radius: 20px;
     margin-bottom: 50px;
-    border: 2px solid #ff0000;
+    border: 2px solid var(--inferno-rosso);
 }
 
 .gnorante-manifesto h2 {
-    color: #ffd93d;
+    color: var(--inferno-giallo);
     margin-bottom: 30px;
     font-size: 2em;
 }
@@ -466,7 +503,7 @@ body {
     background: linear-gradient(135deg, #8b0000, #450000);
     padding: 50px;
     border-radius: 20px;
-    border: 2px solid #ffd93d;
+    border: 2px solid var(--inferno-giallo);
 }
 
 .closing-text {
@@ -478,63 +515,46 @@ body {
 
 .signature {
     font-size: 1.3em;
-    color: #ffd93d;
+    color: var(--inferno-giallo);
     font-weight: bold;
 }
 
-/* === TEMA INFERNO - TOUR DEI GIGANTI === */
-:root {
-  --inferno-nero: #000000;
-  --inferno-rosso: #ff0000;
-  --inferno-arancio: #ff4500;
-  --inferno-giallo: #ffd700;
-  --inferno-bianco: #ffffff;
-}
-
-body {
-  background-color: var(--inferno-nero);
-  color: var(--inferno-bianco);
-  font-family: 'Arial', sans-serif;
-}
-
-/* Header Inferno */
-.header-inferno {
-  background: linear-gradient(135deg, var(--inferno-nero) 0%, var(--inferno-rosso) 100%);
-  border-bottom: 3px solid var(--inferno-arancio);
-}
-
-/* Menu Hamburger Mobile */
+/* ========================================= */
+/* MENU HAMBURGER */
+/* ========================================= */
 .menu-hamburger {
-  display: none;
-  background: var(--inferno-nero);
-  border: 2px solid var(--inferno-rosso);
+    display: none;
+    background: var(--inferno-nero);
+    border: 2px solid var(--inferno-rosso);
 }
 
 .menu-hamburger .line {
-  background-color: var(--inferno-arancio);
+    background-color: var(--inferno-arancio);
 }
 
-/* Pulsanti Inferno */
+/* ========================================= */
+/* BUTTONS */
+/* ========================================= */
 .btn-inferno {
-  background: var(--inferno-rosso);
-  color: var(--inferno-bianco);
-  border: 2px solid var(--inferno-arancio);
+    background: var(--inferno-rosso);
+    color: var(--inferno-bianco);
+    border: 2px solid var(--inferno-arancio);
 }
 
 .btn-inferno:hover {
-  background: var(--inferno-arancio);
-  transform: scale(1.05);
+    background: var(--inferno-arancio);
+    transform: scale(1.05);
 }
 
-/* === STILI MAPPE INTERATTIVE === */
-
-/* Assicura che tutte le mappe abbiano altezza */
+/* ========================================= */
+/* MAPS */
+/* ========================================= */
 #routeMapG1, 
 #routeMapG2, 
 #routeMapG3, 
 #routeMapG4, 
 #routeMapG5 {
-    height: 400px !important;
+    height: 400px;
     width: 100%;
 }
 
@@ -570,12 +590,12 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    border: 1px solid #ffd700;
+    border: 1px solid var(--inferno-giallo);
     font-weight: bold;
 }
 
 .map-btn:hover {
-    background: linear-gradient(135deg, #ff0000, #8b0000);
+    background: linear-gradient(135deg, var(--inferno-rosso), #8b0000);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
 }
@@ -628,7 +648,7 @@ body {
 
 .waze-tip {
     font-size: 0.8rem;
-    color: #ffd700;
+    color: var(--inferno-giallo);
     text-align: center;
     font-style: italic;
 }
@@ -638,7 +658,7 @@ body {
     padding: 15px;
     border-radius: 8px;
     margin: 1rem 0;
-    border-left: 4px solid #ffd700;
+    border-left: 4px solid var(--inferno-giallo);
 }
 
 .gpx-info p {
@@ -648,11 +668,11 @@ body {
 }
 
 .gpx-info strong {
-    color: #ffd700;
+    color: var(--inferno-giallo);
 }
 
 .gpx-info a {
-    color: #ffd700;
+    color: var(--inferno-giallo);
     text-decoration: none;
 }
 
@@ -661,9 +681,8 @@ body {
 }
 
 /* ========================================= */
-/* IMMAGINI ESPANDIBILI - NUOVA SEZIONE */
+/* EXPANDABLE IMAGES */
 /* ========================================= */
-
 .expandable-image {
     transition: all 0.3s ease;
     cursor: zoom-in;
@@ -677,13 +696,11 @@ body {
 .image-caption {
     text-align: center;
     margin-top: 0.5rem;
-    color: #ffd700;
+    color: var(--inferno-giallo);
     font-style: italic;
     font-size: 0.9rem;
 }
 
-/* Modal per immagini espandibili -------------------------------------------------------------*/
-/* Miglioramenti per i controlli zoom */
 #imageModal button:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(255, 215, 0, 0.8);
@@ -693,36 +710,9 @@ body {
     transform: scale(0.95);
 }
 
-/* Miglioramenti responsive per mobile */
-@media (max-width: 768px) {
-    #imageModal img {
-        max-width: 98%;
-        max-height: 75%;
-    }
-    
-    .zoom-controls {
-        bottom: 20px;
-        gap: 10px;
-    }
-    
-    #imageModal button {
-        width: 45px;
-        height: 45px;
-        font-size: 1.3rem;
-    }
-    
-    #modalCaption {
-        font-size: 1.1rem;
-        margin-top: 1rem;
-        padding: 8px 16px;
-    }
-}
-
-/* ========================================= ---------------------------------------------------*/
-/* RESPONSIVE DESIGN - CORREZIONI MOBILE */
 /* ========================================= */
-
-/* Tablet */
+/* RESPONSIVE - TABLET */
+/* ========================================= */
 @media (max-width: 768px) {
     .container {
         padding: 15px;
@@ -734,19 +724,19 @@ body {
     }
     
     .main-title {
-        font-size: 2.8rem !important;
-        line-height: 1.2 !important;
+        font-size: 2.8rem;
+        line-height: 1.2;
     }
     
     .subtitle {
-        font-size: 1.3rem !important;
-        line-height: 1.3 !important;
+        font-size: 1.3rem;
+        line-height: 1.3;
     }
     
     .edition-badge {
-        font-size: 0.9rem !important;
-        padding: 10px 20px !important;
-        line-height: 1.3 !important;
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        line-height: 1.3;
     }
     
     .stats-flash {
@@ -761,9 +751,9 @@ body {
     }
     
     .day-content {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-        padding: 1.5rem !important;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
     }
     
     .day-header {
@@ -774,8 +764,8 @@ body {
     }
     
     .day-title {
-        font-size: 1.3rem !important;
-        line-height: 1.3 !important;
+        font-size: 1.3rem;
+        line-height: 1.3;
     }
     
     .shock-stats {
@@ -798,23 +788,23 @@ body {
     }
     
     .final-number {
-        font-size: 2rem !important;
+        font-size: 2rem;
     }
     
     .final-label {
-        font-size: 0.8rem !important;
+        font-size: 0.8rem;
     }
     
     .quote-text {
-        font-size: 1.3rem !important;
-        line-height: 1.5 !important;
-        padding: 1.5rem !important;
+        font-size: 1.3rem;
+        line-height: 1.5;
+        padding: 1.5rem;
     }
     
     .quote-text h2 {
-        font-size: 1.5rem !important;
-        line-height: 1.3 !important;
-        margin-bottom: 1rem !important;
+        font-size: 1.5rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
     }
     
     .break-mobile {
@@ -844,29 +834,53 @@ body {
         width: 100%;
         text-align: center;
     }
+    
+    #imageModal img {
+        max-width: 98%;
+        max-height: 75%;
+    }
+    
+    .zoom-controls {
+        bottom: 20px;
+        gap: 10px;
+    }
+    
+    #imageModal button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    #modalCaption {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        padding: 8px 16px;
+    }
 }
 
-/* Mobile piccolo */
+/* ========================================= */
+/* RESPONSIVE - MOBILE */
+/* ========================================= */
 @media (max-width: 480px) {
     .container {
-        padding: 10px !important;
+        padding: 10px;
     }
     
     .hero-section {
-        height: 70vh !important;
+        height: 70vh;
     }
     
     .main-title {
-        font-size: 2.2rem !important;
+        font-size: 2.2rem;
     }
     
     .subtitle {
-        font-size: 1.1rem !important;
+        font-size: 1.1rem;
     }
     
     .edition-badge {
-        font-size: 0.8rem !important;
-        padding: 8px 16px !important;
+        font-size: 0.8rem;
+        padding: 8px 16px;
     }
     
     .shock-stats {
@@ -886,7 +900,7 @@ body {
     }
     
     .day-header {
-        padding: 1rem !important;
+        padding: 1rem;
     }
     
     .day-badge {
@@ -895,7 +909,7 @@ body {
     }
     
     .day-title {
-        font-size: 1.1rem !important;
+        font-size: 1.1rem;
     }
     
     .day-distance {
@@ -912,12 +926,12 @@ body {
     }
     
     .quote-text {
-        font-size: 1.1rem !important;
-        padding: 1rem !important;
+        font-size: 1.1rem;
+        padding: 1rem;
     }
     
     .quote-text h2 {
-        font-size: 1.3rem !important;
+        font-size: 1.3rem;
     }
     
     .gpx-info {
@@ -932,10 +946,4 @@ body {
         padding: 10px 15px;
         font-size: 0.9rem;
     }
-}
-
-/* DEBUG TEMPORANEO - Rimuovere dopo il test */
-#routeMapG1, #routeMapG2, #routeMapG3, #routeMapG4, #routeMapG5 {
-    background: #1a1a1a !important;
-    border: 2px solid red !important;
 }
