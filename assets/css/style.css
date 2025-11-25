@@ -109,6 +109,21 @@ body {
     border: 2px solid var(--inferno-giallo);
 }
 
+.date-badge {
+    display: block;
+    background: linear-gradient(45deg, #450000, #8b0000);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 15px auto 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--inferno-giallo);
+    width: fit-content;
+}
+
 /* ========================================= */
 /* STATS & INDICATORS */
 /* ========================================= */
