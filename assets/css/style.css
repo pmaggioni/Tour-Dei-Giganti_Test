@@ -96,17 +96,18 @@ body {
 }
 
 .edition-badge {
-    display: inline-block;
-    background: linear-gradient(45deg, var(--inferno-rosso), #8b0000);
+    display: block; /* cambia da inline-block a block */
+    background: linear-gradient(45deg, #ff0000, #8b0000);
     color: white;
     padding: 15px 30px;
     border-radius: 30px;
     font-weight: bold;
     font-size: 1.2em;
-    margin-top: 20px;
+    margin: 20px auto; /* centra orizzontalmente */
     text-transform: uppercase;
     letter-spacing: 2px;
     border: 2px solid var(--inferno-giallo);
+    width: fit-content; /* aggiungi questa */
 }
 
 .date-badge {
