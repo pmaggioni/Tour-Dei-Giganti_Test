@@ -143,3 +143,130 @@ function toggleChecklist(item) {
     // Da implementare
     console.log('Checklist item toggled:', item);
 }
+
+// =============================================
+// SISTEMA IMMAGINI ESPANDIBILI
+// =============================================
+function initExpandableImages() {
+    console.log('🖼️ Inizializzo immagini espandibili...');
+    
+    // Crea il modal per le immagini
+    const modal = document.createElement('div');
+    modal.id = 'imageModal';
+    modal.style.cssText = `
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.95);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    `;
+    
+    const modalImg = document.createElement('img');
+    modalImg.style.cssText = `
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 15px;
+        border: 3px solid #ffd700;
+        box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+        cursor: zoom-out;
+    `;
+    
+    const closeBtn = document.createElement('span');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        color: #ffd700;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10001;
+        text-shadow: 2px 2px 4px #000;
+        transition: color 0.3s ease;
+    `;
+    
+    const caption = document.createElement('div');
+    caption.style.cssText = `
+        color: #ffd700;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        text-align: center;
+        font-style: italic;
+    `;
+    
+    modal.appendChild(closeBtn);
+    modal.appendChild(modalImg);
+    modal.appendChild(caption);
+    document.body.appendChild(modal);
+    
+    // Aggiungi event listener a tutte le immagini delle mappe
+    document.querySelectorAll('.mappa-immagine').forEach(img => {
+        img.classList.add('expandable-image');
+        img.style.cursor = 'zoom-in';
+        img.style.transition = 'transform 0.3s ease';
+        
+        img.addEventListener('click', function() {
+            modal.style.display = 'flex';
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+            caption.textContent = this.alt;
+            document.body.style.overflow = 'hidden';
+            
+            // Animazione di entrata
+            modalImg.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+                modalImg.style.transform = 'scale(1)';
+            }, 10);
+        });
+        
+        // Effetto hover
+        img.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.02)';
+        });
+        
+        img.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+    
+    // Chiudi modal
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    closeBtn.addEventListener('click', closeModal);
+    modalImg.addEventListener('click', closeModal);
+    
+    // Chiudi modal cliccando sullo sfondo
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Chiudi modal con ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            closeModal();
+        }
+    });
+    
+    console.log('✅ Immagini espandibili pronte!');
+}
+
+// =============================================
+// INIZIALIZZAZIONE AGGIORNATA
+// =============================================
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Inizializzazione Tour dei Giganti...');
+    initMobileMenu();
+    initExpandableImages(); // <-- AGGIUNTA QUESTA RIGA!
+});
