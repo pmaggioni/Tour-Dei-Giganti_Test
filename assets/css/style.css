@@ -51,7 +51,7 @@ body {
     height: 100vh; /* Corretto: 100vh */
     background: 
         linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.3) 100%),
-        url('../assets/images/header-bg.jpg') center/cover;
+        url('../images/header-bg.jpg') center/cover;
     position: relative;
     display: flex;
     flex-direction: column;
