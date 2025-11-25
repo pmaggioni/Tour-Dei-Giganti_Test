@@ -48,10 +48,10 @@ body {
 
 /* Hero Section Epica */
 .hero-section {
-    height: 100vh; /* Corretto: vh non wh */
+    height: 100vh;
     background: 
         linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.3) 100%),
-        url('assets/images/header-bg.jpg') center/cover; /* Percorso corretto */
+        url('https://pmaggioni.github.io/Tour-Dei-Giganti_Test/assets/images/header-bg.jpg') center/cover;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -68,11 +68,11 @@ body {
     transform: translate(-50%, -50%);
     width: 300px;
     height: 200px;
-    background: url('assets/images/logo-removebg-preview.png') center / contain no-repeat;
+    background: url('https://pmaggioni.github.io/Tour-Dei-Giganti_Test/assets/images/logo-removebg-preview.png') center / contain no-repeat;
     opacity: 0.7;
     z-index: 2;
     pointer-events: none;
-    border: 2px solid red; /* Mantieni per debug */
+    /* border: 2px solid red; */ /* Puoi rimuovere il debug ora */
 }
 
 .hero-overlay {
