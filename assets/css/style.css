@@ -86,15 +86,13 @@ body {
 }
 
 .subtitle {
-    font-size: 2.8rem;
-    color: #040404; /* come main-title */
-    text-shadow: 3px 3px 0px var(--inferno-giallo); /* aggiunto */
+    font-size: 1.8rem;
+    color: #0a0a0a;
     margin-bottom: 10px;
-    font-weight: bold; /* da 300 a bold */
-    font-style: italic;
+    text-shadow: 3px 3px 0px var(--inferno-giallo);
     text-transform: uppercase;
+    font-weight: bold;
     letter-spacing: 2px;
-    font-family: Arial, sans-serif; /* aggiunto */
 }
 
 .edition-badge {
