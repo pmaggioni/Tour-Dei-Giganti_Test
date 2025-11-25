@@ -78,11 +78,11 @@ body {
 
 .subtitle {
     font-size: 1.8em;
-    color: #ffd93d;
+    color: #e7071a;
     margin-bottom: 10px;
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 .edition-badge {
