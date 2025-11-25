@@ -1112,10 +1112,10 @@ body {
 }
 
 /* ========================================= */
-/* STILI PER STAMPA PDF - CON COLORI */
+/* STILI PER STAMPA PDF - CON GRAFICA */
 /* ========================================= */
 @media print {
-    /* RESET MANTENENDO COLORI */
+    /* RESET MANTENENDO GRAFICA */
     * {
         box-shadow: none !important;
         text-shadow: none !important;
@@ -1142,31 +1142,58 @@ body {
         padding: 1.5cm !important;
     }
     
-    /* NASCONDI SOLO ELEMENTI NON NECESSARI */
+    /* NASCONDI SOLO ELEMENTI INTERATTIVI */
     .scroll-indicator,
     .map-controls,
     .map-btn,
     .hero-overlay,
     .menu-hamburger,
     .btn-inferno,
-    .tappa-links,
-    .nav-options,
     .waze-explanation {
         display: none !important;
     }
     
-    /* HERO SECTION - PAGINA 1 */
+    /* MOSTRA IMMAGINI E GRAFICA */
+    .mappa-immagine,
+    .expandable-image,
+    .map-container,
+    .tappa-links,
+    .nav-options {
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    /* HERO SECTION CON SFONDO */
     .hero-section {
         height: auto !important;
         min-height: 25cm;
         page-break-after: always;
         break-after: page;
-        background: white !important;
+        background: url('../images/header-bg.jpg') center/cover !important;
         display: flex !important;
         flex-direction: column;
         justify-content: center;
         padding: 2cm !important;
         margin: 0 !important;
+        position: relative;
+    }
+    
+    /* OVERLAY LEGGERO PER LEGGIBILITÀ */
+    .hero-section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 0 !important;
     }
     
     /* TITOLI CON COLORI */
@@ -1217,6 +1244,58 @@ body {
         color: #333 !important;
         border: 1px solid #ffd700 !important;
         font-weight: bold !important;
+    }
+    
+    /* MAPPE E IMMAGINI */
+    .map-container {
+        margin: 1cm 0 !important;
+        border: 2px solid #333 !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+    
+    .mappa-immagine {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+    }
+    
+    .tappa-links {
+        background: #f8f8f8 !important;
+        border: 1px solid #ddd !important;
+        padding: 0.5cm !important;
+        margin: 0.5cm 0 !important;
+    }
+    
+    .nav-options {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.3cm !important;
+    }
+    
+    .map-link {
+        background: #e9ecef !important;
+        border: 1px solid #ccc !important;
+        color: #333 !important;
+        padding: 0.3cm !important;
+        text-align: center !important;
+        text-decoration: none !important;
+    }
+    
+    .maps-link {
+        border-color: #4285f4 !important;
+    }
+    
+    .waze-link {
+        border-color: #33ccff !important;
+    }
+    
+    /* GPX INFO */
+    .gpx-info {
+        background: #f8f8f8 !important;
+        border-left: 4px solid #ffd700 !important;
+        padding: 0.5cm !important;
+        margin: 0.5cm 0 !important;
     }
     
     /* SEZIONI PRINCIPALI */
@@ -1287,10 +1366,6 @@ body {
         color: white !important;
     }
     
-    .passo-card.epic:hover {
-        border-left-color: #ffd700 !important;
-    }
-    
     .passo-content h3 {
         color: #ffd700 !important;
         border-bottom: 1px solid #ffd700 !important;
@@ -1328,12 +1403,6 @@ body {
         font-weight: 900 !important;
     }
     
-    .final-label,
-    .shock-label {
-        color: #ccc !important;
-        font-weight: bold !important;
-    }
-    
     /* FINAL EPIC */
     .final-epic {
         page-break-before: always;
@@ -1356,23 +1425,21 @@ body {
         color: white !important;
     }
     
-    .signature {
-        color: #ffd700 !important;
-    }
-    
     /* MARGINI PAGINA */
     @page {
         margin: 1.5cm;
         size: A4;
     }
     
-    /* FORZA STAMPA COLORI */
+    /* FORZA STAMPA TUTTA LA GRAFICA */
     .hero-section,
     .epic-quote,
     .epic-day,
     .shock-card,
     .highlight-box,
-    .final-epic {
+    .final-epic,
+    .map-container,
+    .mappa-immagine {
         -webkit-print-color-adjust: exact !important;
         color-adjust: exact !important;
         print-color-adjust: exact !important;
