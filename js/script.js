@@ -145,10 +145,10 @@ function toggleChecklist(item) {
 }
 
 // =============================================
-// SISTEMA IMMAGINI ESPANDIBILI
+// SISTEMA IMMAGINI ESPANDIBILI POTENZIATO
 // =============================================
 function initExpandableImages() {
-    console.log('🖼️ Inizializzo immagini espandibili...');
+    console.log('🖼️ Inizializzo immagini espandibili avanzate...');
     
     // Crea il modal per le immagini
     const modal = document.createElement('div');
@@ -161,91 +161,278 @@ function initExpandableImages() {
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0,0,0,0.95);
+        background-color: rgba(0,0,0,0.98);
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        cursor: zoom-out;
     `;
     
     const modalImg = document.createElement('img');
+    modalImg.id = 'expandedImage';
     modalImg.style.cssText = `
-        max-width: 90%;
-        max-height: 80%;
-        border-radius: 15px;
+        max-width: 95%;
+        max-height: 85%;
+        border-radius: 10px;
         border: 3px solid #ffd700;
-        box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
-        cursor: zoom-out;
+        box-shadow: 0 0 60px rgba(255, 215, 0, 0.6);
+        cursor: grab;
+        transition: transform 0.2s ease;
+        transform-origin: center center;
     `;
     
     const closeBtn = document.createElement('span');
     closeBtn.innerHTML = '&times;';
     closeBtn.style.cssText = `
         position: absolute;
-        top: 20px;
+        top: 25px;
         right: 35px;
         color: #ffd700;
-        font-size: 40px;
+        font-size: 45px;
         font-weight: bold;
         cursor: pointer;
         z-index: 10001;
-        text-shadow: 2px 2px 4px #000;
-        transition: color 0.3s ease;
+        text-shadow: 2px 2px 8px #000;
+        transition: all 0.3s ease;
+        background: rgba(0,0,0,0.7);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     `;
     
     const caption = document.createElement('div');
+    caption.id = 'modalCaption';
     caption.style.cssText = `
         color: #ffd700;
-        font-size: 1.2rem;
-        margin-top: 1rem;
+        font-size: 1.3rem;
+        margin-top: 1.5rem;
         text-align: center;
         font-style: italic;
+        background: rgba(0,0,0,0.7);
+        padding: 10px 20px;
+        border-radius: 20px;
+        max-width: 80%;
     `;
+    
+    const zoomControls = document.createElement('div');
+    zoomControls.style.cssText = `
+        position: absolute;
+        bottom: 30px;
+        display: flex;
+        gap: 15px;
+        z-index: 10001;
+    `;
+    
+    const zoomInBtn = document.createElement('button');
+    zoomInBtn.innerHTML = '➕';
+    zoomInBtn.title = 'Zoom In';
+    zoomInBtn.style.cssText = `
+        background: rgba(255, 215, 0, 0.9);
+        color: #000;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    `;
+    
+    const zoomOutBtn = document.createElement('button');
+    zoomOutBtn.innerHTML = '➖';
+    zoomOutBtn.title = 'Zoom Out';
+    zoomOutBtn.style.cssText = `
+        background: rgba(255, 215, 0, 0.9);
+        color: #000;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    `;
+    
+    const resetBtn = document.createElement('button');
+    resetBtn.innerHTML = '🔄';
+    resetBtn.title = 'Reset Zoom';
+    resetBtn.style.cssText = `
+        background: rgba(255, 69, 0, 0.9);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    `;
+    
+    // Aggiungi elementi al modal
+    zoomControls.appendChild(zoomInBtn);
+    zoomControls.appendChild(zoomOutBtn);
+    zoomControls.appendChild(resetBtn);
     
     modal.appendChild(closeBtn);
     modal.appendChild(modalImg);
     modal.appendChild(caption);
+    modal.appendChild(zoomControls);
     document.body.appendChild(modal);
     
-    // Aggiungi event listener a tutte le immagini delle mappe
+    // Variabili per lo zoom
+    let currentScale = 1;
+    let isDragging = false;
+    let startX, startY, scrollLeft, scrollTop;
+    
+    // Aggiungi event listener a tutte le immagini
     document.querySelectorAll('.mappa-immagine').forEach(img => {
         img.classList.add('expandable-image');
         img.style.cursor = 'zoom-in';
-        img.style.transition = 'transform 0.3s ease';
+        img.style.transition = 'all 0.3s ease';
         
         img.addEventListener('click', function() {
-            modal.style.display = 'flex';
-            modalImg.src = this.src;
-            modalImg.alt = this.alt;
-            caption.textContent = this.alt;
-            document.body.style.overflow = 'hidden';
-            
-            // Animazione di entrata
-            modalImg.style.transform = 'scale(0.8)';
-            setTimeout(() => {
-                modalImg.style.transform = 'scale(1)';
-            }, 10);
+            openModal(this.src, this.alt);
         });
         
-        // Effetto hover
+        // Effetto hover migliorato
         img.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.02)';
+            this.style.transform = 'scale(1.03)';
+            this.style.boxShadow = '0 12px 35px rgba(255, 215, 0, 0.4)';
         });
         
         img.addEventListener('mouseleave', function() {
             this.style.transform = 'scale(1)';
+            this.style.boxShadow = '0 8px 25px rgba(255, 0, 0, 0.2)';
         });
     });
     
-    // Chiudi modal
+    function openModal(src, alt) {
+        modal.style.display = 'flex';
+        modalImg.src = src;
+        modalImg.alt = alt;
+        caption.textContent = alt;
+        document.body.style.overflow = 'hidden';
+        
+        // Reset zoom e posizione
+        currentScale = 1;
+        modalImg.style.transform = 'scale(1)';
+        modalImg.style.cursor = 'grab';
+        
+        // Animazione di entrata
+        modalImg.style.opacity = '0';
+        modalImg.style.transform = 'scale(0.7)';
+        setTimeout(() => {
+            modalImg.style.opacity = '1';
+            modalImg.style.transform = 'scale(1)';
+        }, 50);
+    }
+    
     function closeModal() {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
+        currentScale = 1;
     }
     
-    closeBtn.addEventListener('click', closeModal);
-    modalImg.addEventListener('click', closeModal);
+    // Controlli zoom
+    zoomInBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentScale += 0.3;
+        modalImg.style.transform = `scale(${currentScale})`;
+        modalImg.style.cursor = 'grab';
+    });
     
-    // Chiudi modal cliccando sullo sfondo
+    zoomOutBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (currentScale > 0.5) {
+            currentScale -= 0.3;
+            modalImg.style.transform = `scale(${currentScale})`;
+        }
+        if (currentScale <= 1) {
+            modalImg.style.cursor = 'grab';
+        }
+    });
+    
+    resetBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentScale = 1;
+        modalImg.style.transform = 'scale(1)';
+        modalImg.style.cursor = 'grab';
+    });
+    
+    // Zoom con rotella mouse
+    modalImg.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        if (e.deltaY < 0) {
+            // Zoom in
+            currentScale += 0.2;
+        } else {
+            // Zoom out
+            if (currentScale > 0.5) {
+                currentScale -= 0.2;
+            }
+        }
+        modalImg.style.transform = `scale(${currentScale})`;
+        if (currentScale > 1) {
+            modalImg.style.cursor = 'grab';
+        }
+    });
+    
+    // Drag per muovere l'immagine zoommata
+    modalImg.addEventListener('mousedown', startDrag);
+    modalImg.addEventListener('touchstart', startDrag);
+    
+    function startDrag(e) {
+        if (currentScale <= 1) return;
+        
+        isDragging = true;
+        modalImg.style.cursor = 'grabbing';
+        
+        const clientX = e.clientX || e.touches[0].clientX;
+        const clientY = e.clientY || e.touches[0].clientY;
+        
+        startX = clientX - modalImg.offsetLeft;
+        startY = clientY - modalImg.offsetTop;
+        
+        e.preventDefault();
+    }
+    
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag);
+    
+    function drag(e) {
+        if (!isDragging) return;
+        
+        const clientX = e.clientX || e.touches[0].clientX;
+        const clientY = e.clientY || e.touches[0].clientY;
+        
+        e.preventDefault();
+        
+        const x = clientX - startX;
+        const y = clientY - startY;
+        
+        modalImg.style.left = x + 'px';
+        modalImg.style.top = y + 'px';
+        modalImg.style.position = 'relative';
+    }
+    
+    document.addEventListener('mouseup', stopDrag);
+    document.addEventListener('touchend', stopDrag);
+    
+    function stopDrag() {
+        isDragging = false;
+        if (currentScale > 1) {
+            modalImg.style.cursor = 'grab';
+        }
+    }
+    
+    // Chiudi modal
+    closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
             closeModal();
@@ -259,7 +446,17 @@ function initExpandableImages() {
         }
     });
     
-    console.log('✅ Immagini espandibili pronte!');
+    // Effetti hover per i pulsanti
+    [zoomInBtn, zoomOutBtn, resetBtn, closeBtn].forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
+        });
+        btn.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+    
+    console.log('✅ Immagini espandibili avanzate pronte!');
 }
 
 // =============================================
