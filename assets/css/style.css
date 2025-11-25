@@ -47,6 +47,7 @@ body {
 }
 
 /* Hero Section Epica */
+/* Hero Section Epica */
 .hero-section {
     height: 100vh;
     background: 
@@ -70,12 +71,9 @@ body {
     height: 200px;
     background: url(../assets/images/logo-removebg-preview.png) center / contain no-repeat;
     opacity: 0.7;
-    z-index: 1;
+    z-index: 2; /* Cambiato da 1 a 2 */
     pointer-events: none;
 }
-
-
-
 
 .hero-overlay {
     position: absolute;
@@ -84,12 +82,15 @@ body {
     right: 0;
     bottom: 0;
     background: linear-gradient(45deg, rgba(0,0,0,0.8) 0%, rgba(139,0,0,0.4) 100%);
+    z-index: 1; /* Aggiunto z-index: 1 */
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
+
+
 
 .main-title {
     font-size: 4.5em;
