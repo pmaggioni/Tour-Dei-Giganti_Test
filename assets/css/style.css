@@ -69,7 +69,7 @@ body {
 }
 
 /* ========================================= */
-/* TITLES & BADGES */
+/* TITOLO SU 3 RIGHE - MODIFICATO */
 /* ========================================= */
 .title-container {
     text-align: center;
@@ -77,12 +77,59 @@ body {
 }
 
 .main-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2em;
     font-size: 4rem;
     color: #040404;
     text-shadow: 3px 3px 0px var(--inferno-giallo);
     margin-bottom: 1rem;
     font-weight: bold;
     font-family: Arial, sans-serif;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.title-line {
+    display: block;
+    line-height: 1;
+}
+
+.title-emoji {
+    display: inline-block;
+    margin: 0 0.3em;
+    vertical-align: middle;
+}
+
+/* Desktop - dimensioni grandi */
+@media (min-width: 769px) {
+    .main-title {
+        font-size: 4.5rem;
+        gap: 0.3em;
+    }
+    
+    .title-emoji {
+        margin: 0 0.4em;
+    }
+}
+
+/* Mobile - dimensioni ridotte */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem;
+        gap: 0.1em;
+    }
+    
+    .title-emoji {
+        margin: 0 0.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
 }
 
 .subtitle {
@@ -96,18 +143,18 @@ body {
 }
 
 .edition-badge {
-    display: block; /* cambia da inline-block a block */
+    display: block;
     background: linear-gradient(45deg, #ff0000, #8b0000);
     color: white;
     padding: 15px 30px;
     border-radius: 30px;
     font-weight: bold;
     font-size: 1.2em;
-    margin: 20px auto; /* centra orizzontalmente */
+    margin: 20px auto;
     text-transform: uppercase;
     letter-spacing: 2px;
     border: 2px solid var(--inferno-giallo);
-    width: fit-content; /* aggiungi questa */
+    width: fit-content;
 }
 
 .date-badge {
@@ -536,33 +583,6 @@ body {
 }
 
 /* ========================================= */
-/* MENU HAMBURGER */
-/* ========================================= */
-.menu-hamburger {
-    display: none;
-    background: var(--inferno-nero);
-    border: 2px solid var(--inferno-rosso);
-}
-
-.menu-hamburger .line {
-    background-color: var(--inferno-arancio);
-}
-
-/* ========================================= */
-/* BUTTONS */
-/* ========================================= */
-.btn-inferno {
-    background: var(--inferno-rosso);
-    color: var(--inferno-bianco);
-    border: 2px solid var(--inferno-arancio);
-}
-
-.btn-inferno:hover {
-    background: var(--inferno-arancio);
-    transform: scale(1.05);
-}
-
-/* ========================================= */
 /* MAPS */
 /* ========================================= */
 #routeMapG1, 
@@ -740,8 +760,12 @@ body {
     }
     
     .main-title {
-        font-size: 2.8rem;
-        line-height: 1.2;
+        font-size: 3rem;
+        gap: 0.1em;
+    }
+    
+    .title-emoji {
+        margin: 0 0.2em;
     }
     
     .subtitle {
@@ -887,7 +911,7 @@ body {
     }
     
     .main-title {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
     
     .subtitle {
