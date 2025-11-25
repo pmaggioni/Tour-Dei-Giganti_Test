@@ -75,45 +75,6 @@ body {
     z-index: 2;
 }
 
-
-
-
-/*
-.main-title {
-    font-size: 4.5em;
-    font-weight: 900;
-    margin-bottom: 20px;
-    text-shadow: 3px 3px 10px rgba(255, 0, 0, 0.5);
-    background: linear-gradient(45deg, #ff0000, #ff6b6b, #ffd93d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-*/
-
-.main-title {
-    font-size: 4.5em;
-    font-weight: 900;
-    margin-bottom: 20px;
-    color: black !important;
-    text-shadow: 
-        3px 3px 0 yellow,
-        -1px -1px 0 yellow,
-        1px -1px 0 yellow,
-        -1px 1px 0 yellow !important;
-    background: none !important;
-    -webkit-text-fill-color: black !important;
-}
-
-.subtitle {
-    font-size: 1.8em;
-    color: #ffd93d;
-    margin-bottom: 10px;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
 .edition-badge {
     display: inline-block;
     background: linear-gradient(45deg, #ff0000, #8b0000);
