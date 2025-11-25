@@ -46,9 +46,6 @@ body {
     font-style: italic;
 }
 
-
-
-
 /* Hero Section Epica */
 .hero-section {
     height: 100vh;
@@ -142,7 +139,6 @@ body {
 }
 
 /* Header per i giorni speciali */
-
 .finale-header {
     background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
 }
@@ -178,7 +174,6 @@ body {
     background: linear-gradient(135deg, #4ecdc4, #44a08d) !important;
 }
 
-
 /* Stats finali inline */
 .final-stats-inline {
     display: grid;
@@ -195,7 +190,22 @@ body {
     border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
+.final-number {
+    font-size: 2.5em;
+    font-weight: 900;
+    background: linear-gradient(45deg, #ff0000, #ffd93d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 5px;
+}
 
+.final-label {
+    color: #ccc;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
 /* Quote Epica */
 .epic-quote {
@@ -228,6 +238,11 @@ body {
     font-size: 1.2em;
     color: #ffd93d;
     font-weight: 300;
+}
+
+/* Break mobile per manifesto */
+.break-mobile {
+    display: inline;
 }
 
 /* Stats Shock */
@@ -288,14 +303,6 @@ body {
     align-items: center;
     gap: 20px;
     position: relative;
-}
-
-.transfer-header {
-    background: linear-gradient(135deg, #4ecdc4, #44a08d);
-}
-
-.adrenaline-header {
-    background: linear-gradient(135deg, #ff6b6b, #ff0000);
 }
 
 .day-badge {
@@ -413,7 +420,7 @@ body {
 
 .info-item {
     display: flex;
-    justify-content: between;
+    justify-content: space-between;
     margin: 12px 0;
     padding-bottom: 12px;
     border-bottom: 1px solid #333;
@@ -464,32 +471,6 @@ body {
     border: 1px solid rgba(255, 0, 0, 0.3);
 }
 
-.final-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 30px;
-    margin: 50px 0;
-}
-
-.final-stat {
-    text-align: center;
-}
-
-.final-number {
-    font-size: 3.5em;
-    font-weight: 900;
-    background: linear-gradient(45deg, #ff0000, #ffd93d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.final-label {
-    color: #ccc;
-    font-size: 0.9em;
-    margin-top: 10px;
-}
-
 .closing-quote {
     background: linear-gradient(135deg, #8b0000, #450000);
     padding: 50px;
@@ -508,50 +489,6 @@ body {
     font-size: 1.3em;
     color: #ffd93d;
     font-weight: bold;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .main-title {
-        font-size: 2.8em;
-    }
-    
-    .day-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .stats-flash {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .hero-section {
-        height: 80vh;
-    }
-    
-    .quote-text {
-        font-size: 1.4em;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 10px;
-    }
-    
-    .main-title {
-        font-size: 2.2em;
-    }
-    
-    .subtitle {
-        font-size: 1.2em;
-    }
-    
-    .day-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
 }
 
 /* === TEMA INFERNO - TOUR DEI GIGANTI === */
@@ -586,12 +523,6 @@ body {
   background-color: var(--inferno-arancio);
 }
 
-@media (max-width: 768px) {
-  .menu-hamburger {
-    display: block;
-  }
-}
-
 /* Pulsanti Inferno */
 .btn-inferno {
   background: var(--inferno-rosso);
@@ -606,7 +537,6 @@ body {
 
 /* === STILI MAPPE INTERATTIVE === */
 
-
 /* Assicura che tutte le mappe abbiano altezza */
 #routeMapG1, 
 #routeMapG2, 
@@ -617,15 +547,20 @@ body {
     width: 100%;
 }
 
-
-
 .map-container {
-    height: 400px;
+    height: auto;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(255, 0, 0, 0.2);
     margin-bottom: 1.5rem;
     border: 2px solid #333;
+}
+
+.mappa-immagine {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
 }
 
 .map-controls {
@@ -734,10 +669,118 @@ body {
     text-decoration: underline;
 }
 
-/* Responsive per mappe */
+/* ========================================= */
+/* RESPONSIVE DESIGN - CORREZIONI MOBILE */
+/* ========================================= */
+
+/* Tablet */
 @media (max-width: 768px) {
-    .map-container {
-        height: 300px;
+    .container {
+        padding: 15px;
+    }
+    
+    .hero-section {
+        height: 80vh;
+        padding: 1rem;
+    }
+    
+    .main-title {
+        font-size: 2.8rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .subtitle {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .edition-badge {
+        font-size: 0.9rem !important;
+        padding: 10px 20px !important;
+        line-height: 1.3 !important;
+    }
+    
+    .stats-flash {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 2rem;
+    }
+    
+    .stat-item {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .day-content {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        padding: 1.5rem !important;
+    }
+    
+    .day-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 1.5rem;
+    }
+    
+    .day-title {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .shock-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: 2rem 0;
+    }
+    
+    .shock-card {
+        padding: 20px 15px;
+    }
+    
+    .shock-number {
+        font-size: 2.2rem;
+    }
+    
+    .final-stats-inline {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .final-number {
+        font-size: 2rem !important;
+    }
+    
+    .final-label {
+        font-size: 0.8rem !important;
+    }
+    
+    .quote-text {
+        font-size: 1.3rem !important;
+        line-height: 1.5 !important;
+        padding: 1.5rem !important;
+    }
+    
+    .quote-text h2 {
+        font-size: 1.5rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .break-mobile {
+        display: block;
+        line-height: 1.2;
+    }
+    
+    .passo-card.epic {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .passo-icon {
+        font-size: 1.8rem;
     }
     
     .nav-options {
@@ -753,6 +796,95 @@ body {
         text-align: center;
     }
 }
+
+/* Mobile piccolo */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px !important;
+    }
+    
+    .hero-section {
+        height: 70vh !important;
+    }
+    
+    .main-title {
+        font-size: 2.2rem !important;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem !important;
+    }
+    
+    .edition-badge {
+        font-size: 0.8rem !important;
+        padding: 8px 16px !important;
+    }
+    
+    .shock-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .shock-card {
+        padding: 15px 10px;
+    }
+    
+    .shock-number {
+        font-size: 1.8rem;
+    }
+    
+    .final-stats-inline {
+        grid-template-columns: 1fr;
+    }
+    
+    .day-header {
+        padding: 1rem !important;
+    }
+    
+    .day-badge {
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+    
+    .day-title {
+        font-size: 1.1rem !important;
+    }
+    
+    .day-distance {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .epic-intro {
+        font-size: 1.1rem;
+    }
+    
+    .passo-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .quote-text {
+        font-size: 1.1rem !important;
+        padding: 1rem !important;
+    }
+    
+    .quote-text h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    .gpx-info {
+        padding: 10px;
+    }
+    
+    .gpx-info p {
+        font-size: 0.8rem;
+    }
+    
+    .map-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
 /* DEBUG TEMPORANEO - Rimuovere dopo il test */
 #routeMapG1, #routeMapG2, #routeMapG3, #routeMapG4, #routeMapG5 {
     background: #1a1a1a !important;
