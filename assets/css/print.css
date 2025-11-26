@@ -1,4 +1,4 @@
-/* print.css - VERSIONE MIGLIORATA */
+/* print.css - VERSIONE FINALE OTTIMIZZATA */
 @media print {
     /* MARCATORE VISIBILE - solo in stampa */
     body:before {
@@ -21,12 +21,11 @@
         box-shadow: none !important;
         text-shadow: none !important;
         background: transparent !important;
-        color: black !important;
     }
     
     body {
         font-family: "Arial", sans-serif !important;
-        font-size: 12pt !important; /* Font più grande */
+        font-size: 12pt !important;
         line-height: 1.4 !important;
         background: white !important;
         width: 100% !important;
@@ -34,71 +33,94 @@
         padding: 0 !important;
     }
     
-    /* MARGINI PIÙ STRETTI - più spazio per il contenuto */
+    /* MARGINI ANCORA PIÙ STRETTI - massimo spazio */
     @page {
-        margin: 1cm !important; /* Ridotto da 1.5cm a 1cm */
+        margin: 0.7cm !important; /* Ridotto al minimo */
         size: A4;
     }
     
-    /* Sezioni con più spazio */
+    /* Sezioni con massimo spazio */
     .page-section {
         page-break-after: always !important;
         break-after: page !important;
         min-height: auto !important;
-        padding: 0.7cm !important; /* Più padding */
+        padding: 0.5cm !important;
         margin: 0 !important;
         border: none !important;
     }
     
-    /* Titoli più leggibili */
+    /* NASCONDI ELEMENTI INUTILI PER STAMPA */
+    .no-print,
+    nav,
+    .back-to-top,
+    .map-container iframe,
+    .btn,
+    .map-links,
+    .navigate-text,
+    a[href*="google.com/maps"],
+    a[href*="gpx"],
+    a[href*="pdf"]:after {
+        display: none !important;
+    }
+    
+    /* Titoli in giallo/arancione */
     h1 {
-        font-size: 24pt !important;
+        font-size: 26pt !important;
         margin-bottom: 15pt !important;
-        color: #000 !important; /* Nero puro */
+        color: #ff6b35 !important; /* Arancione */
         text-align: center !important;
+        font-weight: bold !important;
     }
     
     h2 {
-        font-size: 18pt !important;
+        font-size: 20pt !important;
         margin: 12pt 0 !important;
-        color: #000 !important;
-        border-bottom: 1pt solid #333 !important;
+        color: #ff6b35 !important; /* Arancione */
+        border-bottom: 2pt solid #ff6b35 !important;
         padding-bottom: 5pt !important;
     }
     
     h3 {
         font-size: 16pt !important;
         margin: 10pt 0 !important;
-        color: #000 !important;
+        color: #ff8c42 !important; /* Arancione chiaro */
     }
     
-    /* Testo principale */
+    /* Sottotitoli in giallo */
+    .subtitle {
+        font-size: 14pt !important;
+        color: #f4d35e !important; /* Giallo */
+        font-weight: bold !important;
+        text-align: center !important;
+    }
+    
+    /* Testo principale in nero */
     p, li {
         font-size: 11pt !important;
-        color: #000 !important; /* Nero per migliore leggibilità */
+        color: #000 !important;
         line-height: 1.4 !important;
     }
     
-    /* Statistiche più grandi */
+    /* Statistiche con colori */
     .stat-box {
         display: inline-block !important;
-        width: 24% !important; /* Più larghe */
-        margin: 8pt !important; /* Più spazio */
-        padding: 10pt !important; /* Più padding */
+        width: 24% !important;
+        margin: 8pt !important;
+        padding: 10pt !important;
         font-size: 10pt !important;
-        background: #f8f8f8 !important; /* Sfondo chiaro */
-        border: 1pt solid #ddd !important;
+        background: #fffaf0 !important; /* Sfondo giallo chiaro */
+        border: 1pt solid #ff6b35 !important;
     }
     
     .stat-number {
-        font-size: 18pt !important; /* Più grandi */
-        color: #000 !important;
+        font-size: 20pt !important; /* Più grandi */
+        color: #ff6b35 !important; /* Arancione */
         font-weight: bold !important;
     }
     
     .stat-label {
         font-size: 9pt !important;
-        color: #333 !important; /* Grigio scuro */
+        color: #333 !important;
     }
     
     /* NUMERAZIONE PAGINE */
@@ -113,44 +135,35 @@
     .page-section:after {
         content: "Pagina " counter(page);
         position: fixed;
-        bottom: 0.5cm;
-        right: 1cm;
+        bottom: 0.3cm;
+        right: 0.7cm;
         font-size: 9pt;
-        color: #666;
-    }
-    
-    /* Nascondi elementi problema */
-    .no-print,
-    nav,
-    .back-to-top,
-    .map-container iframe,
-    .btn {
-        display: none !important;
+        color: #ff6b35 !important; /* Arancione */
     }
     
     /* Layout delle cards più spazioso */
     .day-card {
-        margin: 12pt 0 !important;
-        padding: 12pt !important;
-        border: 1pt solid #ccc !important;
+        margin: 15pt 0 !important;
+        padding: 15pt !important;
+        border: 1pt solid #ff6b35 !important;
         background: white !important;
         page-break-inside: avoid !important;
     }
     
-    /* Citazioni più eleganti */
+    /* Citazioni in giallo/arancione */
     .quote {
         font-style: italic !important;
-        color: #000 !important;
-        border-left: 3pt solid #666 !important;
+        color: #ff6b35 !important;
+        border-left: 3pt solid #f4d35e !important;
         padding-left: 15pt !important;
         margin: 15pt 0 !important;
-        font-size: 11pt !important;
+        font-size: 12pt !important;
     }
     
-    /* Link più leggibili */
-    a {
-        color: #000 !important;
-        text-decoration: underline !important;
+    /* Highlight importanti */
+    .highlight {
+        color: #ff6b35 !important;
+        font-weight: bold !important;
     }
     
     /* Manifesto speciale */
@@ -158,10 +171,10 @@
         font-size: 12pt !important;
         line-height: 1.6 !important;
         text-align: center !important;
-        padding: 25pt !important;
-        border: 2pt solid #000 !important;
-        margin: 20pt 0 !important;
-        background: white !important;
+        padding: 20pt !important;
+        border: 2pt solid #ff6b35 !important;
+        margin: 15pt 0 !important;
+        background: #fffaf0 !important;
         color: #000 !important;
     }
     
@@ -171,8 +184,15 @@
         width: 48% !important;
         margin: 8pt !important;
         padding: 12pt !important;
-        border: 1pt solid #ddd !important;
+        border: 1pt solid #ff6b35 !important;
         vertical-align: top !important;
-        background: #f9f9f9 !important;
+        background: #fffaf0 !important;
+    }
+    
+    /* File info più compatta */
+    .file-info {
+        font-size: 9pt !important;
+        color: #666 !important;
+        margin: 5pt 0 !important;
     }
 }
