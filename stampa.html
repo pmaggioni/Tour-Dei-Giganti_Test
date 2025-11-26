@@ -17,7 +17,7 @@
         }
 
             /* ========================================= */
-            /* PAGINA DEDICA - STAMPA - VERSIONE COMPATTA */
+            /* PAGINA DEDICA - STAMPA - VERSIONE ORIGINALE COMPATTA */
             /* ========================================= */
             @media print {
                 .dedica-page {
@@ -25,21 +25,28 @@
                     page-break-inside: avoid !important;
                     min-height: 27cm;
                     height: 27cm !important;
-                    background: #ffffff !important; /* Sfondo bianco */
+                    background:
+                        linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.3) 100%),
+                        linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%) !important;
                     position: relative;
                     display: flex !important;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
                     text-align: center;
-                    padding: 1cm !important;
+                    padding: 1.2cm !important;
                     font-family: 'Arial', sans-serif !important;
                     overflow: hidden !important;
                     margin: 0 !important;
                 }
                 
                 .dedica-hero-overlay {
-                    display: none !important; /* Rimuovi overlay scuro */
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8) 0%, rgba(139, 0, 0, 0.4) 100%) !important;
                 }
                 
                 .dedica-container {
@@ -47,28 +54,28 @@
                     z-index: 1;
                     max-width: 15cm !important;
                     width: 85% !important;
-                    background: #ffffff !important; /* Sfondo bianco */
-                    padding: 1cm !important;
-                    border-radius: 8px !important;
-                    border: 2px solid #000000 !important; /* Bordo nero semplice */
-                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important; /* Ombra leggera */
+                    background: rgba(0, 0, 0, 0.9) !important;
+                    padding: 0.8cm !important;
+                    border-radius: 12px !important;
+                    border: 2px solid #ff6b35 !important;
+                    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3) !important;
                     margin: 0 auto !important;
                 }
                 
                 .dedica-title {
-                    font-size: 24pt !important;
-                    color: #000000 !important; /* Nero */
-                    text-shadow: none !important; /* Rimuovi ombra testo */
-                    margin-bottom: 0.3cm !important;
+                    font-size: 26pt !important;
+                    color: #ffd700 !important;
+                    text-shadow: 2px 2px 0px #ff0000 !important;
+                    margin-bottom: 0.2cm !important;
                     font-weight: 700 !important;
                     line-height: 1.1 !important;
                 }
                 
                 .dedica-subtitle {
                     font-size: 11pt !important;
-                    color: #333333 !important; /* Grigio scuro */
+                    color: #ff4500 !important;
                     font-style: italic !important;
-                    margin-bottom: 0.4cm !important;
+                    margin-bottom: 0.3cm !important;
                 }
                 
                 .motivo-icon {
@@ -79,9 +86,10 @@
                 
                 .motivo-icon img {
                     width: 100% !important;
-                    max-width: 4cm !important; /* Logo più piccolo */
+                    max-width: 5cm !important;
                     height: auto !important;
-                    filter: none !important; /* Rimuovi effetti speciali */
+                    filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.9))
+                            drop-shadow(0 0 15px rgba(255, 0, 0, 0.6)) !important;
                     opacity: 1 !important;
                     background: transparent !important;
                 }
@@ -90,40 +98,42 @@
                     max-width: 100% !important;
                     margin: 0 auto !important;
                     text-align: left !important;
-                    color: #000000 !important; /* Testo nero */
+                    color: #ffffff !important;
                 }
                 
                 .testo-dedica {
-                    line-height: 1.4 !important; /* Interlinea più stretta */
-                    font-size: 9.5pt !important; /* Testo più piccolo */
+                    line-height: 1.4 !important;
+                    font-size: 9.5pt !important;
                     text-align: justify !important;
-                    color: #000000 !important;
+                    color: #ffffff !important;
                     margin-bottom: 0.3cm !important;
                 }
                 
                 .testo-dedica p {
-                    margin-bottom: 0.2cm !important; /* Meno spazio tra paragrafi */
+                    margin-bottom: 0.2cm !important;
                 }
                 
                 .firma-dedica {
                     text-align: right !important;
                     margin-top: 0.3cm !important;
                     font-style: italic !important;
-                    color: #000000 !important; /* Nero */
+                    color: #ffd700 !important;
                     font-size: 10pt !important;
                     padding-top: 0.2cm !important;
-                    border-top: 1px solid #cccccc !important; /* Linea grigia */
+                    border-top: 1px solid #ff6b35 !important;
                 }
                 
                 .cta-section-dedica {
                     display: none !important;
                 }
             }
-
-        /* Stili per anteprima schermo - Versione compatta */
+            
+            /* Stili per anteprima schermo - Versione originale compatta */
             @media screen {
                 .dedica-page {
-                    background: #ffffff !important;
+                    background:
+                        linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.3) 100%),
+                        linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
                     min-height: 100vh;
                     position: relative;
                     display: flex;
@@ -136,7 +146,12 @@
                 }
                 
                 .dedica-hero-overlay {
-                    display: none;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8) 0%, rgba(139, 0, 0, 0.4) 100%);
                 }
                 
                 .dedica-container {
@@ -144,16 +159,17 @@
                     z-index: 1;
                     max-width: 600px;
                     width: 90%;
-                    background: #ffffff;
-                    padding: 30px 25px;
-                    border-radius: 8px;
-                    border: 2px solid #000000;
-                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                    background: rgba(0, 0, 0, 0.9);
+                    padding: 25px 20px;
+                    border-radius: 12px;
+                    border: 2px solid #ff6b35;
+                    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
                 }
                 
                 .dedica-title {
-                    font-size: 2rem;
-                    color: #000000;
+                    font-size: 2.2rem;
+                    color: #ffd700;
+                    text-shadow: 2px 2px 0px #ff0000;
                     margin-bottom: 0.5rem;
                     font-weight: 700;
                     line-height: 1.1;
@@ -161,18 +177,19 @@
                 
                 .dedica-subtitle {
                     font-size: 1.1rem;
-                    color: #333333;
+                    color: #ff4500;
                     font-style: italic;
                     margin-bottom: 1rem;
                 }
                 
                 .motivo-icon img {
                     max-width: 200px;
-                    filter: none;
+                    filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.9))
+                            drop-shadow(0 0 15px rgba(255, 0, 0, 0.6));
                 }
                 
                 .testo-dedica {
-                    font-size: 0.95rem;
+                    font-size: 0.9rem;
                     line-height: 1.5;
                 }
             }
