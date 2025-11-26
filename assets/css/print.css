@@ -1,3 +1,21 @@
+/* print.css - CON MARCATORE DI TEST */
+@media print {
+    /* MARCATORE VISIBILE - solo in stampa */
+    body:before {
+        content: "🎯 STAMPA TOUR DEI GIGANTI - CSS ATTIVO";
+        display: block;
+        background: #ff6b35 !important;
+        color: white !important;
+        padding: 10px !important;
+        text-align: center !important;
+        font-weight: bold !important;
+        font-size: 14pt !important;
+        border: 2px solid #000 !important;
+        margin-bottom: 20px !important;
+    }
+    
+
+
 /* print.css - VERSIONE MIGLIORATA */
 @media print {
     * {
