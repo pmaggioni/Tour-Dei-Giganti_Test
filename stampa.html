@@ -18,348 +18,79 @@
             --bg-gradient-end: #1a1a1a;
         }
 
-        /* ========================================= */
-        /* STILI PER STAMPA PDF - CON COLORI ORIGINALI */
-        /* ========================================= */
-        @media print {
-            @page {
-                margin: 1cm;
-                size: A4 portrait;
-            }
-            
-            * {
-                -webkit-print-color-adjust: exact !important;
-                color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                box-shadow: none !important;
-                text-shadow: none !important;
-            }
-            
-            body {
-                background: var(--inferno-nero) !important;
-                color: var(--inferno-bianco) !important;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                line-height: 1.4;
-                margin: 0;
-                padding: 0;
-                font-size: 11pt;
-            }
-            
-            .print-container {
-                width: 100% !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                background: var(--inferno-nero) !important;
-            }
-            
-            /* HEADER CON SFONDO ORIGINALE */
-            .tour-header {
-                background: linear-gradient(135deg, var(--inferno-nero) 0%, var(--inferno-rosso) 100%) !important;
-                color: var(--inferno-bianco) !important;
-                padding: 1.5cm !important;
-                margin-bottom: 0.5cm !important;
-                border-bottom: 3px solid var(--inferno-arancio) !important;
-                text-align: center;
-                page-break-after: always;
-            }
-            
-            .tour-title {
-                color: var(--inferno-giallo) !important;
-                text-align: center !important;
-                margin: 0.5cm 0 !important;
-                font-size: 24pt !important;
-                font-weight: bold;
-            }
-            
-            .tour-subtitle {
-                color: var(--inferno-giallo) !important;
-                font-size: 14pt !important;
-                margin: 0.3cm 0 !important;
-            }
-            
-            /* STATS BOXES CON COLORI ORIGINALI */
-            .stats-grid {
-                display: grid !important;
-                grid-template-columns: repeat(4, 1fr) !important;
-                gap: 0.5cm !important;
-                margin: 1cm 0 !important;
-            }
-            
-            .stat-box {
-                padding: 0.5cm !important;
-                border-radius: 8px !important;
-                text-align: center !important;
-                color: var(--inferno-bianco) !important;
-                font-weight: bold;
-                border: 1px solid var(--inferno-giallo) !important;
-            }
-            
-            .stat-box.km { 
-                background: linear-gradient(135deg, var(--inferno-rosso), #8b0000) !important; 
-            }
-            .stat-box.passi { 
-                background: linear-gradient(135deg, #1e3c72, #2a5298) !important; 
-            }
-            .stat-box.paesi { 
-                background: linear-gradient(135deg, #8e44ad, #9b59b6) !important; 
-            }
-            .stat-box.dislivello { 
-                background: linear-gradient(135deg, #27ae60, #2ecc71) !important; 
-            }
-            
-            /* GIORNI DEL TOUR */
-            .giorno-tour {
-                page-break-inside: avoid !important;
-                margin-bottom: 1cm !important;
-                border: 2px solid #333 !important;
-                border-radius: 8px !important;
-                padding: 0 !important;
-                background: linear-gradient(135deg, #1a1a1a, #2d2d2d) !important;
-                page-break-before: always;
-            }
-            
-            .giorno-header {
-                background: linear-gradient(135deg, var(--inferno-rosso), #8b0000) !important;
-                color: var(--inferno-bianco) !important;
-                padding: 0.5cm !important;
-                margin: 0 !important;
-                border-radius: 6px 6px 0 0 !important;
-            }
-            
-            .giorno-title {
-                color: var(--inferno-giallo) !important;
-                font-size: 16pt !important;
-                margin: 0 !important;
-            }
-            
-            .giorno-sottotitolo {
-                color: var(--inferno-bianco) !important;
-                font-size: 11pt !important;
-                margin: 0.2cm 0 0 0 !important;
-                opacity: 0.9;
-            }
-            
-            /* CONTENUTO GIORNO */
-            .giorno-content {
-                padding: 0.5cm !important;
-                display: grid !important;
-                grid-template-columns: 2fr 1fr !important;
-                gap: 0.5cm !important;
-            }
-            
-            /* MAPPE */
-            .mappa-container {
-                text-align: center !important;
-                margin: 0.5cm 0 !important;
-                page-break-inside: avoid !important;
-                grid-column: 1 / -1;
-            }
-            
-            .mappa-immagine {
-                max-width: 100% !important;
-                height: auto !important;
-                border: 2px solid var(--inferno-giallo) !important;
-                border-radius: 4px !important;
-            }
-            
-            /* LISTA PASSI */
-            .lista-passi {
-                list-style: none !important;
-                padding: 0 !important;
-                margin: 0.5cm 0 !important;
-            }
-            
-            .passo-item {
-                background: rgba(255, 255, 255, 0.05) !important;
-                margin: 0.3cm 0 !important;
-                padding: 0.3cm !important;
-                border-left: 4px solid var(--inferno-rosso) !important;
-                border-radius: 4px !important;
-            }
-            
-            .passo-item.epic {
-                background: linear-gradient(135deg, #2a2a2a, #3a3a3a) !important;
-                border-left: 4px solid var(--inferno-giallo) !important;
-                font-weight: bold;
-            }
-            
-            /* INFO LATERALI */
-            .info-laterale {
-                background: rgba(255, 255, 255, 0.05) !important;
-                padding: 0.5cm !important;
-                border-radius: 8px !important;
-                border: 1px solid #333 !important;
-            }
-            
-            .info-item {
-                display: flex !important;
-                justify-content: space-between !important;
-                margin: 0.3cm 0 !important;
-                padding-bottom: 0.3cm !important;
-                border-bottom: 1px solid #333 !important;
-            }
-            
-            .info-label {
-                color: #ccc !important;
-                flex: 1 !important;
-            }
-            
-            .info-value {
-                color: var(--inferno-giallo) !important;
-                font-weight: bold !important;
-                flex: 1 !important;
-                text-align: right !important;
-            }
-            
-            /* DIFFICOLTÀ */
-            .difficolta {
-                display: inline-block !important;
-                padding: 0.2cm 0.4cm !important;
-                border-radius: 20px !important;
-                color: white !important;
-                font-size: 9pt !important;
-                font-weight: bold !important;
-                text-transform: uppercase !important;
-            }
-            
-            .media { background: #feca57 !important; color: #000 !important; }
-            .alta { background: #ff6b6b !important; }
-            .estrema { background: #c44569 !important; }
-            
-            /* QUOTES E MANIFESTO */
-            .epic-quote {
-                background: linear-gradient(135deg, #8b0000, #450000) !important;
-                padding: 1cm !important;
-                border-radius: 8px !important;
-                text-align: center !important;
-                margin: 1cm 0 !important;
-                border: 2px solid var(--inferno-giallo) !important;
-                page-break-before: always;
-            }
-            
-            .quote-text {
-                font-size: 12pt !important;
-                font-weight: bold !important;
-                margin-bottom: 0.5cm !important;
-                line-height: 1.4 !important;
-                color: var(--inferno-bianco) !important;
-            }
-            
-            /* FINAL STATS */
-            .final-stats {
-                display: grid !important;
-                grid-template-columns: repeat(4, 1fr) !important;
-                gap: 0.5cm !important;
-                margin: 1cm 0 !important;
-                page-break-before: always;
-            }
-            
-            .final-stat-item {
-                text-align: center !important;
-                background: rgba(255, 255, 255, 0.05) !important;
-                padding: 0.5cm !important;
-                border-radius: 8px !important;
-                border: 1px solid rgba(255, 215, 0, 0.3) !important;
-            }
-            
-            .final-number {
-                font-size: 20pt !important;
-                font-weight: 900 !important;
-                background: linear-gradient(45deg, var(--inferno-rosso), var(--inferno-giallo)) !important;
-                -webkit-background-clip: text !important;
-                -webkit-text-fill-color: transparent !important;
-                background-clip: text !important;
-                margin-bottom: 0.2cm !important;
-            }
-            
-            .final-label {
-                color: #ccc !important;
-                font-size: 9pt !important;
-                text-transform: uppercase !important;
-                letter-spacing: 1px !important;
-            }
-            
-            /* NASCONDI ELEMENTI NON NECESSARI */
-            .no-print, 
-            .btn, 
-            .button, 
-            .navigation,
-            .social-share,
-            .back-to-top,
-            .scroll-indicator,
-            .map-controls {
-                display: none !important;
-            }
-            
-            /* GESTIONE PAGE BREAK */
-            .page-break {
-                page-break-before: always !important;
-            }
-            
-            .avoid-break {
-                page-break-inside: avoid !important;
-            }
-            
-            /* MIGLIORA LEGGIBILITÀ */
-            h1, h2, h3, h4 {
-                color: var(--inferno-giallo) !important;
-                page-break-after: avoid !important;
-            }
-            
-            h1 { font-size: 20pt !important; }
-            h2 { font-size: 16pt !important; }
-            h3 { font-size: 14pt !important; }
-            h4 { font-size: 12pt !important; }
-            
-            p, li {
-                font-size: 11pt !important;
-                line-height: 1.4 !important;
-            }
-        }
+       /* ========================================= */
+/* CORREZIONE MAPPE PER STAMPA - AGGIUNGI QUESTA PARTE */
+/* ========================================= */
+@media print {
+    /* FORZA VISUALIZZAZIONE IMMAGINI NELLA STAMPA */
+    .mappa-immagine {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        max-width: 95% !important;
+        height: auto !important;
+        border: 3px solid var(--inferno-giallo) !important;
+        border-radius: 8px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin: 0.5cm auto !important;
+        background: white !important;
+        padding: 5px !important;
+    }
+    
+    /* GARANTISCI CHE IL CONTENITORE SIA VISIBILE */
+    .mappa-container {
+        display: block !important;
+        visibility: visible !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin: 1cm 0 !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        padding: 0.5cm !important;
+        border-radius: 10px !important;
+        border: 1px solid #333 !important;
+    }
+    
+    /* FORZA IL CARICAMENTO DI TUTTE LE IMMAGINI */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        visibility: visible !important;
+    }
+    
+    /* STILE SPECIFICO PER LE MAPPE */
+    .mappa-container h4 {
+        color: var(--inferno-giallo) !important;
+        text-align: center !important;
+        margin-bottom: 0.5cm !important;
+        font-size: 14pt !important;
+        font-weight: bold !important;
+        border-bottom: 1px solid var(--inferno-giallo) !important;
+        padding-bottom: 0.3cm !important;
+    }
+}
 
-        /* Stili per anteprima schermo */
-        @media screen {
-            body {
-                background: var(--inferno-nero);
-                color: var(--inferno-bianco);
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                padding: 20px;
-            }
-            
-            .print-container {
-                max-width: 800px;
-                margin: 0 auto;
-                background: var(--inferno-nero);
-                padding: 20px;
-            }
-            
-            .screen-only {
-                text-align: center;
-                margin: 20px 0;
-                padding: 20px;
-                background: linear-gradient(135deg, #8b0000, #450000);
-                border-radius: 10px;
-                border: 2px solid var(--inferno-giallo);
-            }
-            
-            .btn-stampa {
-                background: linear-gradient(45deg, var(--inferno-rosso), var(--inferno-arancio));
-                color: white;
-                padding: 15px 30px;
-                border: none;
-                border-radius: 25px;
-                font-size: 16px;
-                font-weight: bold;
-                cursor: pointer;
-                margin: 10px;
-                border: 2px solid var(--inferno-giallo);
-            }
-            
-            .btn-stampa:hover {
-                background: linear-gradient(45deg, var(--inferno-arancio), var(--inferno-rosso));
-                transform: translateY(-2px);
-            }
-        }
+/* DEBUG PER VERIFICARE LE IMMAGINI A SCHERMO */
+@media screen {
+    .mappa-immagine {
+        border: 3px solid #00ff00 !important;
+        background: rgba(0, 255, 0, 0.1) !important;
+        transition: all 0.3s ease;
+    }
+    
+    .mappa-immagine:hover {
+        transform: scale(1.02);
+        box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+    }
+    
+    .image-loaded::after {
+        content: " ✅ CARICATA";
+        color: #00ff00;
+        font-weight: bold;
+        font-size: 0.8em;
+    }
+}
+        
     </style>
 </head>
 <body>
