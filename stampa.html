@@ -17,101 +17,101 @@
         }
 
        /* ========================================= */
-/* PAGINA DEDICA - STAMPA - CORREZIONE */
-/* ========================================= */
-@media print {
-    .dedica-page {
-        page-break-after: always;
-        page-break-inside: avoid !important;
-        min-height: 27cm;
-        max-height: 27cm !important;
-        height: 27cm !important;
-        background:
-            linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.3) 100%),
-            linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%) !important;
-        position: relative;
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 1.5cm !important;
-        font-family: 'Arial', sans-serif !important;
-        overflow: hidden !important;
-    }
-    
-    .dedica-container {
-        position: relative;
-        z-index: 1;
-        max-width: 16cm !important;
-        width: 90% !important;
-        background: rgba(0, 0, 0, 0.9) !important;
-        padding: 1.2cm !important;
-        border-radius: 15px !important;
-        border: 2px solid #ff6b35 !important;
-        box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3) !important;
-        margin: 0 auto !important;
-    }
-    
-    .dedica-title {
-        font-size: 28pt !important;
-        color: #ffd700 !important;
-        text-shadow: 3px 3px 0px #ff0000 !important;
-        margin-bottom: 0.3cm !important;
-        font-weight: 700 !important;
-        line-height: 1.1 !important;
-    }
-    
-    .dedica-subtitle {
-        font-size: 12pt !important;
-        color: #ff4500 !important;
-        font-style: italic !important;
-        margin-bottom: 0.5cm !important;
-    }
-    
-    .motivo-icon {
-        text-align: center !important;
-        margin: 0 0 0.5cm 0 !important;
-        position: relative !important;
-    }
-    
-    .motivo-icon img {
-        width: 100% !important;
-        max-width: 6cm !important;
-        height: auto !important;
-        filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.9))
-                drop-shadow(0 0 20px rgba(255, 0, 0, 0.6))
-                drop-shadow(0 0 30px rgba(139, 0, 0, 0.4)) !important;
-        opacity: 1 !important;
-        background: transparent !important;
-    }
-    
-    .testo-dedica {
-        line-height: 1.5 !important;
-        font-size: 10pt !important;
-        text-align: justify !important;
-        color: #ffffff !important;
-        margin-bottom: 0.5cm !important;
-    }
-    
-    .testo-dedica p {
-        margin-bottom: 0.3cm !important;
-    }
-    
-    .firma-dedica {
-        text-align: right !important;
-        margin-top: 0.5cm !important;
-        font-style: italic !important;
-        color: #ffd700 !important;
-        font-size: 11pt !important;
-        padding-top: 0.3cm !important;
-        border-top: 1px solid #ff6b35 !important;
-    }
-    
-    .cta-section-dedica {
-        display: none !important;
-    }
-}
+            /* PAGINA DEDICA - STAMPA - CORREZIONE */
+            /* ========================================= */
+            @media print {
+                .dedica-page {
+                    page-break-after: always;
+                    page-break-inside: avoid !important;
+                    min-height: 27cm;
+                    max-height: 27cm !important;
+                    height: 27cm !important;
+                    background:
+                        linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.3) 100%),
+                        linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%) !important;
+                    position: relative;
+                    display: flex !important;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    padding: 1.5cm !important;
+                    font-family: 'Arial', sans-serif !important;
+                    overflow: hidden !important;
+                }
+                
+                .dedica-container {
+                    position: relative;
+                    z-index: 1;
+                    max-width: 16cm !important;
+                    width: 90% !important;
+                    background: rgba(0, 0, 0, 0.9) !important;
+                    padding: 1.2cm !important;
+                    border-radius: 15px !important;
+                    border: 2px solid #ff6b35 !important;
+                    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3) !important;
+                    margin: 0 auto !important;
+                }
+                
+                .dedica-title {
+                    font-size: 28pt !important;
+                    color: #ffd700 !important;
+                    text-shadow: 3px 3px 0px #ff0000 !important;
+                    margin-bottom: 0.3cm !important;
+                    font-weight: 700 !important;
+                    line-height: 1.1 !important;
+                }
+                
+                .dedica-subtitle {
+                    font-size: 12pt !important;
+                    color: #ff4500 !important;
+                    font-style: italic !important;
+                    margin-bottom: 0.5cm !important;
+                }
+                
+                .motivo-icon {
+                    text-align: center !important;
+                    margin: 0 0 0.5cm 0 !important;
+                    position: relative !important;
+                }
+                
+                .motivo-icon img {
+                    width: 100% !important;
+                    max-width: 6cm !important;
+                    height: auto !important;
+                    filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.9))
+                            drop-shadow(0 0 20px rgba(255, 0, 0, 0.6))
+                            drop-shadow(0 0 30px rgba(139, 0, 0, 0.4)) !important;
+                    opacity: 1 !important;
+                    background: transparent !important;
+                }
+                
+                .testo-dedica {
+                    line-height: 1.5 !important;
+                    font-size: 10pt !important;
+                    text-align: justify !important;
+                    color: #ffffff !important;
+                    margin-bottom: 0.5cm !important;
+                }
+                
+                .testo-dedica p {
+                    margin-bottom: 0.3cm !important;
+                }
+                
+                .firma-dedica {
+                    text-align: right !important;
+                    margin-top: 0.5cm !important;
+                    font-style: italic !important;
+                    color: #ffd700 !important;
+                    font-size: 11pt !important;
+                    padding-top: 0.3cm !important;
+                    border-top: 1px solid #ff6b35 !important;
+                }
+                
+                .cta-section-dedica {
+                    display: none !important;
+                }
+            }
 
         /* ========================================= */
         /* STAMPA PDF - CORREZIONE DEFINITIVA */
@@ -120,6 +120,7 @@
             @page {
                 margin: 1cm;
                 size: A4 portrait;
+                background: white !important;
             }
             
             * {
@@ -131,8 +132,8 @@
             }
             
             body {
-                background: #000000 !important;
-                color: #ffffff !important;
+                background: #ffffff !important; /* SOLO QUESTO - da nero a bianco */
+                color: #000000 !important;
                 font-family: 'Arial', sans-serif;
                 line-height: 1.4;
                 margin: 0 !important;
@@ -140,11 +141,11 @@
                 font-size: 11pt;
             }
             
-            .print-container {
+          .print-container {
                 width: 100% !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                background: #000000 !important;
+                background: #ffffff !important; /* SOLO QUESTO - da nero a bianco */
             }
             
             /* NASCONDI ANTEPRIMA SCHERMO */
