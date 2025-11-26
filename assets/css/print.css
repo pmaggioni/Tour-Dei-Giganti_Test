@@ -1,4 +1,4 @@
-/* print.css - CON MARCATORE DI TEST */
+/* print.css - VERSIONE CORRETTA */
 @media print {
     /* MARCATORE VISIBILE - solo in stampa */
     body:before {
@@ -13,11 +13,8 @@
         border: 2px solid #000 !important;
         margin-bottom: 20px !important;
     }
-    
 
-
-/* print.css - VERSIONE MIGLIORATA */
-@media print {
+    /* Reset generale */
     * {
         margin: 0 !important;
         padding: 0 !important;
