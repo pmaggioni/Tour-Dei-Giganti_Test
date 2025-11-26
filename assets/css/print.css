@@ -2,7 +2,7 @@
 @media print {
     /* MARCATORE VISIBILE - solo in stampa */
     body:before {
-        content: "🎯 STAMPA TOUR DEI GIGANTI - CSS ATTIVO Last";
+        content: "🎯 STAMPA TOUR DEI GIGANTI - CSS ATTIVO Last 01";
         display: block;
         background: #ff6b35 !important;
         color: white !important;
@@ -14,6 +14,8 @@
         margin-bottom: 20px !important;
     }
 
+ /* print.css - VERSIONE FINALE CORRETTA */
+@media print {
     /* Reset generale */
     * {
         margin: 0 !important;
@@ -31,15 +33,16 @@
         width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
+        color: black !important;
     }
     
-    /* MARGINI ANCORA PIÙ STRETTI - massimo spazio */
+    /* MARGINI STRETTI */
     @page {
-        margin: 0.7cm !important; /* Ridotto al minimo */
+        margin: 0.7cm !important;
         size: A4;
     }
     
-    /* Sezioni con massimo spazio */
+    /* Sezioni con interruzioni pagina */
     .page-section {
         page-break-after: always !important;
         break-after: page !important;
@@ -49,7 +52,7 @@
         border: none !important;
     }
     
-    /* NASCONDI ELEMENTI INUTILI PER STAMPA */
+    /* NASCONDI TUTTI I LINK DI NAVIGAZIONE */
     .no-print,
     nav,
     .back-to-top,
@@ -58,16 +61,17 @@
     .map-links,
     .navigate-text,
     a[href*="google.com/maps"],
-    a[href*="gpx"],
-    a[href*="pdf"]:after {
+    .google-maps-link,
+    .gpx-download,
+    .pdf-download {
         display: none !important;
     }
     
-    /* Titoli in giallo/arancione */
+    /* Titoli in arancione */
     h1 {
         font-size: 26pt !important;
         margin-bottom: 15pt !important;
-        color: #ff6b35 !important; /* Arancione */
+        color: #ff6b35 !important;
         text-align: center !important;
         font-weight: bold !important;
     }
@@ -75,7 +79,7 @@
     h2 {
         font-size: 20pt !important;
         margin: 12pt 0 !important;
-        color: #ff6b35 !important; /* Arancione */
+        color: #ff6b35 !important;
         border-bottom: 2pt solid #ff6b35 !important;
         padding-bottom: 5pt !important;
     }
@@ -83,38 +87,30 @@
     h3 {
         font-size: 16pt !important;
         margin: 10pt 0 !important;
-        color: #ff8c42 !important; /* Arancione chiaro */
-    }
-    
-    /* Sottotitoli in giallo */
-    .subtitle {
-        font-size: 14pt !important;
-        color: #f4d35e !important; /* Giallo */
-        font-weight: bold !important;
-        text-align: center !important;
+        color: #ff6b35 !important;
     }
     
     /* Testo principale in nero */
-    p, li {
+    p, li, span, div {
         font-size: 11pt !important;
         color: #000 !important;
         line-height: 1.4 !important;
     }
     
-    /* Statistiche con colori */
+    /* Statistiche */
     .stat-box {
         display: inline-block !important;
         width: 24% !important;
         margin: 8pt !important;
         padding: 10pt !important;
         font-size: 10pt !important;
-        background: #fffaf0 !important; /* Sfondo giallo chiaro */
+        background: #fffaf0 !important;
         border: 1pt solid #ff6b35 !important;
     }
     
     .stat-number {
-        font-size: 20pt !important; /* Più grandi */
-        color: #ff6b35 !important; /* Arancione */
+        font-size: 20pt !important;
+        color: #ff6b35 !important;
         font-weight: bold !important;
     }
     
@@ -123,25 +119,27 @@
         color: #333 !important;
     }
     
-    /* NUMERAZIONE PAGINE */
+    /* NUMERAZIONE PAGINE FUNZIONANTE */
     body {
         counter-reset: page;
     }
     
     .page-section {
         counter-increment: page;
+        position: relative;
     }
     
     .page-section:after {
         content: "Pagina " counter(page);
-        position: fixed;
+        position: absolute;
         bottom: 0.3cm;
         right: 0.7cm;
-        font-size: 9pt;
-        color: #ff6b35 !important; /* Arancione */
+        font-size: 10pt;
+        color: #ff6b35 !important;
+        font-weight: bold;
     }
     
-    /* Layout delle cards più spazioso */
+    /* Layout delle cards */
     .day-card {
         margin: 15pt 0 !important;
         padding: 15pt !important;
@@ -150,23 +148,17 @@
         page-break-inside: avoid !important;
     }
     
-    /* Citazioni in giallo/arancione */
+    /* Citazioni */
     .quote {
         font-style: italic !important;
-        color: #ff6b35 !important;
-        border-left: 3pt solid #f4d35e !important;
+        color: #000 !important;
+        border-left: 3pt solid #ff6b35 !important;
         padding-left: 15pt !important;
         margin: 15pt 0 !important;
         font-size: 12pt !important;
     }
     
-    /* Highlight importanti */
-    .highlight {
-        color: #ff6b35 !important;
-        font-weight: bold !important;
-    }
-    
-    /* Manifesto speciale */
+    /* Manifesto */
     .manifesto {
         font-size: 12pt !important;
         line-height: 1.6 !important;
@@ -178,21 +170,40 @@
         color: #000 !important;
     }
     
-    /* Team section */
-    .team-member {
-        display: inline-block !important;
-        width: 48% !important;
-        margin: 8pt !important;
-        padding: 12pt !important;
-        border: 1pt solid #ff6b35 !important;
-        vertical-align: top !important;
-        background: #fffaf0 !important;
+    /* Team section - sistemata */
+    .team-section {
+        margin: 20pt 0 !important;
+        padding: 15pt !important;
+        border: 1pt solid #ccc !important;
+        background: #f9f9f9 !important;
     }
     
-    /* File info più compatta */
+    .team-member {
+        display: inline-block !important;
+        width: 30% !important;
+        margin: 5pt !important;
+        padding: 10pt !important;
+        vertical-align: top !important;
+        font-size: 10pt !important;
+    }
+    
+    .team-member h4 {
+        color: #ff6b35 !important;
+        font-size: 12pt !important;
+        margin-bottom: 5pt !important;
+    }
+    
+    /* File info compatta */
     .file-info {
         font-size: 9pt !important;
         color: #666 !important;
         margin: 5pt 0 !important;
+    }
+    
+    /* Note a piè di pagina */
+    .footnote {
+        font-size: 9pt !important;
+        color: #666 !important;
+        font-style: italic !important;
     }
 }
