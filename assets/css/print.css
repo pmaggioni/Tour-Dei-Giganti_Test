@@ -2,7 +2,7 @@
 @media print {
     /* MARCATORE VISIBILE - solo in stampa */
     body:before {
-        content: "🎯 STAMPA TOUR DEI GIGANTI - CSS ATTIVO";
+        content: "🎯 STAMPA TOUR DEI GIGANTI - CSS ATTIVO Last";
         display: block;
         background: #ff6b35 !important;
         color: white !important;
