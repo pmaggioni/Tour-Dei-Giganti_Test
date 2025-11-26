@@ -6,7 +6,7 @@
     <title>Tour dei Giganti 2025 - Stampa PDF</title>
     <style>
         /* ========================================= */
-        /* CSS VARIABLES - STESSE DEL SITO ORIGINALE */
+        /* CSS VARIABLES */
         /* ========================================= */
         :root {
             --inferno-nero: #000000;
@@ -14,8 +14,6 @@
             --inferno-arancio: #ff4500;
             --inferno-giallo: #ffd700;
             --inferno-bianco: #ffffff;
-            --bg-gradient-start: #0c0c0c;
-            --bg-gradient-end: #1a1a1a;
         }
 
         /* ========================================= */
@@ -25,25 +23,38 @@
             .dedica-page {
                 page-break-after: always;
                 min-height: 27cm;
-                background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%) !important;
+                background:
+                    linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.3) 100%),
+                    linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%) !important;
+                position: relative;
                 display: flex !important;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 text-align: center;
                 padding: 2cm !important;
-                color: #ffffff !important;
-                position: relative;
+                font-family: 'Arial', sans-serif !important;
+            }
+            
+            .dedica-hero-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(45deg, rgba(0, 0, 0, 0.8) 0%, rgba(139, 0, 0, 0.4) 100%) !important;
             }
             
             .dedica-container {
-                background: rgba(0, 0, 0, 0.9) !important;
-                padding: 2cm !important;
-                border-radius: 15px !important;
-                border: 3px solid #ff6b35 !important;
-                box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3) !important;
+                position: relative;
+                z-index: 1;
                 max-width: 16cm !important;
-                width: 100% !important;
+                width: 90% !important;
+                background: rgba(0, 0, 0, 0.9) !important;
+                padding: 1.5cm !important;
+                border-radius: 15px !important;
+                border: 2px solid #ff6b35 !important;
+                box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3) !important;
             }
             
             .dedica-title {
@@ -53,7 +64,6 @@
                 margin-bottom: 0.5cm !important;
                 font-weight: 700 !important;
                 line-height: 1.1 !important;
-                font-family: 'Arial', sans-serif !important;
             }
             
             .dedica-subtitle {
@@ -66,15 +76,25 @@
             .motivo-icon {
                 text-align: center !important;
                 margin: 0 0 1cm 0 !important;
+                position: relative !important;
             }
             
             .motivo-icon img {
+                width: 100% !important;
                 max-width: 8cm !important;
                 height: auto !important;
-                border: 2px solid #ffd700 !important;
-                border-radius: 10px !important;
-                padding: 5px !important;
-                background: white !important;
+                filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.9))
+                        drop-shadow(0 0 20px rgba(255, 0, 0, 0.6))
+                        drop-shadow(0 0 30px rgba(139, 0, 0, 0.4)) !important;
+                opacity: 1 !important;
+                background: transparent !important;
+            }
+            
+            .contenuto-testo {
+                max-width: 100% !important;
+                margin: 0 auto !important;
+                text-align: left !important;
+                color: #ffffff !important;
             }
             
             .testo-dedica {
@@ -82,7 +102,6 @@
                 font-size: 11pt !important;
                 text-align: justify !important;
                 color: #ffffff !important;
-                margin-bottom: 1cm !important;
             }
             
             .testo-dedica p {
@@ -538,6 +557,141 @@
                 background: linear-gradient(45deg, var(--inferno-arancio), var(--inferno-rosso));
                 transform: translateY(-2px);
             }
+
+            /* Anteprima dedica a schermo */
+            .dedica-page {
+                background:
+                    linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.3) 100%),
+                    linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+                min-height: 100vh;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 1rem;
+                font-family: 'Roboto', 'Arial', sans-serif;
+            }
+            
+            .dedica-hero-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(45deg, rgba(0, 0, 0, 0.8) 0%, rgba(139, 0, 0, 0.4) 100%);
+            }
+            
+            .dedica-container {
+                position: relative;
+                z-index: 1;
+                max-width: 700px;
+                width: 75%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 35px 30px;
+                border-radius: 15px;
+                border: 2px solid #ff6b35;
+                box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+                margin-bottom: 10px;
+            }
+            
+            .dedica-title {
+                font-size: clamp(2.5rem, 8vw, 4rem);
+                color: #ffd700;
+                text-shadow: 3px 3px 0px #ff0000;
+                margin-bottom: 1rem;
+                font-weight: 700;
+                line-height: 1;
+                word-wrap: break-word;
+                font-family: 'Roboto Slab', serif;
+            }
+            
+            .dedica-subtitle {
+                font-size: clamp(1.2rem, 4vw, 1.8rem);
+                color: #ff4500;
+                font-style: italic;
+                margin-bottom: 1.5rem;
+            }
+            
+            .motivo-icon {
+                text-align: center;
+                margin: 0 0 2rem 0;
+                position: relative;
+            }
+            
+            .motivo-icon img {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                filter: drop-shadow(0 0 25px rgba(255, 107, 53, 0.9))
+                        drop-shadow(0 0 50px rgba(255, 0, 0, 0.6))
+                        drop-shadow(0 0 75px rgba(139, 0, 0, 0.4));
+                opacity: 1;
+            }
+            
+            .contenuto-testo {
+                max-width: 700px;
+                margin: 0 auto;
+                text-align: left;
+                color: #ffffff;
+            }
+            
+            .testo-dedica {
+                line-height: 1.7;
+                font-size: 1.15em;
+                text-align: justify;
+            }
+            
+            .testo-dedica p {
+                margin-bottom: 20px;
+            }
+            
+            .firma-dedica {
+                text-align: right;
+                margin-top: 30px;
+                font-style: italic;
+                color: #ffd700;
+                font-size: 1.2em;
+                padding-top: 10px;
+                border-top: 1px solid #ff6b35;
+            }
+            
+            .cta-section-dedica {
+                max-width: 500px;
+                margin: 20px auto 0;
+                padding: 0 20px;
+                position: relative;
+                z-index: 3;
+            }
+            
+            .cta-button-dedica {
+                display: block;
+                width: 100%;
+                background: #000000;
+                color: #ffd700;
+                text-align: center;
+                padding: 14px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: clamp(0.9rem, 3.5vw, 1.1em);
+                margin: 0;
+                border: 2px solid #000000;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            
+            .cta-button-dedica:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+                background: #1a1a1a;
+                color: #ffed4a;
+                border: 2px solid #333333;
+            }
         }
     </style>
 </head>
@@ -553,33 +707,43 @@
 
         <!-- PAGINA DEDICA A BARBARAÜS -->
         <div class="dedica-page">
-            <div class="dedica-container">
-                <h1 class="dedica-title">A BARBARAÜS</h1>
-                <div class="dedica-subtitle">Bentornato fratello. Questo Tour è per te.</div>
+            <section class="dedica-hero-section">
+                <div class="dedica-hero-overlay"></div>
 
-                <!-- LOGO -->
-                <div class="motivo-icon">
-                    <img src="assets/images/logo_Gnurant.png" alt="GliGnoranti LaDomenica Logo">
-                </div>
+                <div class="dedica-container">
+                    <h1 class="dedica-title">A BARBARAÜS</h1>
+                    <div class="dedica-subtitle">Bentornato fratello. Questo Tour è per te.</div>
 
-                <div class="contenuto-testo">
-                    <div class="testo-dedica">
-                        <p>Quindici anni di strada insieme. Quindici anni in cui gli angeli custodi ci hanno guardato le spalle, mentre noi facevamo i matti in curva. Mai un graffio serio. Sembrava non potesse toccarci nulla.</p>
-
-                        <p>Poi è arrivato quel giorno. Non in moto, non dove ce l'aspettavamo. Sei finito in quel posto dove nessuno vorrebbe mai stare – sospeso tra il restare e l'andarsene.</p>
-
-                        <p>Ma tu hai scelto di restare. Con una forza che noi sapevamo avessi, hai combattuto, hai tenuto duro e sei tornato. Non solo sei tornato – sei tornato per guidare, vivere e a essere quello di sempre.</p>
-
-                        <p>Dunque questi cinque giorni di giro sono per te. Ogni chilometro, ogni curva, ogni sosta è un grazie alla tua resilienza, alla tua voglia di non mollare mai. E sì, anche un grazie enorme al tuo angelo custode che quella volta ha fatto gli straordinari.</p>
-
-                        <p>Ora siamo più maturi, viaggiamo più tranquilli (più o meno), ma sappiamo una cosa in più: siamo ancora qui, tutti insieme. E questo vale più di mille impennate.</p>
+                    <!-- LOGO SPOSTATO QUI -->
+                    <div class="motivo-icon">
+                        <img src="assets/images/logo_Gnurant.png" alt="GliGnoranti LaDomenica Logo">
                     </div>
 
-                    <div class="firma-dedica">
-                        I tuoi fratelli Gnoranti
+                    <div class="contenuto-testo">
+                        <div class="testo-dedica">
+                            <p>Quindici anni di strada insieme. Quindici anni in cui gli angeli custodi ci hanno guardato le spalle, mentre noi facevamo i matti in curva. Mai un graffio serio. Sembrava non potesse toccarci nulla.</p>
+
+                            <p>Poi è arrivato quel giorno. Non in moto, non dove ce l'aspettavamo. Sei finito in quel posto dove nessuno vorrebbe mai stare – sospeso tra il restare e l'andarsene.</p>
+
+                            <p>Ma tu hai scelto di restare. Con una forza che noi sapevamo avessi, hai combattuto, hai tenuto duro e sei tornato. Non solo sei tornato – sei tornato per guidare, vivere e a essere quello di sempre.</p>
+
+                            <p>Dunque questi cinque giorni di giro sono per te. Ogni chilometro, ogni curva, ogni sosta è un grazie alla tua resilienza, alla tua voglia di non mollare mai. E sì, anche un grazie enorme al tuo angelo custode che quella volta ha fatto gli straordinari.</p>
+
+                            <p>Ora siamo più maturi, viaggiamo più tranquilli (più o meno), ma sappiamo una cosa in più: siamo ancora qui, tutti insieme. E questo vale più di mille impennate.</p>
+                        </div>
+
+                        <div class="firma-dedica">
+                            I tuoi fratelli Gnoranti
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="cta-section-dedica">
+                    <a href="tour.html" class="cta-button-dedica">
+                        🏍️ SCENDI NELL'ARENA - SCOPRI IL TOUR
+                    </a>
+                </div>
+            </section>
         </div>
 
         <!-- HEADER PRINCIPALE -->
