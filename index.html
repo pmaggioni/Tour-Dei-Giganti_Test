@@ -19,6 +19,7 @@
       align-items: center;
       text-align: center;
       padding: 1rem;
+      font-family: 'Roboto', 'Arial', sans-serif;
     }
 
     .dedica-hero-overlay {
@@ -48,19 +49,33 @@
       color: #ffd700;
       text-shadow: 3px 3px 0px #ff0000;
       margin-bottom: 1rem;
-      font-weight: bold;
-      font-family: 'Georgia', 'Times New Roman', serif;
+      font-weight: 700;
       line-height: 1;
       word-wrap: break-word;
+      font-family: 'Roboto Slab', serif;
     }
 
     .dedica-subtitle {
       font-size: clamp(1.2rem, 4vw, 1.8rem);
       color: #ff4500;
       font-style: italic;
-      margin-bottom: 3rem;
-      line-height: 1.4;
-      font-family: 'Georgia', 'Times New Roman', serif;
+      margin-bottom: 1.5rem;
+    }
+
+    .motivo-icon {
+      text-align: center;
+      margin: 0 0 2rem 0;
+      position: relative;
+    }
+
+    .motivo-icon img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      filter: drop-shadow(0 0 25px rgba(255, 107, 53, 0.9))
+              drop-shadow(0 0 50px rgba(255, 0, 0, 0.6))
+              drop-shadow(0 0 75px rgba(139, 0, 0, 0.4));
+      opacity: 0.9;
     }
 
     .contenuto-testo {
@@ -68,43 +83,16 @@
       margin: 0 auto;
       text-align: left;
       color: #ffffff;
-      font-family: 'Georgia', 'Times New Roman', serif;
-    }
-
-    .dedica-intima {
-      text-align: center;
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 2px solid #ff6b35;
-      color: #ffffff;
     }
 
     .testo-dedica {
-      line-height: 1.8;
-      font-size: 1.2em;
+      line-height: 1.7;
+      font-size: 1.15em;
       text-align: justify;
-      color: #ffffff;
     }
 
     .testo-dedica p {
       margin-bottom: 20px;
-      color: #ffffff;
-    }
-
-    .motivo-icon {
-      text-align: center;
-      margin: 30px 0;
-      position: relative;
-    }
-
-    .motivo-icon img {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      filter: drop-shadow(0 0 25px rgba(255, 107, 53, 0.9)) 
-              drop-shadow(0 0 50px rgba(255, 0, 0, 0.6))
-              drop-shadow(0 0 75px rgba(139, 0, 0, 0.4));
-      opacity: 0.85;
     }
 
     .firma-dedica {
@@ -152,84 +140,6 @@
       color: #ffed4a;
       border: 2px solid #333333;
     }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .dedica-container {
-        padding: 30px 20px;
-        margin: 10px;
-      }
-
-      .dedica-intima h2 {
-        font-size: 1.8em;
-      }
-
-      .testo-dedica {
-        font-size: 1.1em;
-      }
-
-      .cta-section-dedica {
-        max-width: 450px;
-        margin: 15px auto 0;
-        padding: 0 15px;
-      }
-
-      .firma-dedica {
-        font-size: 1.1em;
-      }
-
-      .cta-button-dedica {
-        padding: 12px;
-        font-size: clamp(0.8rem, 3vw, 1em);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .dedica-container {
-        padding: 25px 15px;
-      }
-
-      .dedica-title {
-        font-size: clamp(2rem, 10vw, 3rem);
-        text-shadow: 2px 2px 0px #ff0000;
-      }
-
-      .dedica-subtitle {
-        font-size: clamp(1rem, 5vw, 1.4rem);
-      }
-
-      .testo-dedica {
-        font-size: 1em;
-        line-height: 1.5;
-      }
-
-      .cta-section-dedica {
-        max-width: 400px;
-      }
-
-      .cta-button-dedica {
-        padding: 10px 8px;
-        border-radius: 6px;
-        font-size: 0.85em;
-      }
-
-      .motivo-icon img {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .cta-button-dedica {
-        font-size: 0.8em;
-        padding: 8px 6px;
-      }
-
-      .motivo-icon img {
-        width: 100%;
-        max-width: 250px;
-      }
-    }
   </style>
 </head>
 
@@ -241,6 +151,11 @@
       <h1 class="dedica-title">A BARBARAÜS</h1>
       <div class="dedica-subtitle">Bentornato fratello. Questo Tour è per te.</div>
 
+      <!-- LOGO SPOSTATO QUI -->
+      <div class="motivo-icon">
+        <img src="assets/images/logo-removebg-preview.png" alt="GliGnoranti LaDomenica Logo">
+      </div>
+
       <div class="contenuto-testo">
         <div class="testo-dedica">
           <p>Quindici anni di strada insieme. Quindici anni in cui gli angeli custodi ci hanno guardato le spalle, mentre noi facevamo i matti in curva. Mai un graffio serio. Sembrava non potesse toccarci nulla.</p>
@@ -248,10 +163,6 @@
           <p>Poi è arrivato quel giorno. Non in moto, non dove ce l'aspettavamo. Sei finito in quel posto dove nessuno vorrebbe mai stare – sospeso tra il restare e l'andarsene.</p>
 
           <p>Ma tu hai scelto di restare. Con una forza che noi sapevamo avessi, hai combattuto, hai tenuto duro e sei tornato. Non solo sei tornato – sei tornato per guidare, vivere e a essere quello di sempre.</p>
-
-          <div class="motivo-icon">
-            <img src="assets/images/logo-removebg-preview.png" alt="GliGnoranti LaDomenica Logo">
-          </div>
 
           <p>Dunque questi cinque giorni di giro sono per te. Ogni chilometro, ogni curva, ogni sosta è un grazie alla tua resilienza, alla tua voglia di non mollare mai. E sì, anche un grazie enorme al tuo angelo custode che quella volta ha fatto gli straordinari.</p>
 
