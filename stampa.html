@@ -475,15 +475,74 @@
     </div>
 
     <script>
-        // Script per migliorare la stampa
-        document.addEventListener('DOMContentLoaded', function() {
-            // Aggiungi data di stampa
-            const stampaDate = new Date().toLocaleDateString('it-IT');
-            const dateElement = document.createElement('div');
-            dateElement.style.cssText = 'text-align: center; margin: 10px 0; color: #666; font-size: 10pt;';
-            dateElement.textContent = `Stampato il: ${stampaDate}`;
-            document.querySelector('.print-container').appendChild(dateElement);
-        });
-    </script>
+                   // DEBUG PER VERIFICARE IL CARICAMENTO DELLE MAPPE
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('🔍 Controllo immagini mappe...');
+                
+                const images = [
+                    'assets/images/01_giorno.jpg',
+                    'assets/images/02_giorno.jpg', 
+                    'assets/images/03_giorno.jpg',
+                    'assets/images/04_giorno.jpg',
+                    'assets/images/05_giorno.jpg'
+                ];
+                
+                let loadedCount = 0;
+                
+                images.forEach((src, index) => {
+                    const imgElement = document.querySelector(`img[src="${src}"]`);
+                    if (!imgElement) {
+                        console.error(`❌ Elemento img non trovato per: ${src}`);
+                        return;
+                    }
+                    
+                    const img = new Image();
+                    img.onload = function() {
+                        loadedCount++;
+                        console.log(`✅ Mappa ${index + 1} caricata: ${src}`);
+                        imgElement.classList.add('image-loaded');
+                        imgElement.style.border = '3px solid #00ff00';
+                    };
+                    img.onerror = function() {
+                        console.error(`❌ Mappa ${index + 1} NON TROVATA: ${src}`);
+                        imgElement.style.border = '3px solid #ff0000';
+                        imgElement.style.background = 'rgba(255, 0, 0, 0.1)';
+                        
+                        // Crea messaggio di errore visivo
+                        const errorDiv = document.createElement('div');
+                        errorDiv.innerHTML = `
+                            <div style="background: #ff0000; color: white; padding: 10px; border-radius: 5px; margin: 10px 0; text-align: center;">
+                                <strong>⚠️ MAPPA NON TROVATA</strong><br>
+                                File: ${src}
+                            </div>
+                        `;
+                        imgElement.parentNode.insertBefore(errorDiv, imgElement);
+                    };
+                    img.src = src;
+                });
+                
+                // Risultato finale
+                setTimeout(() => {
+                    console.log(`📊 RIEPILOGO: ${loadedCount}/5 mappe caricate`);
+                    if (loadedCount === 5) {
+                        console.log('🎉 Tutte le mappe sono state caricate correttamente!');
+                    } else {
+                        console.error(`⚠️ Mancano ${5 - loadedCount} mappe!`);
+                    }
+                }, 2000);
+            });
+            
+            // Forza il ricaricamento delle immagini per la stampa
+            window.addEventListener('beforeprint', function() {
+                console.log('🖨️ Preparazione per la stampa...');
+                document.querySelectorAll('.mappa-immagine').forEach(img => {
+                    const src = img.src;
+                    img.src = '';
+                    img.src = src;
+                });
+            });
+                    
+            </script>
+                
 </body>
 </html>
