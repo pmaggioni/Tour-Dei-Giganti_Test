@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour dei Giganti 2025 - Stampa PDF</title>
+    <style>
+        /* ========================================= */
+        /* CSS VARIABLES - STESSE DEL SITO ORIGINALE */
+        /* ========================================= */
+        :root {
+            --inferno-nero: #000000;
+            --inferno-rosso: #ff0000;
+            --inferno-arancio: #ff4500;
+            --inferno-giallo: #ffd700;
+            --inferno-bianco: #ffffff;
+            --bg-gradient-start: #0c0c0c;
+            --bg-gradient-end: #1a1a1a;
+        }
+
+        /* ========================================= */
+        /* STILI PER STAMPA PDF - CON COLORI ORIGINALI */
+        /* ========================================= */
+        @media print {
+            @page {
+                margin: 1cm;
+                size: A4 portrait;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+            
+            body {
+                background: var(--inferno-nero) !important;
+                color: var(--inferno-bianco) !important;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.4;
+                margin: 0;
+                padding: 0;
+                font-size: 11pt;
+            }
+            
+            .print-container {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: var(--inferno-nero) !important;
+            }
+            
+            /* HEADER CON SFONDO ORIGINALE */
+            .tour-header {
+                background: linear-gradient(135deg, var(--inferno-nero) 0%, var(--inferno-rosso) 100%) !important;
+                color: var(--inferno-bianco) !important;
+                padding: 1.5cm !important;
+                margin-bottom: 0.5cm !important;
+                border-bottom: 3px solid var(--inferno-arancio) !important;
+                text-align: center;
+                page-break-after: always;
+            }
+            
+            .tour-title {
+                color: var(--inferno-giallo) !important;
+                text-align: center !important;
+                margin: 0.5cm 0 !important;
+                font-size: 24pt !important;
+                font-weight: bold;
+            }
+            
+            .tour-subtitle {
+                color: var(--inferno-giallo) !important;
+                font-size: 14pt !important;
+                margin: 0.3cm 0 !important;
+            }
+            
+            /* STATS BOXES CON COLORI ORIGINALI */
+            .stats-grid {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 0.5cm !important;
+                margin: 1cm 0 !important;
+            }
+            
+            .stat-box {
+                padding: 0.5cm !important;
+                border-radius: 8px !important;
+                text-align: center !important;
+                color: var(--inferno-bianco) !important;
+                font-weight: bold;
+                border: 1px solid var(--inferno-giallo) !important;
+            }
+            
+            .stat-box.km { 
+                background: linear-gradient(135deg, var(--inferno-rosso), #8b0000) !important; 
+            }
+            .stat-box.passi { 
+                background: linear-gradient(135deg, #1e3c72, #2a5298) !important; 
+            }
+            .stat-box.paesi { 
+                background: linear-gradient(135deg, #8e44ad, #9b59b6) !important; 
+            }
+            .stat-box.dislivello { 
+                background: linear-gradient(135deg, #27ae60, #2ecc71) !important; 
+            }
+            
+            /* GIORNI DEL TOUR */
+            .giorno-tour {
+                page-break-inside: avoid !important;
+                margin-bottom: 1cm !important;
+                border: 2px solid #333 !important;
+                border-radius: 8px !important;
+                padding: 0 !important;
+                background: linear-gradient(135deg, #1a1a1a, #2d2d2d) !important;
+                page-break-before: always;
+            }
+            
+            .giorno-header {
+                background: linear-gradient(135deg, var(--inferno-rosso), #8b0000) !important;
+                color: var(--inferno-bianco) !important;
+                padding: 0.5cm !important;
+                margin: 0 !important;
+                border-radius: 6px 6px 0 0 !important;
+            }
+            
+            .giorno-title {
+                color: var(--inferno-giallo) !important;
+                font-size: 16pt !important;
+                margin: 0 !important;
+            }
+            
+            .giorno-sottotitolo {
+                color: var(--inferno-bianco) !important;
+                font-size: 11pt !important;
+                margin: 0.2cm 0 0 0 !important;
+                opacity: 0.9;
+            }
+            
+            /* CONTENUTO GIORNO */
+            .giorno-content {
+                padding: 0.5cm !important;
+                display: grid !important;
+                grid-template-columns: 2fr 1fr !important;
+                gap: 0.5cm !important;
+            }
+            
+            /* MAPPE */
+            .mappa-container {
+                text-align: center !important;
+                margin: 0.5cm 0 !important;
+                page-break-inside: avoid !important;
+                grid-column: 1 / -1;
+            }
+            
+            .mappa-immagine {
+                max-width: 100% !important;
+                height: auto !important;
+                border: 2px solid var(--inferno-giallo) !important;
+                border-radius: 4px !important;
+            }
+            
+            /* LISTA PASSI */
+            .lista-passi {
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0.5cm 0 !important;
+            }
+            
+            .passo-item {
+                background: rgba(255, 255, 255, 0.05) !important;
+                margin: 0.3cm 0 !important;
+                padding: 0.3cm !important;
+                border-left: 4px solid var(--inferno-rosso) !important;
+                border-radius: 4px !important;
+            }
+            
+            .passo-item.epic {
+                background: linear-gradient(135deg, #2a2a2a, #3a3a3a) !important;
+                border-left: 4px solid var(--inferno-giallo) !important;
+                font-weight: bold;
+            }
+            
+            /* INFO LATERALI */
+            .info-laterale {
+                background: rgba(255, 255, 255, 0.05) !important;
+                padding: 0.5cm !important;
+                border-radius: 8px !important;
+                border: 1px solid #333 !important;
+            }
+            
+            .info-item {
+                display: flex !important;
+                justify-content: space-between !important;
+                margin: 0.3cm 0 !important;
+                padding-bottom: 0.3cm !important;
+                border-bottom: 1px solid #333 !important;
+            }
+            
+            .info-label {
+                color: #ccc !important;
+                flex: 1 !important;
+            }
+            
+            .info-value {
+                color: var(--inferno-giallo) !important;
+                font-weight: bold !important;
+                flex: 1 !important;
+                text-align: right !important;
+            }
+            
+            /* DIFFICOLTÀ */
+            .difficolta {
+                display: inline-block !important;
+                padding: 0.2cm 0.4cm !important;
+                border-radius: 20px !important;
+                color: white !important;
+                font-size: 9pt !important;
+                font-weight: bold !important;
+                text-transform: uppercase !important;
+            }
+            
+            .media { background: #feca57 !important; color: #000 !important; }
+            .alta { background: #ff6b6b !important; }
+            .estrema { background: #c44569 !important; }
+            
+            /* QUOTES E MANIFESTO */
+            .epic-quote {
+                background: linear-gradient(135deg, #8b0000, #450000) !important;
+                padding: 1cm !important;
+                border-radius: 8px !important;
+                text-align: center !important;
+                margin: 1cm 0 !important;
+                border: 2px solid var(--inferno-giallo) !important;
+                page-break-before: always;
+            }
+            
+            .quote-text {
+                font-size: 12pt !important;
+                font-weight: bold !important;
+                margin-bottom: 0.5cm !important;
+                line-height: 1.4 !important;
+                color: var(--inferno-bianco) !important;
+            }
+            
+            /* FINAL STATS */
+            .final-stats {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 0.5cm !important;
+                margin: 1cm 0 !important;
+                page-break-before: always;
+            }
+            
+            .final-stat-item {
+                text-align: center !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                padding: 0.5cm !important;
+                border-radius: 8px !important;
+                border: 1px solid rgba(255, 215, 0, 0.3) !important;
+            }
+            
+            .final-number {
+                font-size: 20pt !important;
+                font-weight: 900 !important;
+                background: linear-gradient(45deg, var(--inferno-rosso), var(--inferno-giallo)) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                background-clip: text !important;
+                margin-bottom: 0.2cm !important;
+            }
+            
+            .final-label {
+                color: #ccc !important;
+                font-size: 9pt !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1px !important;
+            }
+            
+            /* NASCONDI ELEMENTI NON NECESSARI */
+            .no-print, 
+            .btn, 
+            .button, 
+            .navigation,
+            .social-share,
+            .back-to-top,
+            .scroll-indicator,
+            .map-controls {
+                display: none !important;
+            }
+            
+            /* GESTIONE PAGE BREAK */
+            .page-break {
+                page-break-before: always !important;
+            }
+            
+            .avoid-break {
+                page-break-inside: avoid !important;
+            }
+            
+            /* MIGLIORA LEGGIBILITÀ */
+            h1, h2, h3, h4 {
+                color: var(--inferno-giallo) !important;
+                page-break-after: avoid !important;
+            }
+            
+            h1 { font-size: 20pt !important; }
+            h2 { font-size: 16pt !important; }
+            h3 { font-size: 14pt !important; }
+            h4 { font-size: 12pt !important; }
+            
+            p, li {
+                font-size: 11pt !important;
+                line-height: 1.4 !important;
+            }
+        }
+
+        /* Stili per anteprima schermo */
+        @media screen {
+            body {
+                background: var(--inferno-nero);
+                color: var(--inferno-bianco);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 20px;
+            }
+            
+            .print-container {
+                max-width: 800px;
+                margin: 0 auto;
+                background: var(--inferno-nero);
+                padding: 20px;
+            }
+            
+            .screen-only {
+                text-align: center;
+                margin: 20px 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #8b0000, #450000);
+                border-radius: 10px;
+                border: 2px solid var(--inferno-giallo);
+            }
+            
+            .btn-stampa {
+                background: linear-gradient(45deg, var(--inferno-rosso), var(--inferno-arancio));
+                color: white;
+                padding: 15px 30px;
+                border: none;
+                border-radius: 25px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 10px;
+                border: 2px solid var(--inferno-giallo);
+            }
+            
+            .btn-stampa:hover {
+                background: linear-gradient(45deg, var(--inferno-arancio), var(--inferno-rosso));
+                transform: translateY(-2px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-container">
+        <!-- ANTEPRIMA SCHERMO -->
+        <div class="screen-only">
+            <h2>🖨️ ANTEPRIMA STAMPA PDF</h2>
+            <p>Questa pagina è ottimizzata per la stampa in PDF</p>
+            <button class="btn-stampa" onclick="window.print()">Stampa PDF</button>
+            <p><small>Usa "Salva come PDF" nelle opzioni di stampa</small></p>
+        </div>
+
+        <!-- HEADER PRINCIPALE -->
+        <div class="tour-header">
+            <h1 class="tour-title">🚀 TOUR DEI GIGANTI 2025 🚀</h1>
+            <h3 class="tour-subtitle">#GLIGNORANTILADOMENICA</h3>
+            
+            <div class="stats-grid">
+                <div class="stat-box km">
+                    <strong>1.420 KM</strong><br>di adrenalina pura
+                </div>
+                <div class="stat-box passi">
+                    <strong>15+ PASSI</strong><br>leggende conquistate
+                </div>
+                <div class="stat-box paesi">
+                    <strong>3 PAESI</strong><br>Italia, Austria, Svizzera
+                </div>
+                <div class="stat-box dislivello">
+                    <strong>15.000m</strong><br>dislivello totale
+                </div>
+            </div>
+            
+            <p><strong>📅 01/07/25 - 05/07/25</strong></p>
+        </div>
+
+        <!-- QUOTE EPICHE -->
+        <div class="epic-quote">
+            <div class="quote-text">
+                "LA DOMENICA MOLTI VANNO IN CHIESA, NOI ANDIAMO A FARE PIEGHE."
+            </div>
+            <div class="quote-text">
+                "IL NOSTRO ROSARIO E' IL NASTRO D'ASFALTO."
+            </div>
+        </div>
+
+        <!-- GIORNO 1 -->
+        <div class="giorno-tour">
+            <div class="giorno-header">
+                <h2 class="giorno-title">📍 GIORNO 1 - Torino → Bolzano</h2>
+                <p class="giorno-sottotitolo">Il risveglio dell'anima | 350km, 4-5 ore</p>
+            </div>
+            
+            <div class="giorno-content">
+                <div>
+                    <h4>🎯 DESCRIZIONE</h4>
+                    <p>Il viaggio inizia dove finisce la pazienza. Partenza da Torino con un solo pensiero: arrivare dove l'asfalto diventa poesia.</p>
+                    
+                    <h4>🛣️ PERCORSO</h4>
+                    <ul class="lista-passi">
+                        <li class="passo-item">Partenza da Torino</li>
+                        <li class="passo-item">Autostrada A4/A22 - "L'autostrada della noia"</li>
+                        <li class="passo-item epic">Arrivo a Bolzano - Base operativa</li>
+                    </ul>
+                    
+                    <div class="mappa-container">
+                        <h4>🗺️ MAPPA PERCORSO</h4>
+                        <img src="assets/images/01_giorno.jpg" alt="Mappa Giorno 1 - Torino Bolzano" class="mappa-immagine">
+                        <p><small>File GPX: giorno1.gpx | File PDF: giorno1.pdf</small></p>
+                    </div>
+                </div>
+                
+                <div class="info-laterale">
+                    <h4>📊 INFO TECNICHE</h4>
+                    <div class="info-item">
+                        <span class="info-label">Distanza:</span>
+                        <span class="info-value">350 km</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tempo guida:</span>
+                        <span class="info-value">4-5 ore</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Dislivello:</span>
+                        <span class="info-value">Minimo</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Difficoltà:</span>
+                        <span class="info-value"><span class="difficolta media">Media</span></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Base:</span>
+                        <span class="info-value">Bolzano</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GIORNO 2 -->
+        <div class="giorno-tour">
+            <div class="giorno-header">
+                <h2 class="giorno-title">🏔️ GIORNO 2 - Dolomiti: Giau, Pordoi, Sella</h2>
+                <p class="giorno-sottotitolo">Battesimo del fuoco | 280km, 6-7 ore</p>
+            </div>
+            
+            <div class="giorno-content">
+                <div>
+                    <h4>🎯 DESCRIZIONE</h4>
+                    <p>Oggi si diventa uomini. Dalle Dolomiti più iconiche al passo dei leggendari. Curve che ti cambiano la vita.</p>
+                    
+                    <h4>🛣️ PASSI PRINCIPALI</h4>
+                    <ul class="lista-passi">
+                        <li class="passo-item epic">
+                            <strong>Passo Giau (2.236m)</strong> - 29 tornanti che ti spaccano le braccia
+                            <span class="difficolta alta">Alta</span>
+                        </li>
+                        <li class="passo-item epic">
+                            <strong>Passo Pordoi (2.239m)</strong> - 33 curve verso il cielo
+                            <span class="difficolta alta">Alta</span>
+                        </li>
+                        <li class="passo-item epic">
+                            <strong>Passo Sella (2.240m)</strong> - Curve così perfette che quasi ti dispiace finiscano
+                            <span class="difficolta media">Media</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mappa-container">
+                        <h4>🗺️ MAPPA PERCORSO</h4>
+                        <img src="assets/images/02_giorno.jpg" alt="Mappa Giorno 2 - Dolomiti" class="mappa-immagine">
+                        <p><small>File GPX: giorno2.gpx | File PDF: giorno2.pdf</small></p>
+                    </div>
+                </div>
+                
+                <div class="info-laterale">
+                    <h4>📊 INFO TECNICHE</h4>
+                    <div class="info-item">
+                        <span class="info-label">Distanza:</span>
+                        <span class="info-value">280 km</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tempo guida:</span>
+                        <span class="info-value">6-7 ore</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Dislivello:</span>
+                        <span class="info-value">~4.000m</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Difficoltà:</span>
+                        <span class="info-value"><span class="difficolta alta">Alta</span></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Rifornimento:</span>
+                        <span class="info-value">Portoli</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Base:</span>
+                        <span class="info-value">Bolzano</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GIORNO 3 -->
+        <div class="giorno-tour">
+            <div class="giorno-header">
+                <h2 class="giorno-title">🇦🇹 GIORNO 3 - Timmelsjoch: Italia → Austria → Italia</h2>
+                <p class="giorno-sottotitolo">Il gioiello austriaco | 393km, 7-8 ore</p>
+            </div>
+            
+            <div class="giorno-content">
+                <div>
+                    <h4>🎯 DESCRIZIONE</h4>
+                    <p>Oggi scopriamo il gioiello nascosto. Non solo lo Stelvio è leggenda: il Timmelsjoch è pura magia tra Italia e Austria.</p>
+                    
+                    <h4>🛣️ PASSI PRINCIPALI</h4>
+                    <ul class="lista-passi">
+                        <li class="passo-item epic">
+                            <strong>Passo Rombo/Timmelsjoch (2.509m)</strong> - Il doppio valico
+                            <span class="difficolta alta">Alta</span>
+                        </li>
+                        <li class="passo-item">Esplorazione strade austriache nascoste</li>
+                        <li class="passo-item">Valle Ötztal - La grande discesa</li>
+                        <li class="passo-item epic">
+                            <strong>Passo Giovo (2.094m)</strong> - Ritorno in Italia
+                            <span class="difficolta media">Media</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mappa-container">
+                        <h4>🗺️ MAPPA PERCORSO</h4>
+                        <img src="assets/images/03_giorno.jpg" alt="Mappa Giorno 3 - Timmelsjoch" class="mappa-immagine">
+                        <p><small>File GPX: giorno3.gpx | File PDF: giorno3.pdf</small></p>
+                    </div>
+                </div>
+                
+                <div class="info-laterale">
+                    <h4>📊 INFO TECNICHE</h4>
+                    <div class="info-item">
+                        <span class="info-label">Distanza:</span>
+                        <span class="info-value">393 km</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tempo guida:</span>
+                        <span class="info-value">7-8 ore</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Dislivello:</span>
+                        <span class="info-value">~4.500m</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Difficoltà:</span>
+                        <span class="info-value"><span class="difficolta estrema">Estrema</span></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Rifornimento:</span>
+                        <span class="info-value">Rifugio Timmelsjoch</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Base:</span>
+                        <span class="info-value">Bolzano</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GIORNO 4 -->
+        <div class="giorno-tour">
+            <div class="giorno-header">
+                <h2 class="giorno-title">👑 GIORNO 4 - Mendola, Gavia, Stelvio, Umbrali</h2>
+                <p class="giorno-sottotitolo">I tre giganti | 220km, 6-7 ore</p>
+            </div>
+            
+            <div class="giorno-content">
+                <div>
+                    <h4>🎯 DESCRIZIONE</h4>
+                    <p>Oggi affrontiamo i tre giganti. Dal tecnico Gavia al maestoso Stelvio, passando per l'Umbrali svizzero. Un giorno da leggenda.</p>
+                    
+                    <h4>🛣️ PASSI PRINCIPALI</h4>
+                    <ul class="lista-passi">
+                        <li class="passo-item">
+                            <strong>Passo Mendola (1.363m)</strong> - Riscaldamento
+                            <span class="difficolta media">Media</span>
+                        </li>
+                        <li class="passo-item epic">
+                            <strong>Passo Gavia (2.621m)</strong> - Il gigante selvaggio
+                            <span class="difficolta alta">Alta</span>
+                        </li>
+                        <li class="passo-item epic">
+                            <strong>Passo Stelvio (2.758m)</strong> - IL RE - 48 tornanti iconici
+                            <span class="difficolta estrema">Estrema</span>
+                        </li>
+                        <li class="passo-item epic">
+                            <strong>Passo Umbrali (2.501m)</strong> - Il gioiello nascosto svizzero
+                            <span class="difficolta alta">Alta</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mappa-container">
+                        <h4>🗺️ MAPPA PERCORSO</h4>
+                        <img src="assets/images/04_giorno.jpg" alt="Mappa Giorno 4 - Giganti" class="mappa-immagine">
+                        <p><small>File GPX: giorno4.gpx | File PDF: giorno4.pdf</small></p>
+                    </div>
+                </div>
+                
+                <div class="info-laterale">
+                    <h4>📊 INFO TECNICHE</h4>
+                    <div class="info-item">
+                        <span class="info-label">Distanza:</span>
+                        <span class="info-value">220 km</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tempo guida:</span>
+                        <span class="info-value">6-7 ore</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Dislivello:</span>
+                        <span class="info-value">~4.200m</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Difficoltà:</span>
+                        <span class="info-value"><span class="difficolta estrema">Estrema</span></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Rifornimento:</span>
+                        <span class="info-value">Rifugio Stelvio</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Base:</span>
+                        <span class="info-value">Bormio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GIORNO 5 -->
+        <div class="giorno-tour">
+            <div class="giorno-header">
+                <h2 class="giorno-title">🏠 GIORNO 5 - Bormio → Torino</h2>
+                <p class="giorno-sottotitolo">Il ritorno degli eroi | 320km, 4-5 ore</p>
+            </div>
+            
+            <div class="giorno-content">
+                <div>
+                    <h4>🎯 DESCRIZIONE</h4>
+                    <p>Il viaggio finisce, la leggenda inizia. Chilometri di ricordi che si mescolano all'asfalto del ritorno.</p>
+                    
+                    <h4>🛣️ PERCORSO</h4>
+                    <ul class="lista-passi">
+                        <li class="passo-item epic">Strada del Vino Altoatesina - Ultimo regalo</li>
+                        <li class="passo-item">Autostrada A22/A4 - L'ultimo saluto</li>
+                        <li class="passo-item epic">Arrivo a Torino - Gli eroi tornano a casa</li>
+                    </ul>
+                    
+                    <div class="mappa-container">
+                        <h4>🗺️ MAPPA PERCORSO</h4>
+                        <img src="assets/images/05_giorno.jpg" alt="Mappa Giorno 5 - Ritorno" class="mappa-immagine">
+                        <p><small>File GPX: giorno5.gpx | File PDF: giorno5.pdf</small></p>
+                    </div>
+                </div>
+                
+                <div class="info-laterale">
+                    <h4>📊 INFO TECNICHE</h4>
+                    <div class="info-item">
+                        <span class="info-label">Distanza:</span>
+                        <span class="info-value">320 km</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tempo guida:</span>
+                        <span class="info-value">4-5 ore</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Dislivello:</span>
+                        <span class="info-value">Minimo</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Difficoltà:</span>
+                        <span class="info-value"><span class="difficolta media">Media</span></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Pranzo:</span>
+                        <span class="info-value">Autogrill</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINAL STATS -->
+        <div class="final-stats">
+            <div class="final-stat-item">
+                <div class="final-number">1.420</div>
+                <div class="final-label">KM di libertà</div>
+            </div>
+            <div class="final-stat-item">
+                <div class="final-number">15+</div>
+                <div class="final-label">Passi conquistati</div>
+            </div>
+            <div class="final-stat-item">
+                <div class="final-number">3</div>
+                <div class="final-label">Paesi varcati</div>
+            </div>
+            <div class="final-stat-item">
+                <div class="final-number">∞</div>
+                <div class="final-label">Sorrisi guadagnati</div>
+            </div>
+        </div>
+
+        <!-- MANIFESTO FINALE -->
+        <div class="epic-quote">
+            <div class="quote-text">
+                "NON CI RICORDEREMO DEI CHILOMETRI, MA DELLE LACRIME DI GIOIA DOPO OGNI TORNANTE E DELLE RISATE CON GLI AMICI."
+            </div>
+            <div class="quote-text">
+                "NON CONTANO I CHILOMETRI PERCORSI, MA LE CURVE AFFRONTATE IN PIEGA CON IL SORRISO DENTRO IL CASCO."
+            </div>
+            <div class="quote-text">
+                "SIAMO PIÙ DI UN GRUPPO, SIAMO FRATELLI DI VIAGGIO. SIAMO GLI GNURANT."
+            </div>
+            <div class="quote-text">
+                <strong>#GLIGNORANTILADOMENICA</strong>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script per migliorare la stampa
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aggiungi data di stampa
+            const stampaDate = new Date().toLocaleDateString('it-IT');
+            const dateElement = document.createElement('div');
+            dateElement.style.cssText = 'text-align: center; margin: 10px 0; color: #666; font-size: 10pt;';
+            dateElement.textContent = `Stampato il: ${stampaDate}`;
+            document.querySelector('.print-container').appendChild(dateElement);
+        });
+    </script>
+</body>
+</html>
