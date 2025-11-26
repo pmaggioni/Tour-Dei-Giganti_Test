@@ -41,7 +41,6 @@
       border: 2px solid #ff6b35;
       box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
       margin-bottom: 10px;
-      /* RIDOTTO SPAZIO PER IL BOTTONE PIÙ PICCOLO */
     }
 
     .dedica-title {
@@ -50,7 +49,7 @@
       text-shadow: 3px 3px 0px #ff0000;
       margin-bottom: 1rem;
       font-weight: bold;
-      font-family: Arial, sans-serif;
+      font-family: 'Georgia', 'Times New Roman', serif;
       line-height: 1;
       word-wrap: break-word;
     }
@@ -61,6 +60,7 @@
       font-style: italic;
       margin-bottom: 3rem;
       line-height: 1.4;
+      font-family: 'Georgia', 'Times New Roman', serif;
     }
 
     .contenuto-testo {
@@ -68,6 +68,7 @@
       margin: 0 auto;
       text-align: left;
       color: #ffffff;
+      font-family: 'Georgia', 'Times New Roman', serif;
     }
 
     .dedica-intima {
@@ -79,7 +80,7 @@
     }
 
     .testo-dedica {
-      line-height: 1.6;
+      line-height: 1.8;
       font-size: 1.2em;
       text-align: justify;
       color: #ffffff;
@@ -93,8 +94,12 @@
     .motivo-icon {
       text-align: center;
       margin: 30px 0;
-      font-size: 1.8em;
-      color: #ff6b35;
+    }
+
+    .motivo-icon img {
+      width: 150px;
+      height: auto;
+      filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.5));
     }
 
     .firma-dedica {
@@ -107,12 +112,9 @@
       border-top: 1px solid #ff6b35;
     }
 
-    /* BOTTONE RIDISEGNATO - FONDO NERO, SCRITTE GIALLE, BORDO NERO */
     .cta-section-dedica {
       max-width: 500px;
-      /* RIDOTTO PER BOTTONE PIÙ PICCOLO */
       margin: 20px auto 0;
-      /* MARGINE RIDOTTO */
       padding: 0 20px;
       position: relative;
       z-index: 3;
@@ -122,25 +124,18 @@
       display: block;
       width: 100%;
       background: #000000;
-      /* FONDO NERO */
       color: #ffd700;
-      /* SCRITTA GIALLA */
       text-align: center;
       padding: 14px;
-      /* RIDOTTO PADDING */
       border-radius: 8px;
-      /* BORDI PIÙ SOFT */
       text-decoration: none;
       font-weight: bold;
       font-size: clamp(0.9rem, 3.5vw, 1.1em);
-      /* DIMENSIONE FONT RIDOTTA */
       margin: 0;
       border: 2px solid #000000;
-      /* BORDO NERO */
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
-      /* OMBRA GIALLA */
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -149,11 +144,8 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
       background: #1a1a1a;
-      /* LEGGERMENTE PIÙ CHIARO AL HOVER */
       color: #ffed4a;
-      /* GIALLO PIÙ BRILLANTE AL HOVER */
       border: 2px solid #333333;
-      /* BORDO LEGGERMENTE PIÙ CHIARO AL HOVER */
     }
 
     /* Responsive */
@@ -173,7 +165,6 @@
 
       .cta-section-dedica {
         max-width: 450px;
-        /* RIDOTTO PER MOBILE */
         margin: 15px auto 0;
         padding: 0 15px;
       }
@@ -184,7 +175,6 @@
 
       .cta-button-dedica {
         padding: 12px;
-        /* PADDING RIDOTTO PER MOBILE */
         font-size: clamp(0.8rem, 3vw, 1em);
       }
     }
@@ -210,13 +200,16 @@
 
       .cta-section-dedica {
         max-width: 400px;
-        /* ULTERIORMENTE RIDOTTO */
       }
 
       .cta-button-dedica {
         padding: 10px 8px;
         border-radius: 6px;
         font-size: 0.85em;
+      }
+
+      .motivo-icon img {
+        width: 120px;
       }
     }
 
@@ -225,22 +218,23 @@
         font-size: 0.8em;
         padding: 8px 6px;
       }
+
+      .motivo-icon img {
+        width: 100px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- Hero Section con TUTTO il contenuto incluso il bottone -->
   <section class="dedica-hero-section">
     <div class="dedica-hero-overlay"></div>
 
     <div class="dedica-container">
-      <!-- Titolo principale -->
       <h1 class="dedica-title">A BARBARAÜS</h1>
       <div class="dedica-subtitle">Bentornato fratello. Questo Tour è per te.</div>
 
       <div class="contenuto-testo">
-        <!-- Testo della dedica -->
         <div class="testo-dedica">
           <p>Quindici anni di strada insieme. Quindici anni in cui gli angeli custodi ci hanno guardato le spalle, mentre noi facevamo i matti in curva. Mai un graffio serio. Sembrava non potesse toccarci nulla.</p>
 
@@ -248,21 +242,21 @@
 
           <p>Ma tu hai scelto di restare. Con una forza che noi sapevamo avessi, hai combattuto, hai tenuto duro e sei tornato. Non solo sei tornato – sei tornato per guidare, vivere e a essere quello di sempre.</p>
 
-          <div class="motivo-icon">🏍️</div>
+          <div class="motivo-icon">
+            <img src="assets/images/logo-removebg-preview.png" alt="GliGnoranti LaDomenica Logo">
+          </div>
 
           <p>Dunque questi cinque giorni di giro sono per te. Ogni chilometro, ogni curva, ogni sosta è un grazie alla tua resilienza, alla tua voglia di non mollare mai. E sì, anche un grazie enorme al tuo angelo custode che quella volta ha fatto gli straordinari.</p>
 
           <p>Ora siamo più maturi, viaggiamo più tranquilli (più o meno), ma sappiamo una cosa in più: siamo ancora qui, tutti insieme. E questo vale più di mille impennate.</p>
         </div>
 
-        <!-- Firma -->
         <div class="firma-dedica">
           I tuoi fratelli Gnoranti
         </div>
       </div>
     </div>
 
-    <!-- BOTTONE RIDISEGNATO - FONDO NERO, SCRITTE GIALLE, BORDO NERO -->
     <div class="cta-section-dedica">
       <a href="tour.html" class="cta-button-dedica">
         🏍️ SCENDI NELL'ARENA - SCOPRI IL TOUR
