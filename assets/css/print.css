@@ -2,7 +2,7 @@
 @media print {
     /* MARCATORE VISIBILE - solo in stampa */
     body:before {
-        content: "🎯 STAMPA TOUR DEI GIGANTI - CSS ATTIVO Last 02";
+        content: "🎯 STAMPA TOUR DEI GIGANTI - CSS ATTIVO Ver. 03";
         display: block;
         background: #ff6b35 !important;
         color: white !important;
@@ -13,8 +13,7 @@
         border: 2px solid #000 !important;
         margin-bottom: 20px !important;
     }
-
-/* print.css - VERSIONE FINALE CON COLORI */
+/* print.css - VERSIONE FINALE CON COLORI ORIGINALI */
 @media print {
     /* Reset generale */
     * {
@@ -23,6 +22,9 @@
         box-shadow: none !important;
         text-shadow: none !important;
         background: transparent !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
     
     body {
@@ -33,6 +35,7 @@
         width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
+        color: black !important;
     }
     
     /* MARGINI STRETTI */
@@ -51,6 +54,13 @@
         border: none !important;
     }
     
+    /* ULTIMA PAGINA SPECIALE PER PARTECIPANTI */
+    .page-section:last-child {
+        page-break-after: auto !important;
+        text-align: center !important;
+        padding: 2cm !important;
+    }
+    
     /* NASCONDI TUTTI I LINK DI NAVIGAZIONE */
     .no-print,
     nav,
@@ -60,41 +70,48 @@
     .map-links,
     .navigate-text,
     a[href*="google.com/maps"],
-    .google-maps-link {
+    .google-maps-link,
+    .gpx-download,
+    .pdf-download,
+    .scroll-indicator,
+    .map-controls,
+    .map-btn,
+    .hero-overlay {
         display: none !important;
     }
     
-    /* TITOLI IN ARANCIONE */
+    /* TITOLI IN GIALLO COME NEL SITO */
     h1 {
         font-size: 26pt !important;
         margin-bottom: 15pt !important;
-        color: #ff6b35 !important; /* ARANCIONE */
+        color: #ffd700 !important; /* GIALLO ORIGINALE */
         text-align: center !important;
         font-weight: bold !important;
+        text-shadow: 2px 2px 0px #000 !important;
     }
     
     h2 {
         font-size: 20pt !important;
         margin: 12pt 0 !important;
-        color: #ff6b35 !important; /* ARANCIONE */
-        border-bottom: 2pt solid #ff6b35 !important;
+        color: #ffd700 !important; /* GIALLO ORIGINALE */
+        border-bottom: 2pt solid #ffd700 !important;
         padding-bottom: 5pt !important;
     }
     
     h3 {
         font-size: 16pt !important;
         margin: 10pt 0 !important;
-        color: #ff6b35 !important; /* ARANCIONE */
+        color: #ffd700 !important; /* GIALLO ORIGINALE */
     }
     
     /* TESTO PRINCIPALE IN NERO */
     p, li, span, div {
         font-size: 11pt !important;
-        color: #000000 !important; /* NERO */
+        color: black !important;
         line-height: 1.4 !important;
     }
     
-    /* STATISTICHE CON COLORI */
+    /* STATISTICHE CON COLORI ORIGINALI */
     .stat-box {
         display: inline-block !important;
         width: 24% !important;
@@ -102,18 +119,37 @@
         padding: 10pt !important;
         font-size: 10pt !important;
         background: #fffaf0 !important; /* SFONDO GIALLO CHIARO */
-        border: 1pt solid #ff6b35 !important; /* BORDO ARANCIONE */
+        border: 1pt solid #ffd700 !important; /* BORDO GIALLO */
     }
     
     .stat-number {
         font-size: 20pt !important;
-        color: #ff6b35 !important; /* ARANCIONE */
+        color: #ff4500 !important; /* ARANCIONE ORIGINALE */
         font-weight: bold !important;
     }
     
     .stat-label {
         font-size: 9pt !important;
-        color: #333333 !important; /* GRIGIO SCURO */
+        color: #333 !important;
+    }
+    
+    /* HIGHLIGHT BOXES CON COLORI ORIGINALI */
+    .highlight-box {
+        background: linear-gradient(135deg, #8b0000, #450000) !important;
+        border: 2pt solid #ffd700 !important;
+        color: white !important;
+        padding: 15pt !important;
+        margin: 10pt 0 !important;
+        border-radius: 8pt !important;
+    }
+    
+    /* REALTA DEI FATTI IN GIALLO */
+    .reality-facts {
+        color: #ffd700 !important;
+        font-weight: bold !important;
+        border-left: 3pt solid #ffd700 !important;
+        padding-left: 10pt !important;
+        margin: 10pt 0 !important;
     }
     
     /* NUMERAZIONE PAGINE */
@@ -132,15 +168,20 @@
         bottom: 0.3cm;
         right: 0.7cm;
         font-size: 10pt;
-        color: #ff6b35 !important; /* ARANCIONE */
+        color: #ff4500 !important; /* ARANCIONE */
         font-weight: bold;
+    }
+    
+    /* ULTIMA PAGINA SENZA NUMERO */
+    .page-section:last-child:after {
+        content: "" !important;
     }
     
     /* LAYOUT CARDS */
     .day-card {
         margin: 15pt 0 !important;
         padding: 15pt !important;
-        border: 1pt solid #ff6b35 !important; /* BORDO ARANCIONE */
+        border: 1pt solid #ffd700 !important;
         background: white !important;
         page-break-inside: avoid !important;
     }
@@ -148,8 +189,8 @@
     /* CITAZIONI */
     .quote {
         font-style: italic !important;
-        color: #000000 !important; /* NERO */
-        border-left: 3pt solid #ff6b35 !important; /* ARANCIONE */
+        color: black !important;
+        border-left: 3pt solid #ff4500 !important;
         padding-left: 15pt !important;
         margin: 15pt 0 !important;
         font-size: 12pt !important;
@@ -161,18 +202,18 @@
         line-height: 1.6 !important;
         text-align: center !important;
         padding: 20pt !important;
-        border: 2pt solid #ff6b35 !important; /* ARANCIONE */
+        border: 2pt solid #ff4500 !important;
         margin: 15pt 0 !important;
-        background: #fffaf0 !important; /* SFONDO GIALLO CHIARO */
-        color: #000000 !important; /* NERO */
+        background: #fffaf0 !important;
+        color: black !important;
     }
     
     /* TEAM SECTION */
     .team-section {
         margin: 20pt 0 !important;
         padding: 15pt !important;
-        border: 1pt solid #ff6b35 !important; /* ARANCIONE */
-        background: #fffaf0 !important; /* SFONDO GIALLO CHIARO */
+        border: 1pt solid #ffd700 !important;
+        background: #fffaf0 !important;
     }
     
     .team-member {
@@ -185,22 +226,31 @@
     }
     
     .team-member h4 {
-        color: #ff6b35 !important; /* ARANCIONE */
+        color: #ff4500 !important; /* ARANCIONE */
         font-size: 12pt !important;
         margin-bottom: 5pt !important;
     }
     
-    /* SOTTOTITOLI IN GIALLO */
-    .subtitle {
-        color: #f4d35e !important; /* GIALLO */
-        font-size: 14pt !important;
+    /* BADGES CON COLORI ORIGINALI */
+    .edition-badge {
+        background: linear-gradient(45deg, #ff0000, #8b0000) !important;
+        color: white !important;
+        border: 2pt solid #ffd700 !important;
         font-weight: bold !important;
+        padding: 10pt 20pt !important;
+        border-radius: 20pt !important;
+        margin: 10pt auto !important;
         text-align: center !important;
     }
     
-    /* HIGHLIGHT IN ARANCIONE */
-    .highlight {
-        color: #ff6b35 !important; /* ARANCIONE */
-        font-weight: bold !important;
+    /* FORZA I COLORI NELLA STAMPA */
+    .stat-number,
+    h1, h2, h3,
+    .highlight-box,
+    .edition-badge,
+    .team-member h4 {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 }
