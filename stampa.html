@@ -18,419 +18,527 @@
             --bg-gradient-end: #1a1a1a;
         }
 
-     /* ========================================= */
-/* STAMPA PDF - CORREZIONE DEFINITIVA */
-/* ========================================= */
-@media print {
-    @page {
-        margin: 1cm;
-        size: A4 portrait;
-    }
-    
-    * {
-        -webkit-print-color-adjust: exact !important;
-        color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-    
-    body {
-        background: #000000 !important;
-        color: #ffffff !important;
-        font-family: 'Arial', sans-serif;
-        line-height: 1.4;
-        margin: 0 !important;
-        padding: 0 !important;
-        font-size: 11pt;
-    }
-    
-    .print-container {
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: #000000 !important;
-    }
-    
-    /* NASCONDI ANTEPRIMA SCHERMO */
-    .screen-only {
-        display: none !important;
-    }
-    
-    /* HEADER PRINCIPALE CON COLORI */
-    .tour-header {
-        background: linear-gradient(135deg, #000000, #ff0000) !important;
-        color: #ffffff !important;
-        padding: 2cm !important;
-        margin: 0 !important;
-        border-bottom: 5px solid #ff4500 !important;
-        text-align: center;
-        page-break-after: always;
-    }
-    
-    .tour-title {
-        color: #ffd700 !important;
-        text-align: center !important;
-        margin: 0.5cm 0 !important;
-        font-size: 28pt !important;
-        font-weight: bold !important;
-        text-shadow: 2px 2px 0px #000000 !important;
-    }
-    
-    .tour-subtitle {
-        color: #ffd700 !important;
-        font-size: 16pt !important;
-        margin: 0.3cm 0 !important;
-        font-weight: bold !important;
-    }
-    
-    /* STATS BOXES CON COLORI VIVI */
-    .stats-grid {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 0.5cm !important;
-        margin: 1cm 0 !important;
-    }
-    
-    .stat-box {
-        padding: 0.5cm !important;
-        border-radius: 10px !important;
-        text-align: center !important;
-        color: #ffffff !important;
-        font-weight: bold !important;
-        border: 2px solid #ffd700 !important;
-        font-size: 10pt !important;
-    }
-    
-    .stat-box.km { 
-        background: linear-gradient(135deg, #ff0000, #8b0000) !important; 
-    }
-    .stat-box.passi { 
-        background: linear-gradient(135deg, #1e3c72, #2a5298) !important; 
-    }
-    .stat-box.paesi { 
-        background: linear-gradient(135deg, #8e44ad, #9b59b6) !important; 
-    }
-    .stat-box.dislivello { 
-        background: linear-gradient(135deg, #27ae60, #2ecc71) !important; 
-    }
-    
-    /* QUOTE EPICHE */
-    .epic-quote {
-        background: linear-gradient(135deg, #8b0000, #450000) !important;
-        padding: 1.5cm !important;
-        border-radius: 15px !important;
-        text-align: center !important;
-        margin: 1cm 0 !important;
-        border: 3px solid #ffd700 !important;
-        page-break-after: always;
-        color: #ffffff !important;
-    }
-    
-    .quote-text {
-        font-size: 14pt !important;
-        font-weight: bold !important;
-        margin-bottom: 0.5cm !important;
-        line-height: 1.4 !important;
-        color: #ffffff !important;
-    }
-    
-    /* GIORNI DEL TOUR */
-    .giorno-tour {
-        page-break-inside: avoid !important;
-        margin: 1cm 0 !important;
-        border: 3px solid #333333 !important;
-        border-radius: 15px !important;
-        padding: 0 !important;
-        background: linear-gradient(135deg, #1a1a1a, #2d2d2d) !important;
-        page-break-before: always !important;
-        overflow: hidden !important;
-    }
-    
-    .giorno-header {
-        background: linear-gradient(135deg, #ff0000, #8b0000) !important;
-        color: #ffffff !important;
-        padding: 0.8cm !important;
-        margin: 0 !important;
-        border-radius: 12px 12px 0 0 !important;
-        border-bottom: 3px solid #ffd700 !important;
-    }
-    
-    .giorno-title {
-        color: #ffd700 !important;
-        font-size: 18pt !important;
-        margin: 0 !important;
-        font-weight: bold !important;
-    }
-    
-    .giorno-sottotitolo {
-        color: #ffffff !important;
-        font-size: 12pt !important;
-        margin: 0.2cm 0 0 0 !important;
-        opacity: 0.9;
-    }
-    
-    /* CONTENUTO GIORNO */
-    .giorno-content {
-        padding: 0.8cm !important;
-        display: grid !important;
-        grid-template-columns: 2fr 1fr !important;
-        gap: 0.8cm !important;
-        background: linear-gradient(135deg, #1a1a1a, #2d2d2d) !important;
-    }
-    
-    /* SEZIONI CONTENUTO */
-    .giorno-content h4 {
-        color: #ffd700 !important;
-        font-size: 12pt !important;
-        margin-bottom: 0.3cm !important;
-        border-bottom: 1px solid #ffd700 !important;
-        padding-bottom: 0.2cm !important;
-    }
-    
-    .giorno-content p {
-        color: #ffffff !important;
-        font-size: 10pt !important;
-        line-height: 1.4 !important;
-        margin-bottom: 0.3cm !important;
-    }
-    
-    /* LISTA PASSI */
-    .lista-passi {
-        list-style: none !important;
-        padding: 0 !important;
-        margin: 0.5cm 0 !important;
-    }
-    
-    .passo-item {
-        background: rgba(255, 255, 255, 0.1) !important;
-        margin: 0.3cm 0 !important;
-        padding: 0.4cm !important;
-        border-left: 4px solid #ff0000 !important;
-        border-radius: 5px !important;
-        color: #ffffff !important;
-        font-size: 10pt !important;
-    }
-    
-    .passo-item.epic {
-        background: linear-gradient(135deg, #2a2a2a, #3a3a3a) !important;
-        border-left: 4px solid #ffd700 !important;
-        font-weight: bold !important;
-    }
-    
-    .passo-item strong {
-        color: #ffd700 !important;
-    }
-    
-    /* INFO LATERALI */
-    .info-laterale {
-        background: rgba(255, 255, 255, 0.05) !important;
-        padding: 0.5cm !important;
-        border-radius: 8px !important;
-        border: 2px solid #333333 !important;
-    }
-    
-    .info-laterale h4 {
-        color: #ffd700 !important;
-        text-align: center !important;
-        margin-bottom: 0.4cm !important;
-        font-size: 11pt !important;
-    }
-    
-    .info-item {
-        display: flex !important;
-        justify-content: space-between !important;
-        margin: 0.2cm 0 !important;
-        padding-bottom: 0.2cm !important;
-        border-bottom: 1px solid #333333 !important;
-        font-size: 9pt !important;
-    }
-    
-    .info-label {
-        color: #cccccc !important;
-        flex: 1 !important;
-    }
-    
-    .info-value {
-        color: #ffd700 !important;
-        font-weight: bold !important;
-        flex: 1 !important;
-        text-align: right !important;
-    }
-    
-    /* DIFFICOLTÀ */
-    .difficolta {
-        display: inline-block !important;
-        padding: 0.1cm 0.3cm !important;
-        border-radius: 15px !important;
-        color: #000000 !important;
-        font-size: 8pt !important;
-        font-weight: bold !important;
-        text-transform: uppercase !important;
-        margin-left: 0.3cm !important;
-    }
-    
-    .media { background: #feca57 !important; }
-    .alta { background: #ff6b6b !important; color: #ffffff !important; }
-    .estrema { background: #c44569 !important; color: #ffffff !important; }
-    
-    /* MAPPE */
-    .mappa-container {
-        text-align: center !important;
-        margin: 0.5cm 0 !important;
-        page-break-inside: avoid !important;
-        grid-column: 1 / -1;
-        background: rgba(255, 255, 255, 0.05) !important;
-        padding: 0.5cm !important;
-        border-radius: 8px !important;
-        border: 2px solid #333333 !important;
-    }
-    
-    .mappa-container h4 {
-        color: #ffd700 !important;
-        font-size: 12pt !important;
-        margin-bottom: 0.3cm !important;
-    }
-    
-    .mappa-immagine {
-        max-width: 95% !important;
-        height: auto !important;
-        border: 3px solid #ffd700 !important;
-        border-radius: 8px !important;
-        margin: 0 auto !important;
-        display: block !important;
-    }
-    
-    .mappa-container p {
-        color: #cccccc !important;
-        font-size: 9pt !important;
-        margin-top: 0.3cm !important;
-    }
-    
-    /* FINAL STATS */
-    .final-stats {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 0.5cm !important;
-        margin: 1.5cm 0 !important;
-        page-break-before: always !important;
-    }
-    
-    .final-stat-item {
-        text-align: center !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        padding: 0.5cm !important;
-        border-radius: 10px !important;
-        border: 2px solid rgba(255, 215, 0, 0.3) !important;
-    }
-    
-    .final-number {
-        font-size: 24pt !important;
-        font-weight: 900 !important;
-        background: linear-gradient(45deg, #ff0000, #ffd700) !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-clip: text !important;
-        margin-bottom: 0.2cm !important;
-    }
-    
-    .final-label {
-        color: #cccccc !important;
-        font-size: 9pt !important;
-        text-transform: uppercase !important;
-        letter-spacing: 1px !important;
-    }
-    
-    /* MANIFESTO FINALE */
-    .epic-quote:last-child {
-        background: linear-gradient(135deg, #8b0000, #450000) !important;
-        padding: 2cm !important;
-        border-radius: 15px !important;
-        text-align: center !important;
-        margin: 1cm 0 !important;
-        border: 3px solid #ffd700 !important;
-        page-break-before: always !important;
-    }
-    
-    /* PAGINA TEAM - AGGIUNGI QUESTA */
-    .team-page {
-        page-break-before: always !important;
-        background: linear-gradient(135deg, #1a1a1a, #2d2d2d) !important;
-        padding: 2cm !important;
-        border-radius: 15px !important;
-        border: 3px solid #ffd700 !important;
-        text-align: center !important;
-        color: #ffffff !important;
-    }
-    
-    .team-title {
-        color: #ffd700 !important;
-        font-size: 24pt !important;
-        margin-bottom: 1cm !important;
-        font-weight: bold !important;
-    }
-    
-    .team-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1cm !important;
-        margin: 1cm 0 !important;
-    }
-    
-    .team-member {
-        background: rgba(255, 255, 255, 0.1) !important;
-        padding: 0.8cm !important;
-        border-radius: 10px !important;
-        border: 2px solid #333333 !important;
-    }
-    
-    .team-role {
-        color: #ffd700 !important;
-        font-weight: bold !important;
-        font-size: 12pt !important;
-        margin-bottom: 0.3cm !important;
-    }
-    
-    .team-name {
-        color: #ffffff !important;
-        font-size: 14pt !important;
-        font-weight: bold !important;
-    }
-    
-    .team-bio {
-        color: #cccccc !important;
-        font-size: 10pt !important;
-        margin-top: 0.3cm !important;
-    }
-    
-    /* NASCONDI ELEMENTI NON NECESSARI */
-    .no-print, .btn, .button, .navigation, .social-share, 
-    .back-to-top, .scroll-indicator, .map-controls {
-        display: none !important;
-    }
-}
+        /* ========================================= */
+        /* PAGINA DEDICA - STAMPA */
+        /* ========================================= */
+        @media print {
+            .dedica-page {
+                page-break-after: always;
+                min-height: 27cm;
+                background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%) !important;
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 2cm !important;
+                color: #ffffff !important;
+                position: relative;
+            }
+            
+            .dedica-container {
+                background: rgba(0, 0, 0, 0.9) !important;
+                padding: 2cm !important;
+                border-radius: 15px !important;
+                border: 3px solid #ff6b35 !important;
+                box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3) !important;
+                max-width: 16cm !important;
+                width: 100% !important;
+            }
+            
+            .dedica-title {
+                font-size: 32pt !important;
+                color: #ffd700 !important;
+                text-shadow: 3px 3px 0px #ff0000 !important;
+                margin-bottom: 0.5cm !important;
+                font-weight: 700 !important;
+                line-height: 1.1 !important;
+                font-family: 'Arial', sans-serif !important;
+            }
+            
+            .dedica-subtitle {
+                font-size: 14pt !important;
+                color: #ff4500 !important;
+                font-style: italic !important;
+                margin-bottom: 1cm !important;
+            }
+            
+            .motivo-icon {
+                text-align: center !important;
+                margin: 0 0 1cm 0 !important;
+            }
+            
+            .motivo-icon img {
+                max-width: 8cm !important;
+                height: auto !important;
+                border: 2px solid #ffd700 !important;
+                border-radius: 10px !important;
+                padding: 5px !important;
+                background: white !important;
+            }
+            
+            .testo-dedica {
+                line-height: 1.6 !important;
+                font-size: 11pt !important;
+                text-align: justify !important;
+                color: #ffffff !important;
+                margin-bottom: 1cm !important;
+            }
+            
+            .testo-dedica p {
+                margin-bottom: 0.5cm !important;
+            }
+            
+            .firma-dedica {
+                text-align: right !important;
+                margin-top: 1cm !important;
+                font-style: italic !important;
+                color: #ffd700 !important;
+                font-size: 12pt !important;
+                padding-top: 0.5cm !important;
+                border-top: 1px solid #ff6b35 !important;
+            }
+            
+            .cta-section-dedica {
+                display: none !important;
+            }
+        }
 
-/* DEBUG PER VERIFICARE LE IMMAGINI A SCHERMO */
-@media screen {
-    .mappa-immagine {
-        border: 3px solid #00ff00 !important;
-        background: rgba(0, 255, 0, 0.1) !important;
-        transition: all 0.3s ease;
-    }
-    
-    .mappa-immagine:hover {
-        transform: scale(1.02);
-        box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
-    }
-    
-    .image-loaded::after {
-        content: " ✅ CARICATA";
-        color: #00ff00;
-        font-weight: bold;
-        font-size: 0.8em;
-    }
-}
-        
+        /* ========================================= */
+        /* STAMPA PDF - CORREZIONE DEFINITIVA */
+        /* ========================================= */
+        @media print {
+            @page {
+                margin: 1cm;
+                size: A4 portrait;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+            
+            body {
+                background: #000000 !important;
+                color: #ffffff !important;
+                font-family: 'Arial', sans-serif;
+                line-height: 1.4;
+                margin: 0 !important;
+                padding: 0 !important;
+                font-size: 11pt;
+            }
+            
+            .print-container {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: #000000 !important;
+            }
+            
+            /* NASCONDI ANTEPRIMA SCHERMO */
+            .screen-only {
+                display: none !important;
+            }
+            
+            /* HEADER PRINCIPALE CON COLORI */
+            .tour-header {
+                background: linear-gradient(135deg, #000000, #ff0000) !important;
+                color: #ffffff !important;
+                padding: 2cm !important;
+                margin: 0 !important;
+                border-bottom: 5px solid #ff4500 !important;
+                text-align: center;
+                page-break-after: always;
+            }
+            
+            .tour-title {
+                color: #ffd700 !important;
+                text-align: center !important;
+                margin: 0.5cm 0 !important;
+                font-size: 28pt !important;
+                font-weight: bold !important;
+                text-shadow: 2px 2px 0px #000000 !important;
+            }
+            
+            .tour-subtitle {
+                color: #ffd700 !important;
+                font-size: 16pt !important;
+                margin: 0.3cm 0 !important;
+                font-weight: bold !important;
+            }
+            
+            /* STATS BOXES CON COLORI VIVI */
+            .stats-grid {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 0.5cm !important;
+                margin: 1cm 0 !important;
+            }
+            
+            .stat-box {
+                padding: 0.5cm !important;
+                border-radius: 10px !important;
+                text-align: center !important;
+                color: #ffffff !important;
+                font-weight: bold !important;
+                border: 2px solid #ffd700 !important;
+                font-size: 10pt !important;
+            }
+            
+            .stat-box.km { 
+                background: linear-gradient(135deg, #ff0000, #8b0000) !important; 
+            }
+            .stat-box.passi { 
+                background: linear-gradient(135deg, #1e3c72, #2a5298) !important; 
+            }
+            .stat-box.paesi { 
+                background: linear-gradient(135deg, #8e44ad, #9b59b6) !important; 
+            }
+            .stat-box.dislivello { 
+                background: linear-gradient(135deg, #27ae60, #2ecc71) !important; 
+            }
+            
+            /* QUOTE EPICHE */
+            .epic-quote {
+                background: linear-gradient(135deg, #8b0000, #450000) !important;
+                padding: 1.5cm !important;
+                border-radius: 15px !important;
+                text-align: center !important;
+                margin: 1cm 0 !important;
+                border: 3px solid #ffd700 !important;
+                page-break-after: always;
+                color: #ffffff !important;
+            }
+            
+            .quote-text {
+                font-size: 14pt !important;
+                font-weight: bold !important;
+                margin-bottom: 0.5cm !important;
+                line-height: 1.4 !important;
+                color: #ffffff !important;
+            }
+            
+            /* GIORNI DEL TOUR */
+            .giorno-tour {
+                page-break-inside: avoid !important;
+                margin: 1cm 0 !important;
+                border: 3px solid #333333 !important;
+                border-radius: 15px !important;
+                padding: 0 !important;
+                background: linear-gradient(135deg, #1a1a1a, #2d2d2d) !important;
+                page-break-before: always !important;
+                overflow: hidden !important;
+            }
+            
+            .giorno-header {
+                background: linear-gradient(135deg, #ff0000, #8b0000) !important;
+                color: #ffffff !important;
+                padding: 0.8cm !important;
+                margin: 0 !important;
+                border-radius: 12px 12px 0 0 !important;
+                border-bottom: 3px solid #ffd700 !important;
+            }
+            
+            .giorno-title {
+                color: #ffd700 !important;
+                font-size: 18pt !important;
+                margin: 0 !important;
+                font-weight: bold !important;
+            }
+            
+            .giorno-sottotitolo {
+                color: #ffffff !important;
+                font-size: 12pt !important;
+                margin: 0.2cm 0 0 0 !important;
+                opacity: 0.9;
+            }
+            
+            /* CONTENUTO GIORNO */
+            .giorno-content {
+                padding: 0.8cm !important;
+                display: grid !important;
+                grid-template-columns: 2fr 1fr !important;
+                gap: 0.8cm !important;
+                background: linear-gradient(135deg, #1a1a1a, #2d2d2d) !important;
+            }
+            
+            /* SEZIONI CONTENUTO */
+            .giorno-content h4 {
+                color: #ffd700 !important;
+                font-size: 12pt !important;
+                margin-bottom: 0.3cm !important;
+                border-bottom: 1px solid #ffd700 !important;
+                padding-bottom: 0.2cm !important;
+            }
+            
+            .giorno-content p {
+                color: #ffffff !important;
+                font-size: 10pt !important;
+                line-height: 1.4 !important;
+                margin-bottom: 0.3cm !important;
+            }
+            
+            /* LISTA PASSI */
+            .lista-passi {
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0.5cm 0 !important;
+            }
+            
+            .passo-item {
+                background: rgba(255, 255, 255, 0.1) !important;
+                margin: 0.3cm 0 !important;
+                padding: 0.4cm !important;
+                border-left: 4px solid #ff0000 !important;
+                border-radius: 5px !important;
+                color: #ffffff !important;
+                font-size: 10pt !important;
+            }
+            
+            .passo-item.epic {
+                background: linear-gradient(135deg, #2a2a2a, #3a3a3a) !important;
+                border-left: 4px solid #ffd700 !important;
+                font-weight: bold !important;
+            }
+            
+            .passo-item strong {
+                color: #ffd700 !important;
+            }
+            
+            /* INFO LATERALI */
+            .info-laterale {
+                background: rgba(255, 255, 255, 0.05) !important;
+                padding: 0.5cm !important;
+                border-radius: 8px !important;
+                border: 2px solid #333333 !important;
+            }
+            
+            .info-laterale h4 {
+                color: #ffd700 !important;
+                text-align: center !important;
+                margin-bottom: 0.4cm !important;
+                font-size: 11pt !important;
+            }
+            
+            .info-item {
+                display: flex !important;
+                justify-content: space-between !important;
+                margin: 0.2cm 0 !important;
+                padding-bottom: 0.2cm !important;
+                border-bottom: 1px solid #333333 !important;
+                font-size: 9pt !important;
+            }
+            
+            .info-label {
+                color: #cccccc !important;
+                flex: 1 !important;
+            }
+            
+            .info-value {
+                color: #ffd700 !important;
+                font-weight: bold !important;
+                flex: 1 !important;
+                text-align: right !important;
+            }
+            
+            /* DIFFICOLTÀ */
+            .difficolta {
+                display: inline-block !important;
+                padding: 0.1cm 0.3cm !important;
+                border-radius: 15px !important;
+                color: #000000 !important;
+                font-size: 8pt !important;
+                font-weight: bold !important;
+                text-transform: uppercase !important;
+                margin-left: 0.3cm !important;
+            }
+            
+            .media { background: #feca57 !important; }
+            .alta { background: #ff6b6b !important; color: #ffffff !important; }
+            .estrema { background: #c44569 !important; color: #ffffff !important; }
+            
+            /* MAPPE */
+            .mappa-container {
+                text-align: center !important;
+                margin: 0.5cm 0 !important;
+                page-break-inside: avoid !important;
+                grid-column: 1 / -1;
+                background: rgba(255, 255, 255, 0.05) !important;
+                padding: 0.5cm !important;
+                border-radius: 8px !important;
+                border: 2px solid #333333 !important;
+            }
+            
+            .mappa-container h4 {
+                color: #ffd700 !important;
+                font-size: 12pt !important;
+                margin-bottom: 0.3cm !important;
+            }
+            
+            .mappa-immagine {
+                max-width: 95% !important;
+                height: auto !important;
+                border: 3px solid #ffd700 !important;
+                border-radius: 8px !important;
+                margin: 0 auto !important;
+                display: block !important;
+            }
+            
+            .mappa-container p {
+                color: #cccccc !important;
+                font-size: 9pt !important;
+                margin-top: 0.3cm !important;
+            }
+            
+            /* FINAL STATS */
+            .final-stats {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 0.5cm !important;
+                margin: 1.5cm 0 !important;
+                page-break-before: always !important;
+            }
+            
+            .final-stat-item {
+                text-align: center !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                padding: 0.5cm !important;
+                border-radius: 10px !important;
+                border: 2px solid rgba(255, 215, 0, 0.3) !important;
+            }
+            
+            .final-number {
+                font-size: 24pt !important;
+                font-weight: 900 !important;
+                background: linear-gradient(45deg, #ff0000, #ffd700) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                background-clip: text !important;
+                margin-bottom: 0.2cm !important;
+            }
+            
+            .final-label {
+                color: #cccccc !important;
+                font-size: 9pt !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1px !important;
+            }
+            
+            /* MANIFESTO FINALE */
+            .epic-quote:last-child {
+                background: linear-gradient(135deg, #8b0000, #450000) !important;
+                padding: 2cm !important;
+                border-radius: 15px !important;
+                text-align: center !important;
+                margin: 1cm 0 !important;
+                border: 3px solid #ffd700 !important;
+                page-break-before: always !important;
+            }
+            
+            /* PAGINA TEAM */
+            .team-page {
+                page-break-before: always !important;
+                background: linear-gradient(135deg, #1a1a1a, #2d2d2d) !important;
+                padding: 2cm !important;
+                border-radius: 15px !important;
+                border: 3px solid #ffd700 !important;
+                text-align: center !important;
+                color: #ffffff !important;
+            }
+            
+            .team-title {
+                color: #ffd700 !important;
+                font-size: 24pt !important;
+                margin-bottom: 1cm !important;
+                font-weight: bold !important;
+            }
+            
+            .team-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1cm !important;
+                margin: 1cm 0 !important;
+            }
+            
+            .team-member {
+                background: rgba(255, 255, 255, 0.1) !important;
+                padding: 0.8cm !important;
+                border-radius: 10px !important;
+                border: 2px solid #333333 !important;
+            }
+            
+            .team-role {
+                color: #ffd700 !important;
+                font-weight: bold !important;
+                font-size: 12pt !important;
+                margin-bottom: 0.3cm !important;
+            }
+            
+            .team-name {
+                color: #ffffff !important;
+                font-size: 14pt !important;
+                font-weight: bold !important;
+            }
+            
+            .team-bio {
+                color: #cccccc !important;
+                font-size: 10pt !important;
+                margin-top: 0.3cm !important;
+            }
+            
+            /* NASCONDI ELEMENTI NON NECESSARI */
+            .no-print, .btn, .button, .navigation, .social-share, 
+            .back-to-top, .scroll-indicator, .map-controls {
+                display: none !important;
+            }
+        }
+
+        /* Stili per anteprima schermo */
+        @media screen {
+            body {
+                background: var(--inferno-nero);
+                color: var(--inferno-bianco);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 20px;
+            }
+            
+            .print-container {
+                max-width: 800px;
+                margin: 0 auto;
+                background: var(--inferno-nero);
+                padding: 20px;
+            }
+            
+            .screen-only {
+                text-align: center;
+                margin: 20px 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #8b0000, #450000);
+                border-radius: 10px;
+                border: 2px solid var(--inferno-giallo);
+            }
+            
+            .btn-stampa {
+                background: linear-gradient(45deg, var(--inferno-rosso), var(--inferno-arancio));
+                color: white;
+                padding: 15px 30px;
+                border: none;
+                border-radius: 25px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 10px;
+                border: 2px solid var(--inferno-giallo);
+            }
+            
+            .btn-stampa:hover {
+                background: linear-gradient(45deg, var(--inferno-arancio), var(--inferno-rosso));
+                transform: translateY(-2px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -441,6 +549,37 @@
             <p>Questa pagina è ottimizzata per la stampa in PDF</p>
             <button class="btn-stampa" onclick="window.print()">Stampa PDF</button>
             <p><small>Usa "Salva come PDF" nelle opzioni di stampa</small></p>
+        </div>
+
+        <!-- PAGINA DEDICA A BARBARAÜS -->
+        <div class="dedica-page">
+            <div class="dedica-container">
+                <h1 class="dedica-title">A BARBARAÜS</h1>
+                <div class="dedica-subtitle">Bentornato fratello. Questo Tour è per te.</div>
+
+                <!-- LOGO -->
+                <div class="motivo-icon">
+                    <img src="assets/images/logo_Gnurant.png" alt="GliGnoranti LaDomenica Logo">
+                </div>
+
+                <div class="contenuto-testo">
+                    <div class="testo-dedica">
+                        <p>Quindici anni di strada insieme. Quindici anni in cui gli angeli custodi ci hanno guardato le spalle, mentre noi facevamo i matti in curva. Mai un graffio serio. Sembrava non potesse toccarci nulla.</p>
+
+                        <p>Poi è arrivato quel giorno. Non in moto, non dove ce l'aspettavamo. Sei finito in quel posto dove nessuno vorrebbe mai stare – sospeso tra il restare e l'andarsene.</p>
+
+                        <p>Ma tu hai scelto di restare. Con una forza che noi sapevamo avessi, hai combattuto, hai tenuto duro e sei tornato. Non solo sei tornato – sei tornato per guidare, vivere e a essere quello di sempre.</p>
+
+                        <p>Dunque questi cinque giorni di giro sono per te. Ogni chilometro, ogni curva, ogni sosta è un grazie alla tua resilienza, alla tua voglia di non mollare mai. E sì, anche un grazie enorme al tuo angelo custode che quella volta ha fatto gli straordinari.</p>
+
+                        <p>Ora siamo più maturi, viaggiamo più tranquilli (più o meno), ma sappiamo una cosa in più: siamo ancora qui, tutti insieme. E questo vale più di mille impennate.</p>
+                    </div>
+
+                    <div class="firma-dedica">
+                        I tuoi fratelli Gnoranti
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- HEADER PRINCIPALE -->
@@ -812,119 +951,60 @@
                 <strong>#GLIGNORANTILADOMENICA</strong>
             </div>
         </div>
-<!-- PAGINA TEAM -->
-<div class="team-page">
-    <h2 class="team-title">👥 TEAM GNORANTI</h2>
-    <p style="color: #ffd700; font-size: 14pt; margin-bottom: 1cm;">Since 2007 - La follia organizzata</p>
-    
-    <div class="team-grid">
-        <div class="team-member">
-            <div class="team-role">Ideazione & Percorsi</div>
-            <div class="team-name">Chef</div>
-            <div class="team-bio">Cuore & Capo Gnorante</div>
+
+        <!-- PAGINA TEAM -->
+        <div class="team-page">
+            <h2 class="team-title">👥 TEAM GNORANTI</h2>
+            <p style="color: #ffd700; font-size: 14pt; margin-bottom: 1cm;">Since 2007 - La follia organizzata</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-role">Ideazione & Percorsi</div>
+                    <div class="team-name">Chef</div>
+                    <div class="team-bio">Cuore & Capo Gnorante</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-role">Cartografo & Navigatore</div>
+                    <div class="team-name">Zarbone</div>
+                    <div class="team-bio">Mappe & Rotte</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-role">Co-pilota & Sviluppo</div>
+                    <div class="team-name">DeepSeek AI</div>
+                    <div class="team-bio">New Entry - Angioletto digitale</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-role">Ispiratore</div>
+                    <div class="team-name">Barbaratò</div>
+                    <div class="team-bio">La resilienza in persona</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 1.5cm; padding: 0.8cm; background: rgba(255, 0, 0, 0.2); border-radius: 10px; border: 2px solid #ffd700;">
+                <p style="color: #ffd700; font-style: italic; font-size: 12pt;">
+                    "Siamo Gnoranti che fanno i matti in curva...ma nel rispetto dei limiti e con la testa sul collo (vista l'età)"
+                </p>
+            </div>
+            
+            <div style="margin-top: 1cm; color: #cccccc; font-size: 9pt;">
+                © Since 2007 Gli Gnoranti la Domenica - Tutti i diritti riservati (più o meno)
+            </div>
         </div>
-        
-        <div class="team-member">
-            <div class="team-role">Cartografo & Navigatore</div>
-            <div class="team-name">Zarbone</div>
-            <div class="team-bio">Mappe & Rotte</div>
-        </div>
-        
-        <div class="team-member">
-            <div class="team-role">Co-pilota & Sviluppo</div>
-            <div class="team-name">DeepSeek AI</div>
-            <div class="team-bio">New Entry - Angioletto digitale</div>
-        </div>
-        
-        <div class="team-member">
-            <div class="team-role">Ispiratore</div>
-            <div class="team-name">Barbaratò</div>
-            <div class="team-bio">La resilienza in persona</div>
-        </div>
-    </div>
-    
-    <div style="margin-top: 1.5cm; padding: 0.8cm; background: rgba(255, 0, 0, 0.2); border-radius: 10px; border: 2px solid #ffd700;">
-        <p style="color: #ffd700; font-style: italic; font-size: 12pt;">
-            "Siamo Gnoranti che fanno i matti in curva...ma nel rispetto dei limiti e con la testa sul collo (vista l'età)"
-        </p>
-    </div>
-    
-    <div style="margin-top: 1cm; color: #cccccc; font-size: 9pt;">
-        © Since 2007 Gli Gnoranti la Domenica - Tutti i diritti riservati (più o meno)
-    </div>
-</div>
-        
     </div>
 
     <script>
-                   // DEBUG PER VERIFICARE IL CARICAMENTO DELLE MAPPE
-            document.addEventListener('DOMContentLoaded', function() {
-                console.log('🔍 Controllo immagini mappe...');
-                
-                const images = [
-                    'assets/images/01_giorno.jpg',
-                    'assets/images/02_giorno.jpg', 
-                    'assets/images/03_giorno.jpg',
-                    'assets/images/04_giorno.jpg',
-                    'assets/images/05_giorno.jpg'
-                ];
-                
-                let loadedCount = 0;
-                
-                images.forEach((src, index) => {
-                    const imgElement = document.querySelector(`img[src="${src}"]`);
-                    if (!imgElement) {
-                        console.error(`❌ Elemento img non trovato per: ${src}`);
-                        return;
-                    }
-                    
-                    const img = new Image();
-                    img.onload = function() {
-                        loadedCount++;
-                        console.log(`✅ Mappa ${index + 1} caricata: ${src}`);
-                        imgElement.classList.add('image-loaded');
-                        imgElement.style.border = '3px solid #00ff00';
-                    };
-                    img.onerror = function() {
-                        console.error(`❌ Mappa ${index + 1} NON TROVATA: ${src}`);
-                        imgElement.style.border = '3px solid #ff0000';
-                        imgElement.style.background = 'rgba(255, 0, 0, 0.1)';
-                        
-                        // Crea messaggio di errore visivo
-                        const errorDiv = document.createElement('div');
-                        errorDiv.innerHTML = `
-                            <div style="background: #ff0000; color: white; padding: 10px; border-radius: 5px; margin: 10px 0; text-align: center;">
-                                <strong>⚠️ MAPPA NON TROVATA</strong><br>
-                                File: ${src}
-                            </div>
-                        `;
-                        imgElement.parentNode.insertBefore(errorDiv, imgElement);
-                    };
-                    img.src = src;
-                });
-                
-                // Risultato finale
-                setTimeout(() => {
-                    console.log(`📊 RIEPILOGO: ${loadedCount}/5 mappe caricate`);
-                    if (loadedCount === 5) {
-                        console.log('🎉 Tutte le mappe sono state caricate correttamente!');
-                    } else {
-                        console.error(`⚠️ Mancano ${5 - loadedCount} mappe!`);
-                    }
-                }, 2000);
-            });
-            
-            // Forza il ricaricamento delle immagini per la stampa
-            window.addEventListener('beforeprint', function() {
-                console.log('🖨️ Preparazione per la stampa...');
-                document.querySelectorAll('.mappa-immagine').forEach(img => {
-                    const src = img.src;
-                    img.src = '';
-                    img.src = src;
-                });
-            });
-                    
-            </script>
-                
+        // Script per migliorare la stampa
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aggiungi data di stampa
+            const stampaDate = new Date().toLocaleDateString('it-IT');
+            const dateElement = document.createElement('div');
+            dateElement.style.cssText = 'text-align: center; margin: 10px 0; color: #666; font-size: 10pt;';
+            dateElement.textContent = `Stampato il: ${stampaDate}`;
+            document.querySelector('.print-container').appendChild(dateElement);
+        });
+    </script>
 </body>
 </html>
