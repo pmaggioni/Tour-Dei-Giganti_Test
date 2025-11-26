@@ -2,7 +2,7 @@
 @media print {
     /* MARCATORE VISIBILE - solo in stampa */
     body:before {
-        content: "🎯 STAMPA TOUR DEI GIGANTI - CSS ATTIVO Last 01";
+        content: "🎯 STAMPA TOUR DEI GIGANTI - CSS ATTIVO Last 02";
         display: block;
         background: #ff6b35 !important;
         color: white !important;
@@ -14,7 +14,7 @@
         margin-bottom: 20px !important;
     }
 
- /* print.css - VERSIONE FINALE CORRETTA */
+/* print.css - VERSIONE FINALE CON COLORI */
 @media print {
     /* Reset generale */
     * {
@@ -33,7 +33,6 @@
         width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
-        color: black !important;
     }
     
     /* MARGINI STRETTI */
@@ -61,17 +60,15 @@
     .map-links,
     .navigate-text,
     a[href*="google.com/maps"],
-    .google-maps-link,
-    .gpx-download,
-    .pdf-download {
+    .google-maps-link {
         display: none !important;
     }
     
-    /* Titoli in arancione */
+    /* TITOLI IN ARANCIONE */
     h1 {
         font-size: 26pt !important;
         margin-bottom: 15pt !important;
-        color: #ff6b35 !important;
+        color: #ff6b35 !important; /* ARANCIONE */
         text-align: center !important;
         font-weight: bold !important;
     }
@@ -79,7 +76,7 @@
     h2 {
         font-size: 20pt !important;
         margin: 12pt 0 !important;
-        color: #ff6b35 !important;
+        color: #ff6b35 !important; /* ARANCIONE */
         border-bottom: 2pt solid #ff6b35 !important;
         padding-bottom: 5pt !important;
     }
@@ -87,39 +84,39 @@
     h3 {
         font-size: 16pt !important;
         margin: 10pt 0 !important;
-        color: #ff6b35 !important;
+        color: #ff6b35 !important; /* ARANCIONE */
     }
     
-    /* Testo principale in nero */
+    /* TESTO PRINCIPALE IN NERO */
     p, li, span, div {
         font-size: 11pt !important;
-        color: #000 !important;
+        color: #000000 !important; /* NERO */
         line-height: 1.4 !important;
     }
     
-    /* Statistiche */
+    /* STATISTICHE CON COLORI */
     .stat-box {
         display: inline-block !important;
         width: 24% !important;
         margin: 8pt !important;
         padding: 10pt !important;
         font-size: 10pt !important;
-        background: #fffaf0 !important;
-        border: 1pt solid #ff6b35 !important;
+        background: #fffaf0 !important; /* SFONDO GIALLO CHIARO */
+        border: 1pt solid #ff6b35 !important; /* BORDO ARANCIONE */
     }
     
     .stat-number {
         font-size: 20pt !important;
-        color: #ff6b35 !important;
+        color: #ff6b35 !important; /* ARANCIONE */
         font-weight: bold !important;
     }
     
     .stat-label {
         font-size: 9pt !important;
-        color: #333 !important;
+        color: #333333 !important; /* GRIGIO SCURO */
     }
     
-    /* NUMERAZIONE PAGINE FUNZIONANTE */
+    /* NUMERAZIONE PAGINE */
     body {
         counter-reset: page;
     }
@@ -135,47 +132,47 @@
         bottom: 0.3cm;
         right: 0.7cm;
         font-size: 10pt;
-        color: #ff6b35 !important;
+        color: #ff6b35 !important; /* ARANCIONE */
         font-weight: bold;
     }
     
-    /* Layout delle cards */
+    /* LAYOUT CARDS */
     .day-card {
         margin: 15pt 0 !important;
         padding: 15pt !important;
-        border: 1pt solid #ff6b35 !important;
+        border: 1pt solid #ff6b35 !important; /* BORDO ARANCIONE */
         background: white !important;
         page-break-inside: avoid !important;
     }
     
-    /* Citazioni */
+    /* CITAZIONI */
     .quote {
         font-style: italic !important;
-        color: #000 !important;
-        border-left: 3pt solid #ff6b35 !important;
+        color: #000000 !important; /* NERO */
+        border-left: 3pt solid #ff6b35 !important; /* ARANCIONE */
         padding-left: 15pt !important;
         margin: 15pt 0 !important;
         font-size: 12pt !important;
     }
     
-    /* Manifesto */
+    /* MANIFESTO */
     .manifesto {
         font-size: 12pt !important;
         line-height: 1.6 !important;
         text-align: center !important;
         padding: 20pt !important;
-        border: 2pt solid #ff6b35 !important;
+        border: 2pt solid #ff6b35 !important; /* ARANCIONE */
         margin: 15pt 0 !important;
-        background: #fffaf0 !important;
-        color: #000 !important;
+        background: #fffaf0 !important; /* SFONDO GIALLO CHIARO */
+        color: #000000 !important; /* NERO */
     }
     
-    /* Team section - sistemata */
+    /* TEAM SECTION */
     .team-section {
         margin: 20pt 0 !important;
         padding: 15pt !important;
-        border: 1pt solid #ccc !important;
-        background: #f9f9f9 !important;
+        border: 1pt solid #ff6b35 !important; /* ARANCIONE */
+        background: #fffaf0 !important; /* SFONDO GIALLO CHIARO */
     }
     
     .team-member {
@@ -188,22 +185,22 @@
     }
     
     .team-member h4 {
-        color: #ff6b35 !important;
+        color: #ff6b35 !important; /* ARANCIONE */
         font-size: 12pt !important;
         margin-bottom: 5pt !important;
     }
     
-    /* File info compatta */
-    .file-info {
-        font-size: 9pt !important;
-        color: #666 !important;
-        margin: 5pt 0 !important;
+    /* SOTTOTITOLI IN GIALLO */
+    .subtitle {
+        color: #f4d35e !important; /* GIALLO */
+        font-size: 14pt !important;
+        font-weight: bold !important;
+        text-align: center !important;
     }
     
-    /* Note a piè di pagina */
-    .footnote {
-        font-size: 9pt !important;
-        color: #666 !important;
-        font-style: italic !important;
+    /* HIGHLIGHT IN ARANCIONE */
+    .highlight {
+        color: #ff6b35 !important; /* ARANCIONE */
+        font-weight: bold !important;
     }
 }
